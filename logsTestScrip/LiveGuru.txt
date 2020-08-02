@@ -1,0 +1,354 @@
+2020-08-02 13:30:43,251 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 13:30:43,567 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 13:30:43,598 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 13:30:43,598 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 13:30:43,600 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 13:30:43,600 INFO  commons.Logger - OS name = windows 10
+2020-08-02 13:30:43,601 INFO  commons.Logger - 
+2020-08-02 13:30:43,601 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 13:32:16,320 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 13:32:16,591 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 13:32:16,642 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 13:32:16,642 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 13:32:16,643 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 13:32:16,644 INFO  commons.Logger - OS name = windows 10
+2020-08-02 13:32:16,644 INFO  commons.Logger - 
+2020-08-02 13:32:16,644 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 13:33:45,238 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 13:33:45,539 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 13:33:45,581 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 13:33:45,581 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 13:33:45,590 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 13:33:45,590 INFO  commons.Logger - OS name = windows 10
+2020-08-02 13:33:45,591 INFO  commons.Logger - 
+2020-08-02 13:33:45,593 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 13:35:38,845 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 13:35:38,854 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 13:35:38,855 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 13:35:38,855 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 13:35:58,414 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 13:35:58,429 DEBUG commons.MethodListener - Before invocation of TC_01_Sort_Name
+2020-08-02 13:35:58,429 INFO  commons.Logger - TC_01_Sort_Name-Step 01: Select sort Name(A to Z)ChromeDriver: chrome on WINDOWS (fa24f73e454f7fa22cbca6acd7f46bd7)
+2020-08-02 13:36:00,943 INFO  commons.Logger - TC_01_Sort_Name-VP1: Name is sorted ascendingChromeDriver: chrome on WINDOWS (fa24f73e454f7fa22cbca6acd7f46bd7)
+2020-08-02 13:36:01,744 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 13:36:01,748 DEBUG commons.MethodListener - Before invocation of TC_01_Sort_Name
+2020-08-02 13:36:01,748 INFO  commons.Logger - TC_01_Sort_Name-Step 01: Select sort Name(A to Z)FirefoxDriver: firefox on WINDOWS (50b75d61-3aac-47ac-b1f5-d9b235333478)
+2020-08-02 13:36:02,145 INFO  commons.Logger - TC_01_Sort_Name-VP1: Name is sorted ascendingFirefoxDriver: firefox on WINDOWS (50b75d61-3aac-47ac-b1f5-d9b235333478)
+2020-08-02 13:36:02,472 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 13:36:02,474 INFO  commons.Logger - TC_01_Sort_Name-Step 03: Select sort Name(Z to A)FirefoxDriver: firefox on WINDOWS (50b75d61-3aac-47ac-b1f5-d9b235333478)
+2020-08-02 13:36:02,813 INFO  commons.Logger - TC_01_Sort_Name-VP1: Name is sorted descendingFirefoxDriver: firefox on WINDOWS (50b75d61-3aac-47ac-b1f5-d9b235333478)
+2020-08-02 13:36:03,145 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 13:36:03,146 DEBUG commons.MethodListener - After invocation of TC_01_Sort_Name
+2020-08-02 13:36:03,150 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 13:36:03,924 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 13:36:03,925 INFO  commons.Logger - TC_01_Sort_Name-Step 03: Select sort Name(Z to A)ChromeDriver: chrome on WINDOWS (fa24f73e454f7fa22cbca6acd7f46bd7)
+2020-08-02 13:36:04,243 INFO  commons.Logger - TC_01_Sort_Name-VP1: Name is sorted descendingChromeDriver: chrome on WINDOWS (fa24f73e454f7fa22cbca6acd7f46bd7)
+2020-08-02 13:36:04,822 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 13:36:04,823 DEBUG commons.MethodListener - After invocation of TC_01_Sort_Name
+2020-08-02 13:36:04,824 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 13:36:06,073 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 13:36:06,527 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 13:37:54,923 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 13:37:55,240 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 13:37:55,289 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 13:37:55,289 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 13:37:55,291 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 13:37:55,292 INFO  commons.Logger - OS name = windows 10
+2020-08-02 13:37:55,292 INFO  commons.Logger - 
+2020-08-02 13:37:55,292 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 13:40:06,128 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 13:40:06,547 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 13:40:30,906 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 13:40:32,364 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 13:40:32,364 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 13:40:32,380 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 13:40:32,380 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 13:40:32,382 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 13:40:32,386 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 13:40:32,386 INFO  commons.Logger - OS name = windows 10
+2020-08-02 13:40:34,872 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 13:40:34,873 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 14:03:34,620 DEBUG commons.MethodListener - Before invocation of beforeTest
+2020-08-02 14:03:34,625 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 14:04:35,986 INFO  commons.Logger - Pre-condition - STEP 01: Click Here Link
+2020-08-02 14:04:57,126 INFO  commons.Logger - Pre-condition - STEP 02: Input Email Address
+2020-08-02 14:04:57,711 INFO  commons.Logger - Pre-condition - STEP 03: Click Submit button
+2020-08-02 14:05:13,538 INFO  commons.Logger - Pre-condition - STEP 04: Get User ID
+2020-08-02 14:05:13,841 INFO  commons.Logger - Pre-condition - STEP 05: Get Password
+2020-08-02 14:05:16,710 DEBUG commons.MethodListener - After invocation of beforeTest
+2020-08-02 14:05:16,718 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 14:05:16,718 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 14:05:48,731 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 14:05:50,126 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 14:06:04,830 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 14:06:04,837 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:06:04,837 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:06:22,161 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:06:22,162 DEBUG commons.MethodListener - Before invocation of NC_01_Verify_Name_Field
+2020-08-02 14:06:22,162 INFO  commons.Logger - NC01 - STEP 01: Do not enter value into Name field and Press Tab key to move to next field
+2020-08-02 14:06:22,449 INFO  commons.Logger - NC01 - VP: Customer name must not be blank messaage must be shown
+2020-08-02 14:06:22,540 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:06:22,540 INFO  commons.Logger - NC01 - STEP 03: Enter numberic into Name field
+2020-08-02 14:06:22,677 INFO  commons.Logger - NC01 - VP: Numbers are not allowed message display
+2020-08-02 14:06:22,752 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:06:22,752 INFO  commons.Logger - NC01 - STEP 05: Enter special characters into Name field
+2020-08-02 14:06:22,859 INFO  commons.Logger - NC01 - VP: Special characters are not allowed message display
+2020-08-02 14:06:22,926 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:06:22,927 INFO  commons.Logger - NC01 - STEP 05: Enter first characters blank space into Name field
+2020-08-02 14:06:23,048 INFO  commons.Logger - NC01 - VP: First character cannot be space message display
+2020-08-02 14:06:23,110 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:06:23,119 DEBUG commons.MethodListener - After invocation of NC_01_Verify_Name_Field
+2020-08-02 14:06:23,128 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:06:23,128 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:06:30,197 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:06:30,197 DEBUG commons.MethodListener - Before invocation of NC_02_Verify_Address_Field
+2020-08-02 14:06:30,197 INFO  commons.Logger - NC02 - STEP 01: Do not enter value into Address field and Press Tab key to move to next field
+2020-08-02 14:06:30,752 INFO  commons.Logger - NC02 - VP: ADDRESS cannot be empty messaage must be shown
+2020-08-02 14:06:30,810 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:06:30,810 INFO  commons.Logger - NC02 - STEP 05: Enter first characters blank space into Address field
+2020-08-02 14:06:30,951 INFO  commons.Logger - NC02 - VP: First character cannot be space message display
+2020-08-02 14:06:31,007 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:06:31,007 DEBUG commons.MethodListener - After invocation of NC_02_Verify_Address_Field
+2020-08-02 14:06:31,011 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:06:31,011 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:06:49,790 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:06:49,790 DEBUG commons.MethodListener - Before invocation of NC_03_Verify_City_Field
+2020-08-02 14:06:49,790 INFO  commons.Logger - NC03 - STEP 01: Do not enter value into City field and Press Tab key to move to next field
+2020-08-02 14:06:50,109 INFO  commons.Logger - NC03 - VP: City Field must not be blank messaage must be shown
+2020-08-02 14:06:50,184 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:06:50,184 INFO  commons.Logger - NC03 - STEP 03: Enter numberic into City field
+2020-08-02 14:06:50,307 INFO  commons.Logger - NC03 - VP: Numbers are not allowed message display
+2020-08-02 14:06:50,378 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:06:50,379 INFO  commons.Logger - NC03 - STEP 05: Enter special characters into City field
+2020-08-02 14:06:50,511 INFO  commons.Logger - NC03 - VP: Special characters are not allowed message display
+2020-08-02 14:06:50,566 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:06:50,566 INFO  commons.Logger - NC03 - STEP 05: Enter first characters blank space into City field
+2020-08-02 14:06:50,660 INFO  commons.Logger - NC03 - VP: First character cannot be space message display
+2020-08-02 14:06:50,734 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:06:50,735 DEBUG commons.MethodListener - After invocation of NC_03_Verify_City_Field
+2020-08-02 14:06:50,735 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:06:50,736 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:07:10,329 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:07:10,330 DEBUG commons.MethodListener - Before invocation of NC_04_Verify_State_Field
+2020-08-02 14:07:10,330 INFO  commons.Logger - NC04 - STEP 01: Do not enter value into State field and Press Tab key to move to next field
+2020-08-02 14:07:10,646 INFO  commons.Logger - NC04 - VP: State must not be blank messaage must be shown
+2020-08-02 14:07:10,724 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:07:10,724 INFO  commons.Logger - NC04 - STEP 03: Enter numberic into State field
+2020-08-02 14:07:10,832 INFO  commons.Logger - NC04 - VP: Numbers are not allowed message display
+2020-08-02 14:07:10,892 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:07:10,892 INFO  commons.Logger - NC04 - STEP 05: Enter special characters into State field
+2020-08-02 14:07:11,011 INFO  commons.Logger - NC04 - VP: Special characters are not allowed message display
+2020-08-02 14:07:11,068 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:07:11,068 INFO  commons.Logger - NC04 - STEP 05: Enter first characters blank space into State field
+2020-08-02 14:07:11,187 INFO  commons.Logger - NC04 - VP: First character cannot be space message display
+2020-08-02 14:07:11,245 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:07:11,245 DEBUG commons.MethodListener - After invocation of NC_04_Verify_State_Field
+2020-08-02 14:07:11,246 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:07:11,246 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:07:31,010 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:07:31,010 DEBUG commons.MethodListener - Before invocation of NC_05_Verify_PIN_Field
+2020-08-02 14:07:31,011 INFO  commons.Logger - NC05 - STEP 01: Enter characters value into PIN field
+2020-08-02 14:07:31,132 INFO  commons.Logger - NC05 - VP: Characters are not allowed messaage must be shown
+2020-08-02 14:07:31,202 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:07:31,203 INFO  commons.Logger - NC05 - STEP 03: Do not enter value into PIN field and Press Tab key to move to next field
+2020-08-02 14:07:31,501 INFO  commons.Logger - NC05 - VP: PIN code must not be blank messaage must be shown
+2020-08-02 14:07:31,573 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:07:31,573 INFO  commons.Logger - NC05 - STEP 05: Input more than 6 numberic into PIN field
+2020-08-02 14:07:31,677 INFO  commons.Logger - NC05 - VP: PIN Code must have 6 Digits message display
+2020-08-02 14:08:02,231 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:08:02,231 INFO  commons.Logger - NC05 - STEP 07: Input less than 6 numberic into PIN field
+2020-08-02 14:08:02,364 INFO  commons.Logger - NC05 - VP: PIN Code must have 6 Digits message display
+2020-08-02 14:08:02,454 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:08:02,454 INFO  commons.Logger - NC05 - STEP 09: Input Specical Character into PIN Field
+2020-08-02 14:08:02,602 INFO  commons.Logger - NC05 - VP: Special characters are not allowed message must be shown
+2020-08-02 14:08:02,685 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:08:02,685 INFO  commons.Logger - NC05 - STEP 11: Enter first characters blank space into PIN field
+2020-08-02 14:08:02,794 INFO  commons.Logger - NC05 - VP: First character cannot be space message display
+2020-08-02 14:08:02,863 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:08:02,863 DEBUG commons.MethodListener - After invocation of NC_05_Verify_PIN_Field
+2020-08-02 14:08:02,868 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:08:02,868 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:08:31,426 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:08:31,427 DEBUG commons.MethodListener - Before invocation of NC_06_Verify_Telephone_Field
+2020-08-02 14:08:31,427 INFO  commons.Logger - NC06 - STEP 01: Do not enter value into Telephone field and Press Tab key to move to next field
+2020-08-02 14:08:31,732 INFO  commons.Logger - NC06 - VP: Telephone no must not be blank messaage must be shown
+2020-08-02 14:08:31,844 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:08:31,844 INFO  commons.Logger - NC06 - STEP 03: Enter first characters blank space into Telephone field
+2020-08-02 14:08:31,949 INFO  commons.Logger - NC06 - VP: First character cannot be space message display
+2020-08-02 14:08:32,011 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:08:32,012 INFO  commons.Logger - NC06 - STEP 05: Enter special characters into Telephone field
+2020-08-02 14:08:32,119 INFO  commons.Logger - NC06 - VP: Special characters are not allowed message display
+2020-08-02 14:08:32,176 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:08:32,176 DEBUG commons.MethodListener - After invocation of NC_06_Verify_Telephone_Field
+2020-08-02 14:08:32,179 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:08:32,179 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:08:51,428 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:08:51,429 DEBUG commons.MethodListener - Before invocation of NC_07_Verify_Email_Field
+2020-08-02 14:08:51,429 INFO  commons.Logger - NC07 - STEP 01: Do not enter value into Email field and Press Tab key to move to next field
+2020-08-02 14:08:51,725 INFO  commons.Logger - NC07 - VP: Email ID must not be blank messaage must be shown
+2020-08-02 14:08:51,797 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:08:51,798 INFO  commons.Logger - NC07 - STEP 03: Input incorrect format Email
+2020-08-02 14:08:51,916 INFO  commons.Logger - NC07 - VP: E-mail ID is not valid message display
+2020-08-02 14:08:51,993 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:08:51,993 INFO  commons.Logger - NC07 - STEP 05: Enter space into Email field
+2020-08-02 14:08:52,141 INFO  commons.Logger - NC07 - VP: E-mail ID is not valid message display
+2020-08-02 14:08:52,216 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+2020-08-02 14:08:52,216 DEBUG commons.MethodListener - After invocation of NC_07_Verify_Email_Field
+2020-08-02 14:08:52,218 DEBUG commons.MethodListener - Before invocation of beforeMethod
+2020-08-02 14:08:52,218 INFO  commons.Logger - Pre-condition - STEP 03: Click to New Customer link
+2020-08-02 14:09:06,525 DEBUG commons.MethodListener - After invocation of beforeMethod
+2020-08-02 14:09:06,525 DEBUG commons.MethodListener - Before invocation of NC_08_Verify_All_Label_Display_As_Requirement
+2020-08-02 14:09:06,525 INFO  commons.Logger - NC08 - VP: Field Names: Customer Name, Gender, Date of Birth, Address, City, State, Mobile Number, E-mail, Password are displayed as requirement
+2020-08-02 14:09:06,595 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:06,667 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:06,743 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:06,806 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:06,875 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:06,967 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:07,033 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:07,104 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:07,175 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-08-02 14:09:07,175 DEBUG commons.MethodListener - After invocation of NC_08_Verify_All_Label_Display_As_Requirement
+2020-08-02 14:09:07,176 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 14:09:07,176 INFO  commons.Logger - OS name = windows 10
+2020-08-02 14:09:09,198 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:09:09,198 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 14:09:09,200 DEBUG commons.MethodListener - Before invocation of afterTest
+2020-08-02 14:09:09,200 INFO  commons.Logger - OS name = windows 10
+2020-08-02 14:09:09,203 INFO  commons.Logger - Session ID is null. Using WebDriver after calling quit()?
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-I7NM2OR', ip: '192.168.99.245', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: driver.version: RemoteWebDriver
+2020-08-02 14:09:09,203 DEBUG commons.MethodListener - After invocation of afterTest
+2020-08-02 14:16:15,230 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 14:16:16,004 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 14:16:59,979 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 14:17:01,632 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 14:17:01,632 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 14:17:01,641 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 14:17:01,641 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 14:17:01,641 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 14:17:01,727 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 14:17:01,727 INFO  commons.Logger - OS name = windows 10
+2020-08-02 14:17:06,407 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:17:06,407 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 14:38:11,415 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 14:38:12,116 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 14:38:56,867 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 14:38:58,513 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 14:38:58,513 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 14:38:58,519 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 14:38:58,520 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 14:38:58,520 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 14:38:58,533 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 14:38:58,533 INFO  commons.Logger - OS name = windows 10
+2020-08-02 14:39:05,679 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 14:39:05,679 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 15:04:09,592 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 15:04:10,097 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 15:04:51,468 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 15:04:52,991 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 15:04:52,991 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 15:04:52,998 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 15:04:52,998 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 15:04:52,999 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 15:04:53,010 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 15:04:53,011 INFO  commons.Logger - OS name = windows 10
+2020-08-02 15:04:55,428 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 15:04:55,428 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 15:52:19,515 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 15:52:19,969 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 15:52:49,169 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 15:52:50,699 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 15:52:50,699 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 15:52:50,706 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 15:52:50,706 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 15:52:50,707 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 15:52:50,715 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 15:52:50,715 INFO  commons.Logger - OS name = windows 10
+2020-08-02 15:52:55,736 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 15:52:55,739 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 16:01:06,675 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 16:01:07,062 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 16:01:47,514 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 16:01:48,968 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 16:01:48,968 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 16:01:48,975 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 16:01:48,976 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 16:01:48,976 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 16:01:48,996 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 16:01:48,996 INFO  commons.Logger - OS name = windows 10
+2020-08-02 16:01:51,586 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 16:01:51,586 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 16:02:27,479 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 16:02:27,890 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 16:02:52,610 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 16:02:54,068 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 16:02:54,068 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 16:02:54,074 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 16:02:54,074 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 16:02:54,075 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 16:02:54,081 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 16:02:54,081 INFO  commons.Logger - OS name = windows 10
+2020-08-02 16:02:56,651 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 16:02:56,651 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 16:39:59,447 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 16:39:59,973 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 16:40:42,194 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 16:40:43,648 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 16:40:43,648 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 16:40:43,656 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 16:40:43,656 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 16:40:43,657 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 16:40:43,659 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 16:40:43,659 INFO  commons.Logger - OS name = windows 10
+2020-08-02 16:40:46,339 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 16:40:46,339 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 16:44:48,359 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 16:44:48,761 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 16:45:17,650 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 16:45:19,093 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 16:45:19,093 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 16:45:19,100 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 16:45:19,101 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 16:45:19,101 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 16:45:19,110 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 16:45:19,110 INFO  commons.Logger - OS name = windows 10
+2020-08-02 16:45:21,829 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 16:45:21,836 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 17:11:05,653 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 17:11:06,067 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 17:11:32,252 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 17:11:33,754 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 17:11:33,754 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 17:11:33,761 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 17:11:33,761 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 17:11:33,762 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 17:11:33,764 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 17:11:33,764 INFO  commons.Logger - OS name = windows 10
+2020-08-02 17:11:37,003 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 17:11:37,010 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 17:15:22,786 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 17:15:23,184 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 17:15:44,273 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 17:15:45,852 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 17:15:45,852 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 17:15:45,860 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 17:15:45,860 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 17:15:45,861 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 17:15:45,880 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 17:15:45,880 INFO  commons.Logger - OS name = windows 10
+2020-08-02 17:15:48,697 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 17:15:48,703 DEBUG commons.MethodListener - After invocation of afterClass
+2020-08-02 17:26:22,647 DEBUG commons.MethodListener - Before invocation of beforeClass
+2020-08-02 17:26:23,124 INFO  commons.Logger - Pre-condition - Open Browser
+2020-08-02 17:26:54,548 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-08-02 17:26:56,386 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+2020-08-02 17:26:56,386 DEBUG commons.MethodListener - After invocation of beforeClass
+2020-08-02 17:26:56,393 DEBUG commons.MethodListener - Before invocation of TC_01_New_Customer
+2020-08-02 17:26:56,394 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+2020-08-02 17:26:56,394 DEBUG commons.MethodListener - After invocation of TC_01_New_Customer
+2020-08-02 17:26:56,396 DEBUG commons.MethodListener - Before invocation of afterClass
+2020-08-02 17:26:56,396 INFO  commons.Logger - OS name = windows 10
+2020-08-02 17:27:02,990 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+2020-08-02 17:27:03,003 DEBUG commons.MethodListener - After invocation of afterClass

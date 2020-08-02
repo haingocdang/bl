@@ -1,0 +1,5 @@
+package commons;
+
+public enum Browser {
+	CHROME, CHROME_HEADKESS,FIREFOX,FIREFOX_HEADLESS, IE,EDGE, SAFARI, OPERA, IOS, ANDROID;
+}

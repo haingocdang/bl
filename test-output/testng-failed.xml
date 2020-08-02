@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <parameter name="url" value="http://demo.guru99.com/v4/"/>
+  <listeners>
+    <listener class-name="commons.MethodListener"/>
+    <listener class-name="reportConfig.ExtentListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+  <test thread-count="5" name="Run on IE(failed)">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="customerDataFileName" value=".\test\java\com\data\json\NewCustomer.json"/>
+    <classes>
+      <class name="com.bankguru.login.Login_03_Dynamic_Page_Element_Json">
+        <methods>
+          <include name="beforeClass"/>
+          <include name="afterClass"/>
+          <include name="TC_01_New_Customer"/>
+        </methods>
+      </class> <!-- com.bankguru.login.Login_03_Dynamic_Page_Element_Json -->
+    </classes>
+  </test> <!-- Run on IE(failed) -->
+</suite> <!-- Failed suite [Suite] -->

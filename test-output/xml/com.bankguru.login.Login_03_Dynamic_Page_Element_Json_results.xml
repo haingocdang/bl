@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on IE"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0.008">
+  <properties />
+  
+  
+            <testcase name="TC_01_New_Customer" time="0.008" classname="com.bankguru.login.Login_03_Dynamic_Page_Element_Json" />
+      
+</testsuite>

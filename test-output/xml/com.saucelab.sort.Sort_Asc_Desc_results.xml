@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Run on Chrome"
+           tests="1"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="6.401">
+  <properties />
+  
+  
+            <testcase name="TC_01_Sort_Name" time="6.401" classname="com.saucelab.sort.Sort_Asc_Desc" />
+      
+</testsuite>
