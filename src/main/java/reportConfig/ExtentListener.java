@@ -28,7 +28,7 @@ public class ExtentListener implements IReporter {
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 		htmlReport = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ExtentReportV4/ExtentReport.html");
 		htmlReport.config().setTheme(Theme.DARK);
-		htmlReport.config().setDocumentTitle("BankGuru E2E Testing");
+		htmlReport.config().setDocumentTitle("Alpaca E2E Testing");
 		htmlReport.config().setReportName("Functional UI");
 		htmlReport.config().setEncoding("utf-8");
 		extent = new ExtentReports();
@@ -47,6 +47,7 @@ public class ExtentListener implements IReporter {
 		}
 
 		for (String s : Reporter.getOutput()) {
+			s=s+"<br>";
 			extent.setTestRunnerOutput(s);
 		}
 

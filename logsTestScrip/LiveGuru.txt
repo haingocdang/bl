@@ -352,3 +352,11 @@ Driver info: driver.version: RemoteWebDriver
 2020-08-02 17:26:56,396 INFO  commons.Logger - OS name = windows 10
 2020-08-02 17:27:02,990 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
 2020-08-02 17:27:03,003 DEBUG commons.MethodListener - After invocation of afterClass
+2020-11-02 16:46:34,920 INFO  commons.Logger - Pre-condition - Open Browser
+2020-11-02 16:46:41,948 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+2020-11-02 16:46:41,960 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - STEP 01: Click on [??ng Nh?p] button
+2020-11-02 16:46:42,097 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Tr??ng thông tin b?t bu?c] error displays on User Name field
+2020-11-02 16:46:42,152 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-11-02 16:46:42,152 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Tr??ng thông tin b?t bu?c] error displays on Password field
+2020-11-02 16:46:42,244 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+2020-11-02 16:46:42,246 INFO  commons.Logger - Post-condition - Close Browser

@@ -2,89 +2,100 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[2020-08-02 13:40:06,547 INFO  commons.Logger - Pre-condition - Open Browser
+      <![CDATA[2020-11-02 17:10:28,860 INFO  commons.Logger - Pre-condition - Open Browser
 ]]>
     </line>
     <line>
-      <![CDATA[2020-08-02 13:40:30,906 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+      <![CDATA[2020-11-02 17:10:36,083 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
 ]]>
     </line>
     <line>
-      <![CDATA[2020-08-02 13:40:32,364 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+      <![CDATA[2020-11-02 17:10:36,097 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - STEP 01: Click on [Đăng Nhập] button
 ]]>
     </line>
     <line>
-      <![CDATA[2020-08-02 13:40:32,380 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+      <![CDATA[2020-11-02 17:10:36,240 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on User Name field
 ]]>
     </line>
     <line>
-      <![CDATA[2020-08-02 13:40:32,386 INFO  commons.Logger - OS name = windows 10
+      <![CDATA[2020-11-02 17:10:36,338 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
 ]]>
     </line>
     <line>
-      <![CDATA[2020-08-02 13:40:34,872 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+      <![CDATA[2020-11-02 17:10:36,339 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on Password field
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-02 17:10:36,435 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-02 17:10:36,439 INFO  commons.Logger - Post-condition - Close Browser
 ]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="28774" started-at="2020-08-02T06:40:06Z" finished-at="2020-08-02T06:40:34Z">
+  <suite name="Suite" duration-ms="8292" started-at="2020-11-02T10:10:28Z" finished-at="2020-11-02T10:10:37Z">
     <groups>
     </groups>
-    <test name="Run on IE" duration-ms="28774" started-at="2020-08-02T06:40:06Z" finished-at="2020-08-02T06:40:34Z">
-      <class name="com.bankguru.login.Login_03_Dynamic_Page_Element_Json">
-        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.bankguru.login.Login_03_Dynamic_Page_Element_Json@10dba097]" name="beforeClass" is-config="true" duration-ms="26254" started-at="2020-08-02T06:40:06Z" finished-at="2020-08-02T06:40:32Z">
+    <test name="Run on CHROME" duration-ms="8292" started-at="2020-11-02T10:10:28Z" finished-at="2020-11-02T10:10:37Z">
+      <class name="alpaca.baolong.users.Authentication_Login">
+        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:alpaca.baolong.users.Authentication_Login@7e0e6aa2]" name="beforeClass" is-config="true" duration-ms="7235" started-at="2020-11-02T10:10:28Z" finished-at="2020-11-02T10:10:36Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[firefox]]>
+                <![CDATA[chrome]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[http://demo.guru99.com/v4/]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[.\src\test\java\com\data\json\NewCustomer.json]]>
+                <![CDATA[http://61.14.237.83:3200/login]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[2020-08-02 13:40:06,547 INFO  commons.Logger - Pre-condition - Open Browser
+              <![CDATA[2020-11-02 17:10:28,860 INFO  commons.Logger - Pre-condition - Open Browser
 ]]>
             </line>
             <line>
-              <![CDATA[2020-08-02 13:40:30,906 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
-]]>
-            </line>
-            <line>
-              <![CDATA[2020-08-02 13:40:32,364 INFO  commons.Logger - Pre-condition - STEP 02: Login with valid account
+              <![CDATA[2020-11-02 17:10:36,083 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="TC_01_New_Customer()[pri:0, instance:com.bankguru.login.Login_03_Dynamic_Page_Element_Json@10dba097]" name="TC_01_New_Customer" duration-ms="8" started-at="2020-08-02T06:40:32Z" finished-at="2020-08-02T06:40:32Z">
+        <test-method status="PASS" signature="Testcase_02_Sign_In_Failed_Missing_All_Fields()[pri:0, instance:alpaca.baolong.users.Authentication_Login@7e0e6aa2]" name="Testcase_02_Sign_In_Failed_Missing_All_Fields" duration-ms="344" started-at="2020-11-02T10:10:36Z" finished-at="2020-11-02T10:10:36Z">
           <reporter-output>
             <line>
-              <![CDATA[2020-08-02 13:40:32,380 INFO  commons.Logger - TC_01_New_Customer - STEP 01: Click to New Customer link
+              <![CDATA[2020-11-02 17:10:36,097 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - STEP 01: Click on [Đăng Nhập] button
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-02 17:10:36,240 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on User Name field
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-02 17:10:36,338 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-02 17:10:36,339 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on Password field
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-02 17:10:36,435 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
 ]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC_01_New_Customer -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.bankguru.login.Login_03_Dynamic_Page_Element_Json@10dba097]" name="afterClass" is-config="true" duration-ms="2488" started-at="2020-08-02T06:40:32Z" finished-at="2020-08-02T06:40:34Z">
+        </test-method> <!-- Testcase_02_Sign_In_Failed_Missing_All_Fields -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:alpaca.baolong.users.Authentication_Login@7e0e6aa2]" name="afterClass" is-config="true" duration-ms="693" started-at="2020-11-02T10:10:36Z" finished-at="2020-11-02T10:10:37Z">
           <reporter-output>
             <line>
-              <![CDATA[2020-08-02 13:40:32,386 INFO  commons.Logger - OS name = windows 10
-]]>
-            </line>
-            <line>
-              <![CDATA[2020-08-02 13:40:34,872 INFO  commons.Logger - ---------- QUIT BROWSER SUCCESS ----------
+              <![CDATA[2020-11-02 17:10:36,439 INFO  commons.Logger - Post-condition - Close Browser
 ]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- com.bankguru.login.Login_03_Dynamic_Page_Element_Json -->
-    </test> <!-- Run on IE -->
+      </class> <!-- alpaca.baolong.users.Authentication_Login -->
+    </test> <!-- Run on CHROME -->
   </suite> <!-- Suite -->
 </testng-results>

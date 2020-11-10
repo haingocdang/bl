@@ -1,1 +1,6 @@
 /target/
+/logsTestScrip/
+/featureFiles/
+/test-output/
+/browserLog/
+/ExtentReportV4/

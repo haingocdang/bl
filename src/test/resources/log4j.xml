@@ -10,7 +10,7 @@
 	</appender>
 
 	<appender name="logfile" class="org.apache.log4j.FileAppender">
-		<param name="file" value="./logsTestScrip/LiveGuru.txt" />
+		<param name="file" value="./logsTestScrip/Alpaca.txt" />
 		<param name="append" value="true" />
 		<param name="maxFileSize" value="10MB" />
 		<param name="maxBackupIndex" value="10" />
@@ -20,7 +20,7 @@
 	</appender>
 
 	<appender name="file" class="org.apache.log4j.RollingFileAppender">
-		<param name="file" value="./logsTestScrip/LiveGuru.log" />
+		<param name="file" value="./logsTestScrip/Alpaca.log" />
 		<param name="append" value="true" />
 		<param name="maxFileSize" value="10MB" />
 		<param name="maxBackupIndex" value="10" />

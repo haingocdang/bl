@@ -26,18 +26,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-
-import pageObjects.liveguru.AccountInformationPageObject;
-import pageObjects.liveguru.AddresBookPageObject;
-import pageObjects.liveguru.BillingAgreementsPageObject;
-import pageObjects.liveguru.MyApplicationsPageObject;
-import pageObjects.liveguru.MyDashboardPageObject;
-import pageObjects.liveguru.PageGeneratorManager;
-import pageUI.jquerry.DataTablePageUI;
-import pageUIs.liveguru.AbstractLiveGuruPageUI;
-import pageUIs.bankguru.AbstractBankGuruPageUI;
-import pageUIs.bankguru.LoginPageUI;
+import pageUIs.alpaca.*;
 import commons.Logger;
+
 
 public abstract class AbstractPage {
 
@@ -591,32 +582,7 @@ public abstract class AbstractPage {
 	    return explicitWait.until(jQueryLoad) && explicitWait.until(jsLoad);
 	}
 
-	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
-		String fullFileName = "";
-		for (String file : fileNames) {
-			fullFileName = fullFileName + GlobalConstants.UPLOAD_FOLDER + file + "\n";
-		}
-		fullFileName = fullFileName.trim();
-		sendKeyToElement(driver, AbstractLiveGuruPageUI.UPLOAD_FILE_TYPE, fullFileName);
-
-	}
-
-	public boolean areFilesUploadedSuccess(WebDriver driver, String... fileNames) {
-		String uploadedImageXpath;
-		boolean status = true;
-
-		waitAllElementInvisible(driver, AbstractLiveGuruPageUI.PROGRESS_BAR);
-
-		for (String fileName : fileNames) {
-			String[] files = fileName.split("\\.");
-			uploadedImageXpath = castToObject(AbstractLiveGuruPageUI.UPLOADED_IMAGES, files[0].toLowerCase());
-			if (!isElementDisplay(driver, uploadedImageXpath)) {
-				status = false;
-				return status;
-			}
-		}
-		return status;
-	}
+	
 
 	protected boolean checkTrue(boolean condition) {
 		boolean pass = true;
@@ -668,184 +634,7 @@ public abstract class AbstractPage {
 		return pass;
 	}
 
-	// Common Funtion-> Open Pages
-	public AccountInformationPageObject clickToAccountInforLink(WebDriver driver) {
-
-		waitElementClickable(driver, AbstractLiveGuruPageUI.ACCOUNT_INFOLINK);
-		clickToElement(driver, AbstractLiveGuruPageUI.ACCOUNT_INFOLINK);
-		return PageGeneratorManager.getAccountInforPage(driver);
-	}
-
-	public AddresBookPageObject clickToAddressBookLink(WebDriver driver) {
-		waitElementClickable(driver, AbstractLiveGuruPageUI.ADDRESS_BOOK_LINK);
-		clickToElement(driver, AbstractLiveGuruPageUI.ADDRESS_BOOK_LINK);
-		return PageGeneratorManager.getAddressBookPage(driver);
-	}
-
-	public MyDashboardPageObject clickToAccountDashboardLink(WebDriver driver) {
-		waitElementClickable(driver, AbstractLiveGuruPageUI.ACCOUNT_DASHBOARD_LINK);
-		clickToElement(driver, AbstractLiveGuruPageUI.ACCOUNT_DASHBOARD_LINK);
-		return PageGeneratorManager.getMyDashboardPage(driver);
-	}
-
-	public BillingAgreementsPageObject clickToBillingAgreementsLink(WebDriver driver) {
-		waitElementClickable(driver, AbstractLiveGuruPageUI.BILLING_AGREEMENTS_LINK);
-		clickToElement(driver, AbstractLiveGuruPageUI.BILLING_AGREEMENTS_LINK);
-		return PageGeneratorManager.getBillingPage(driver);
-	}
-
-	public MyApplicationsPageObject clickToMyApplicationLink(WebDriver driver) {
-		waitElementClickable(driver, AbstractLiveGuruPageUI.MY_APPLICATIONS_LINK);
-		clickToElement(driver, AbstractLiveGuruPageUI.MY_APPLICATIONS_LINK);
-		return PageGeneratorManager.getMyApplicationsPage(driver);
-	}
-
-	// Dynamic Locator
-
-	// Apply cho it Common pages- Live Guru (10-20 pages)
-	public AbstractPage clickToLessDynamicPagesMenu(WebDriver driver, String pageName) {
-		waitElementClickable(driver, AbstractLiveGuruPageUI.DYNAMIC_PAGE_LINK, pageName);
-		clickToElement(driver, AbstractLiveGuruPageUI.DYNAMIC_PAGE_LINK, pageName);
-		/*
-		 * if(pageName.equals("Account Information")) { return
-		 * PageGeneratorManager.getAccountInforPage(driver); }else
-		 * if(pageName.equals("Address Book")) { return
-		 * PageGeneratorManager.getAddressBookPage(driver); }else
-		 * if(pageName.equals("Billing Agreements")) { return
-		 * PageGeneratorManager.getBillingPage(driver); }else
-		 * if(pageName.equals("Account Dashboard")) { return
-		 * PageGeneratorManager.getMyDashboardPage(driver); }else
-		 * if(pageName.equals("My Applications")) { return
-		 * PageGeneratorManager.getMyApplicationsPage(driver); }else { return
-		 * PageGeneratorManager.getMyDashboardPage(driver); }
-		 */
-		switch (pageName) {
-		case "Account Information":
-			return PageGeneratorManager.getAccountInforPage(driver);
-		case "Address Book":
-			return PageGeneratorManager.getAddressBookPage(driver);
-		case "Billing Agreements":
-			return PageGeneratorManager.getBillingPage(driver);
-		case "Account Dashboard":
-			return PageGeneratorManager.getMyDashboardPage(driver);
-		case "My Applications":
-			return PageGeneratorManager.getMyApplicationsPage(driver);
-		default:
-			return PageGeneratorManager.getMyDashboardPage(driver);
-
-		}
-
-	}
-
-	// Apply cho nhieu Common pages (Live Guru)
-	public void clickToMoreDynamicPagesMenu(WebDriver driver, String pageName) {
-		waitElementClickable(driver, AbstractLiveGuruPageUI.DYNAMIC_PAGE_LINK, pageName);
-		clickToElement(driver, AbstractLiveGuruPageUI.DYNAMIC_PAGE_LINK, pageName);
-	}
-
-	public void sendKeyToDynamicTextbox(WebDriver driver, String value, String columnName) {
-		waitElementVisible(driver, DataTablePageUI.DYNAMIC_TEXTBOX, columnName);
-		sendKeyToElement(driver, DataTablePageUI.DYNAMIC_TEXTBOX, value, columnName);
-
-	}
-
-	public void sendKeyBoardToDynamicDataTableTextbox(WebDriver driver, String columnName, Keys key) {
-		waitElementVisible(driver, DataTablePageUI.DYNAMIC_TEXTBOX, columnName);
-		sendKeyBoardToElement(driver, DataTablePageUI.DYNAMIC_TEXTBOX, key, columnName);
-
-	}
 	
-	public void sendKeyBoardToDynamicBankGuruTextbox(WebDriver driver, String fieldName, Keys key) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX, fieldName);
-		sendKeyBoardToElement(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX, key, fieldName);
-
-	}
-	
-	public void sendKeyBoardToDynamicBankGuruTextArea(WebDriver driver,  String fieldName, Keys key) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTAREA, fieldName);
-		sendKeyBoardToElement(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTAREA, key, fieldName);
-
-	}
-
-	// Bankguru Dynamic Component
-	public void inputToDynamicTextbox(WebDriver driver, String componentName, String inputValue) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX, componentName);
-		if(getElementAttribute(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX,"type",componentName).equals("date")) {
-			removeAttributeInDOM(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX,"type",componentName);
-		}
-		sendKeyToElement(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX, inputValue, componentName);
-
-	}
-
-	public void inputToDynamicTextarea(WebDriver driver, String componentName, String inputValue) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTAREA, componentName);
-		sendKeyToElement(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTAREA, inputValue, componentName);
-	}
-
-	public void clickToDynamicLink(WebDriver driver, String componentName) {
-		waitElementClickable(driver, AbstractBankGuruPageUI.DYNAMIC_LINK, componentName);
-		clickToElement(driver, AbstractBankGuruPageUI.DYNAMIC_LINK, componentName);
-
-	}
-
-	public void clickToDynamicRadioButton(WebDriver driver, String componentName) {
-		waitElementClickable(driver, AbstractBankGuruPageUI.DYNAMIC_RADIO_BUTTON, componentName);
-		clickToElement(driver, AbstractBankGuruPageUI.DYNAMIC_RADIO_BUTTON, componentName);
-	}
-
-	public void clickToDynamicButton(WebDriver driver, String componentName) {
-		waitElementClickable(driver, AbstractBankGuruPageUI.DYNAMIC_BUTTON, componentName);
-		clickToElement(driver, AbstractBankGuruPageUI.DYNAMIC_BUTTON, componentName);
-	}
-
-	public boolean IsDyNamicMessageDisplay(WebDriver driver, String componentName) {
-		boolean status = false;
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_MESSAGE, componentName);
-		status = isElementDisplay(driver, AbstractBankGuruPageUI.DYNAMIC_MESSAGE, componentName);
-		return status;
-	}
-	
-	public boolean IsDyNamicLabelDisplay(WebDriver driver, String componentName) {
-		boolean status = false;
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_LABEL, componentName);
-		status = isElementDisplay(driver, AbstractBankGuruPageUI.DYNAMIC_LABEL, componentName);
-		return status;
-	}
-
-	public String getDyNamicValueByColumnName(WebDriver driver, String componentName) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_VALUE_BY_COLUMN_NAME, componentName);
-		return getElementText(driver, AbstractBankGuruPageUI.DYNAMIC_VALUE_BY_COLUMN_NAME, componentName);
-	}
-	
-	public String getDyNamicErrorMessageByColumnName(WebDriver driver, String componentName) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_ERROR_MESSAGE, componentName);
-		return getElementText(driver,AbstractBankGuruPageUI.DYNAMIC_ERROR_MESSAGE, componentName);
-	}
-	
-	public void closeAd(WebDriver driver) {
-		sleepInSecond(1);
-		if (isElementDisplay(driver, AbstractBankGuruPageUI.IFRAME)) {
-			waitElementVisible(driver, AbstractBankGuruPageUI.IFRAME);
-			switchToFrameOrIframe(driver, AbstractBankGuruPageUI.IFRAME);
-			waitElementClickable(driver, AbstractBankGuruPageUI.IFRAME_CLOSE_BUTTON);
-			clickToElement(driver, AbstractBankGuruPageUI.IFRAME_CLOSE_BUTTON);
-			switchToDefaultContent(driver);
-		}
-	}
-	
-	public void releaseEmptyTextboxField(WebDriver driver, String fieldName) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX,fieldName);
-		//clickToElement(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTBOX, fieldName);
-		sendKeyBoardToDynamicBankGuruTextbox(driver,fieldName,key.TAB);
-
-	}
-	
-	public void releaseEmptyTextAreaField(WebDriver driver, String fieldName) {
-		waitElementVisible(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTAREA,fieldName);
-		clickToElement(driver, AbstractBankGuruPageUI.DYNAMIC_TEXTAREA, fieldName);
-		sendKeyBoardToDynamicBankGuruTextArea(driver,fieldName,key.TAB);
-
-	}
 	
 	public boolean isDataSortedAsc(WebDriver driver,String xpathValue) {
 		// Khai bao 1 Array List

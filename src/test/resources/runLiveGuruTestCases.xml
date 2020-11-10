@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
 	 <listeners>
-		<listener class-name="commons.MethodListener" />
+	 	<listener class-name="commons.MethodListener" />
+		<listener class-name="reportConfig.ExtentListener" />
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
 	</listeners> 
 
-	<test name="Run on FIREFOX">
-		<parameter name="browser" value="chrome" />
-		<parameter name="url" value="http://live.demoguru99.com/" />
+	<test name="Run on CHROME">
+		<parameter name="browser" value="chrome" />s
+		<parameter name="url" value="http://61.14.237.83:3200/login" />
 		<classes>
-			<class name="com.liveguru.users.Level_03_My_Dashboard_Page_Switch_Dynamic_Report_HTML" />
-			<!-- class name="com.liveguru.users.User_02_Login"/ -->
+			<class name="alpaca.baolong.users.Authentication_Login" />	
 		</classes>
 	</test>
-
-
-	<!-- <test name="Run on CHROME"> <parameter name="browser" value= "chrome"/> <classes> <class name="com.liveguru.users.Level_03_Register_Page_Object_Multiple_Browser_Parallel"/> class name="com.liveguru.users.User_02_Login"/ 
-		</classes> </test> -->
-
-	<!-- <test name="Run on EDGE"> <parameter name="browser" value= "edge"/> <classes> <class name="com.liveguru.users.Level_03_Register_Page_Object_Multiple_Browser_Parallel"/> class name="com.liveguru.users.User_02_Login"/ 
-		</classes> </test> -->
 
 </suite>
