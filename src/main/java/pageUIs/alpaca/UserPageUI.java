@@ -13,4 +13,9 @@ public class UserPageUI {
     public static final String PAGINATE_BUTTON_PREVIOUS_PAGE="//li[@title='Trang trước']";
     public static final String PAGINATE_BUTTON_LAST_PAGE="//li[@title='Trang cuối']";
     public static final String PAGE_HEADER_TITLE="//h5[contains(.,'Người dùng')]";
+    public static final String USER_TABLE="//table[@role='table']";
+    public static final String NUMBER_OF_USER="//div[@class='float-left pb-2']//b[2]";
+    public static final String EDIT_USER="//table[@role='table']//tr[2]//td[7]//a[contains(.,'Chỉnh sửa')]";
+    public static final String BLOCK_USER="//table[@role='table']//tr[2]//td[7]//a[contains(.,'Khóa')]";
+    public static final String DELETE_USER="//table[@role='table']//tr[2]//td[7]//a[contains(.,'Xóa')]";
 }
