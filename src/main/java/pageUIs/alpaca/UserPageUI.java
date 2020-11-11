@@ -18,4 +18,11 @@ public class UserPageUI {
     public static final String EDIT_USER="//table[@role='table']//tr[2]//td[7]//a[contains(.,'Chỉnh sửa')]";
     public static final String BLOCK_USER="//table[@role='table']//tr[2]//td[7]//a[contains(.,'Khóa')]";
     public static final String DELETE_USER="//table[@role='table']//tr[2]//td[7]//a[contains(.,'Xóa')]";
+    public static final String UNBLOCK_USER="//table[@role='table']//tr[2]//td[7]//a[contains(.,'Mở khóa')]";
+    public static final String HAMBURGER_MENU="//i[@class='feather icon-menu']";
+    public static final String USER_NAME="//table[@role='table']//tr[2]//td[1]//a";
+    public static final String USER_AVT="//li[@class='dropdown dropdown-user nav-item']//a//div";
+    public static final String SIGN_OUT="//li[@class='dropdown dropdown-user nav-item show']//div//a[contains(.,'Đăng xuất')]";
+    public static final String USER_LEFT_MENU="//a[@class='menu-item']//span[contains(.,'Người dùng')]";
+    public static final String COMPANY_LEFT_MENU="//a[@class='menu-item']//span[contains(.,'Công ty')]";
 }
