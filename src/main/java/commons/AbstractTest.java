@@ -85,11 +85,11 @@ public abstract class AbstractTest extends AbstractPage {
 		threadLocalDriver.remove();
 	}
 	
-	private WebDriver getDriver() {
+	public WebDriver getDriver() {
 		return threadLocalDriver.get();
 	}
 	
-	private void setDriver(WebDriver driver) {
+	protected void setDriver(WebDriver driver) {
 		threadLocalDriver.set(driver);
 	}
 

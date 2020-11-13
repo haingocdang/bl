@@ -15,24 +15,29 @@ import org.testng.annotations.Parameters;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 
 public class Authentication_Login extends AbstractTest {
 	
-	@Parameters({"browser","url"})
+	@Parameters({"browser"})
 	@BeforeClass
-	public void beforeClass(String browserName, String url) {
-				
+	public void beforeClass(String browserName) {
+			
 		log.info("Pre-condition - Open Browser");
 		driverManager=BrowserDriverFactory.getBrowserDriver(browserName);
-		driver=driverManager.getDriver(url);
-		
-		log.info("Pre-condition - STEP 01: Open Login page");
-		loginPage=PageGeneratorManager.getLoginPage(driver);
-		
+	
 	}
 
+	@Parameters({"url"})
+	@BeforeMethod
+	public void beforeMethod(String url) {
+		driver=driverManager.getDriver(url);
+		setDriver(driver);
+		log.info("Pre-condition - STEP 01: Open Login page");
+		loginPage=PageGeneratorManager.getLoginPage(driver);
+	}
 	
-//	  @Test 
+	  @Test 
 	  public void Testcase_01_Sign_In_Successfully() {
 	  log.info("Testcase_01_Sign_In_Successfully - STEP 01: Enter corect user name and password"); 
 	  loginPage.inputUserName(username);
@@ -72,7 +77,7 @@ public class Authentication_Login extends AbstractTest {
 	  @Test 
 	  public void Testcase_04_Sign_In_Wrong_Password() {
 	  log.info("Testcase_04_Sign_In_Wrong_Password - STEP 01: Input User Name"); 
-	  loginPage.inputUserName("fecredit");
+	  loginPage.inputUserName(username);
 	  
 	  log.info("Testcase_04_Sign_In_Wrong_Password - STEP 02: Input Password"); 
 	  loginPage.inputUserPassword("Invalid Password");
@@ -84,7 +89,11 @@ public class Authentication_Login extends AbstractTest {
 	  verifyEquals(loginPage.getInvalidLoginErrorMessage(), "The user credentials were incorrect.");
 	  }
 	 
-	
+	@AfterMethod
+	public void afterMethod() {
+		driverManager.quitDriver();
+	}
+	  
 	@AfterClass
 	public void afterClass() {
 		log.info("Post-condition - Close Browser");
@@ -94,8 +103,8 @@ public class Authentication_Login extends AbstractTest {
 	DriverManager driverManager;
 	WebDriver driver;
 	LoginPageObject loginPage;
-	String username="fecredit";
-	String password="9a20079916a65567e57545cdb946b9be";
+	String username="haidang11601";
+	String password="12341234";
 	
 
 }

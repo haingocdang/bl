@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite" parallel="false">
-	 <listeners>
-	 	<listener class-name="commons.MethodListener" />
+	<listeners>
+		<listener class-name="commons.MethodListener" />
 		<listener class-name="reportConfig.ExtentListener" />
-
-	</listeners> 
-
+		<listener class-name="reportConfig.ReportNGListener" />
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
 	<test name="Run on CHROME">
-		<parameter name="browser" value="chrome" />s
+		<parameter name="browser" value="chrome" />
+		s
 		<parameter name="url" value="http://61.14.237.83:3200/login" />
 		<classes>
-			<class name="alpaca.baolong.users.Authentication_Login" />	
+			<class name="alpaca.baolong.users.Authentication_Login" />
 		</classes>
 	</test>
 
