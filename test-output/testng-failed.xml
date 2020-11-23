@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
-  <parameter name="url" value="http://demo.guru99.com/v4/"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="url" value="http://61.14.237.83:3200/login"/>
   <listeners>
     <listener class-name="commons.MethodListener"/>
     <listener class-name="reportConfig.ExtentListener"/>
+    <listener class-name="reportConfig.ReportNGListener"/>
     <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
   </listeners>
-  <test thread-count="5" name="Run on IE(failed)">
-    <parameter name="browser" value="firefox"/>
-    <parameter name="customerDataFileName" value=".\test\java\com\data\json\NewCustomer.json"/>
+  <test name="Run on CHROME">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="http://61.14.237.83:3200/login"/>
     <classes>
-      <class name="com.bankguru.login.Login_03_Dynamic_Page_Element_Json">
-        <methods>
-          <include name="beforeClass"/>
-          <include name="afterClass"/>
-          <include name="TC_01_New_Customer"/>
-        </methods>
-      </class> <!-- com.bankguru.login.Login_03_Dynamic_Page_Element_Json -->
+      <class name="alpaca.baolong.users.Authentication_Login"/>
     </classes>
-  </test> <!-- Run on IE(failed) -->
+  </test> <!-- Run on CHROME -->
+  <test name="Run on CHROME(failed)">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="url" value="http://61.14.237.83:3200/login"/>
+    <classes>
+      <class name="alpaca.baolong.users.Authentication_Login">
+        <methods>
+          <include name="Testcase_03_Sign_In_Wrong_User_Name"/>
+          <include name="beforeMethod"/>
+          <include name="beforeClass"/>
+          <include name="Testcase_04_Sign_In_Wrong_Password"/>
+          <include name="afterMethod"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- alpaca.baolong.users.Authentication_Login -->
+    </classes>
+  </test> <!-- Run on CHROME(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -42,8 +42,4 @@ public class LoginPageObject extends AbstractPage {
 		return getElementText(driver, LoginPageUI.INVALID_LOGIN_ERROR_MESSAGE);
 	}
 
-	
-	
-	
-
 }

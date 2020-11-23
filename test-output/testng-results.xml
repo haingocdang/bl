@@ -1,52 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="2" total="4" passed="2">
   <reporter-output>
     <line>
-      <![CDATA[2020-11-02 17:10:28,860 INFO  commons.Logger - Pre-condition - Open Browser
+      <![CDATA[2020-11-13 17:44:14,093 INFO  commons.Logger - ---------- Run on CHROME STARTED test class ----------
 ]]>
     </line>
     <line>
-      <![CDATA[2020-11-02 17:10:36,083 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+      <![CDATA[2020-11-13 17:44:14,102 INFO  commons.Logger - Pre-condition - Open Browser
 ]]>
     </line>
     <line>
-      <![CDATA[2020-11-02 17:10:36,097 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - STEP 01: Click on [Đăng Nhập] button
+      <![CDATA[2020-11-13 17:44:20,865 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
 ]]>
     </line>
     <line>
-      <![CDATA[2020-11-02 17:10:36,240 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on User Name field
+      <![CDATA[2020-11-13 17:44:20,878 INFO  commons.Logger - ---------- Testcase_01_Sign_In_Successfully STARTED test case ----------
 ]]>
     </line>
     <line>
-      <![CDATA[2020-11-02 17:10:36,338 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+      <![CDATA[2020-11-13 17:44:20,879 INFO  commons.Logger - Testcase_01_Sign_In_Successfully - STEP 01: Enter corect user name and password
 ]]>
     </line>
     <line>
-      <![CDATA[2020-11-02 17:10:36,339 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on Password field
+      <![CDATA[2020-11-13 17:44:21,250 INFO  commons.Logger - Testcase_01_Sign_In_Successfully - STEP 02: Click on [Đăng Nhập] button
 ]]>
     </line>
     <line>
-      <![CDATA[2020-11-02 17:10:36,435 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+      <![CDATA[2020-11-13 17:44:21,377 INFO  commons.Logger - ---------- Testcase_01_Sign_In_Successfully SUCCESS test case ----------
 ]]>
     </line>
     <line>
-      <![CDATA[2020-11-02 17:10:36,439 INFO  commons.Logger - Post-condition - Close Browser
+      <![CDATA[<br>]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:27,928 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:27,929 INFO  commons.Logger - ---------- Testcase_02_Sign_In_Failed_Missing_All_Fields STARTED test case ----------
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:27,929 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - STEP 01: Click on [Đăng Nhập] button
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:28,049 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on User Name field
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:28,130 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:28,130 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on Password field
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:28,191 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:28,192 INFO  commons.Logger - ---------- Testcase_02_Sign_In_Failed_Missing_All_Fields SUCCESS test case ----------
+]]>
+    </line>
+    <line>
+      <![CDATA[<br>]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:34,948 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:34,950 INFO  commons.Logger - ---------- Testcase_03_Sign_In_Wrong_User_Name STARTED test case ----------
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:34,951 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - STEP 01: Input wrong User Name
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:35,147 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - STEP 02: Input Password
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:35,364 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - STEP 03: Click on [Đăng Nhập] button
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:35,489 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - VP: [The user credentials were incorrect.] error displays
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:36,433 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:36,435 INFO  commons.Logger - ---------- Testcase_03_Sign_In_Wrong_User_Name FAILED test case ----------
+]]>
+    </line>
+    <line>
+      <![CDATA[<br><a target="_blank" href="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_03_Sign_In_Wrong_User_Name_13_11_2020_05_44_36.png"><img src="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_03_Sign_In_Wrong_User_Name_13_11_2020_05_44_36.png" height='100' width='150'/> </a></br>]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:43,436 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:43,438 INFO  commons.Logger - ---------- Testcase_04_Sign_In_Wrong_Password STARTED test case ----------
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:43,438 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - STEP 01: Input User Name
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:43,638 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - STEP 02: Input Password
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:43,827 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - STEP 03: Click on [Đăng Nhập] button
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:43,932 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - VP: [The user credentials were incorrect.] error displays
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:44,872 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:44,873 INFO  commons.Logger - ---------- Testcase_04_Sign_In_Wrong_Password FAILED test case ----------
+]]>
+    </line>
+    <line>
+      <![CDATA[<br><a target="_blank" href="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_04_Sign_In_Wrong_Password_13_11_2020_05_44_44.png"><img src="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_04_Sign_In_Wrong_Password_13_11_2020_05_44_44.png" height='100' width='150'/> </a></br>]]>
+    </line>
+    <line>
+      <![CDATA[2020-11-13 17:44:45,833 INFO  commons.Logger - Post-condition - Close Browser
 ]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="8292" started-at="2020-11-02T10:10:28Z" finished-at="2020-11-02T10:10:37Z">
+  <suite name="Suite" duration-ms="31744" started-at="2020-11-13T10:44:14Z" finished-at="2020-11-13T10:44:45Z">
     <groups>
     </groups>
-    <test name="Run on CHROME" duration-ms="8292" started-at="2020-11-02T10:10:28Z" finished-at="2020-11-02T10:10:37Z">
+    <test name="Run on CHROME" duration-ms="31744" started-at="2020-11-13T10:44:14Z" finished-at="2020-11-13T10:44:45Z">
       <class name="alpaca.baolong.users.Authentication_Login">
-        <test-method status="PASS" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:alpaca.baolong.users.Authentication_Login@7e0e6aa2]" name="beforeClass" is-config="true" duration-ms="7235" started-at="2020-11-02T10:10:28Z" finished-at="2020-11-02T10:10:36Z">
+        <test-method status="PASS" signature="beforeClass(java.lang.String)[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="beforeClass" is-config="true" duration-ms="7" started-at="2020-11-13T17:44:14Z" finished-at="2020-11-13T17:44:14Z">
           <params>
             <param index="0">
               <value>
                 <![CDATA[chrome]]>
               </value>
             </param>
-            <param index="1">
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[2020-11-13 17:44:14,102 INFO  commons.Logger - Pre-condition - Open Browser
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="beforeMethod" is-config="true" duration-ms="6761" started-at="2020-11-13T17:44:14Z" finished-at="2020-11-13T17:44:20Z">
+          <params>
+            <param index="0">
               <value>
                 <![CDATA[http://61.14.237.83:3200/login]]>
               </value>
@@ -54,43 +172,270 @@
           </params>
           <reporter-output>
             <line>
-              <![CDATA[2020-11-02 17:10:28,860 INFO  commons.Logger - Pre-condition - Open Browser
-]]>
-            </line>
-            <line>
-              <![CDATA[2020-11-02 17:10:36,083 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+              <![CDATA[2020-11-13 17:44:20,865 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
 ]]>
             </line>
           </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="Testcase_02_Sign_In_Failed_Missing_All_Fields()[pri:0, instance:alpaca.baolong.users.Authentication_Login@7e0e6aa2]" name="Testcase_02_Sign_In_Failed_Missing_All_Fields" duration-ms="344" started-at="2020-11-02T10:10:36Z" finished-at="2020-11-02T10:10:36Z">
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Testcase_01_Sign_In_Successfully()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="Testcase_01_Sign_In_Successfully" duration-ms="508" started-at="2020-11-13T17:44:20Z" finished-at="2020-11-13T17:44:21Z">
           <reporter-output>
             <line>
-              <![CDATA[2020-11-02 17:10:36,097 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - STEP 01: Click on [Đăng Nhập] button
+              <![CDATA[2020-11-13 17:44:20,879 INFO  commons.Logger - Testcase_01_Sign_In_Successfully - STEP 01: Enter corect user name and password
 ]]>
             </line>
             <line>
-              <![CDATA[2020-11-02 17:10:36,240 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on User Name field
+              <![CDATA[2020-11-13 17:44:21,250 INFO  commons.Logger - Testcase_01_Sign_In_Successfully - STEP 02: Click on [Đăng Nhập] button
 ]]>
             </line>
             <line>
-              <![CDATA[2020-11-02 17:10:36,338 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+              <![CDATA[2020-11-13 17:44:21,377 INFO  commons.Logger - ---------- Testcase_01_Sign_In_Successfully SUCCESS test case ----------
 ]]>
             </line>
             <line>
-              <![CDATA[2020-11-02 17:10:36,339 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on Password field
+              <![CDATA[<br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- Testcase_01_Sign_In_Successfully -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="afterMethod" is-config="true" duration-ms="653" started-at="2020-11-13T17:44:21Z" finished-at="2020-11-13T17:44:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="beforeMethod" is-config="true" duration-ms="5897" started-at="2020-11-13T17:44:22Z" finished-at="2020-11-13T17:44:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://61.14.237.83:3200/login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[2020-11-13 17:44:27,928 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="Testcase_02_Sign_In_Failed_Missing_All_Fields()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="Testcase_02_Sign_In_Failed_Missing_All_Fields" duration-ms="264" started-at="2020-11-13T17:44:27Z" finished-at="2020-11-13T17:44:28Z">
+          <reporter-output>
+            <line>
+              <![CDATA[2020-11-13 17:44:27,929 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - STEP 01: Click on [Đăng Nhập] button
 ]]>
             </line>
             <line>
-              <![CDATA[2020-11-02 17:10:36,435 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+              <![CDATA[2020-11-13 17:44:28,049 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on User Name field
 ]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:28,130 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:28,130 INFO  commons.Logger - Testcase_02_Sign_In_Failed_Missing_All_Fields - VP: [Trường thông tin bắt buộc] error displays on Password field
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:28,191 INFO  commons.Logger -  -------------------------- PASSED -------------------------- 
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:28,192 INFO  commons.Logger - ---------- Testcase_02_Sign_In_Failed_Missing_All_Fields SUCCESS test case ----------
+]]>
+            </line>
+            <line>
+              <![CDATA[<br>]]>
             </line>
           </reporter-output>
         </test-method> <!-- Testcase_02_Sign_In_Failed_Missing_All_Fields -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:alpaca.baolong.users.Authentication_Login@7e0e6aa2]" name="afterClass" is-config="true" duration-ms="693" started-at="2020-11-02T10:10:36Z" finished-at="2020-11-02T10:10:37Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="afterMethod" is-config="true" duration-ms="653" started-at="2020-11-13T17:44:28Z" finished-at="2020-11-13T17:44:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="beforeMethod" is-config="true" duration-ms="6102" started-at="2020-11-13T17:44:28Z" finished-at="2020-11-13T17:44:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://61.14.237.83:3200/login]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
             <line>
-              <![CDATA[2020-11-02 17:10:36,439 INFO  commons.Logger - Post-condition - Close Browser
+              <![CDATA[2020-11-13 17:44:34,948 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="Testcase_03_Sign_In_Wrong_User_Name()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="Testcase_03_Sign_In_Wrong_User_Name" duration-ms="1484" started-at="2020-11-13T17:44:34Z" finished-at="2020-11-13T17:44:36Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [The user credentials were incorrect.] but found [Đăng nhập không thành công]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [The user credentials were incorrect.] but found [Đăng nhập không thành công]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:179)
+	at commons.AbstractPage.checkEquals(AbstractPage.java:626)
+	at commons.AbstractTest.verifyEquals(AbstractTest.java:116)
+	at alpaca.baolong.users.Authentication_Login.Testcase_03_Sign_In_Wrong_User_Name(Authentication_Login.java:74)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[2020-11-13 17:44:34,951 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - STEP 01: Input wrong User Name
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:35,147 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - STEP 02: Input Password
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:35,364 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - STEP 03: Click on [Đăng Nhập] button
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:35,489 INFO  commons.Logger - Testcase_03_Sign_In_Wrong_User_Name - VP: [The user credentials were incorrect.] error displays
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:36,433 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:36,435 INFO  commons.Logger - ---------- Testcase_03_Sign_In_Wrong_User_Name FAILED test case ----------
+]]>
+            </line>
+            <line>
+              <![CDATA[<br><a target="_blank" href="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_03_Sign_In_Wrong_User_Name_13_11_2020_05_44_36.png"><img src="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_03_Sign_In_Wrong_User_Name_13_11_2020_05_44_36.png" height='100' width='150'/> </a></br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- Testcase_03_Sign_In_Wrong_User_Name -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="afterMethod" is-config="true" duration-ms="661" started-at="2020-11-13T17:44:36Z" finished-at="2020-11-13T17:44:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="beforeMethod" is-config="true" duration-ms="5987" started-at="2020-11-13T17:44:37Z" finished-at="2020-11-13T17:44:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://61.14.237.83:3200/login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[2020-11-13 17:44:43,436 INFO  commons.Logger - Pre-condition - STEP 01: Open Login page
+]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="Testcase_04_Sign_In_Wrong_Password()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="Testcase_04_Sign_In_Wrong_Password" duration-ms="1436" started-at="2020-11-13T17:44:43Z" finished-at="2020-11-13T17:44:44Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [The user credentials were incorrect.] but found [Đăng nhập không thành công]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [The user credentials were incorrect.] but found [Đăng nhập không thành công]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:179)
+	at commons.AbstractPage.checkEquals(AbstractPage.java:626)
+	at commons.AbstractTest.verifyEquals(AbstractTest.java:116)
+	at alpaca.baolong.users.Authentication_Login.Testcase_04_Sign_In_Wrong_Password(Authentication_Login.java:89)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[2020-11-13 17:44:43,438 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - STEP 01: Input User Name
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:43,638 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - STEP 02: Input Password
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:43,827 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - STEP 03: Click on [Đăng Nhập] button
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:43,932 INFO  commons.Logger - Testcase_04_Sign_In_Wrong_Password - VP: [The user credentials were incorrect.] error displays
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:44,872 INFO  commons.Logger -  -------------------------- FAILED -------------------------- 
+]]>
+            </line>
+            <line>
+              <![CDATA[2020-11-13 17:44:44,873 INFO  commons.Logger - ---------- Testcase_04_Sign_In_Wrong_Password FAILED test case ----------
+]]>
+            </line>
+            <line>
+              <![CDATA[<br><a target="_blank" href="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_04_Sign_In_Wrong_Password_13_11_2020_05_44_44.png"><img src="file:///D:\alpaca_automation\ReportNGScreenShots\Testcase_04_Sign_In_Wrong_Password_13_11_2020_05_44_44.png" height='100' width='150'/> </a></br>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- Testcase_04_Sign_In_Wrong_Password -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="afterMethod" is-config="true" duration-ms="642" started-at="2020-11-13T17:44:45Z" finished-at="2020-11-13T17:44:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:alpaca.baolong.users.Authentication_Login@80169cf]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-11-13T17:44:45Z" finished-at="2020-11-13T17:44:45Z">
+          <reporter-output>
+            <line>
+              <![CDATA[2020-11-13 17:44:45,833 INFO  commons.Logger - Post-condition - Close Browser
 ]]>
             </line>
           </reporter-output>
