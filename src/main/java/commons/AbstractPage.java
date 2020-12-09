@@ -793,6 +793,39 @@ public abstract class AbstractPage {
 		//Verify 2 arary bang nhau
 		return sortedList.equals(arrayList);
 	}
+	
+	public void clickTaoButton(WebDriver driver) {
+		waitElementClickable(driver, AbstracPageUI.TAO_BUTTON);
+		clickToElement(driver, AbstracPageUI.TAO_BUTTON);
+	}
+	
+	public void clickTaoMoiButton(WebDriver driver) {
+		waitElementClickable(driver, AbstracPageUI.TAO_MOI_BUTTON);
+		clickToElement(driver, AbstracPageUI.TAO_MOI_BUTTON);
+	}
+	
+	public void clickHuyButton(WebDriver driver) {
+		waitElementClickable(driver, AbstracPageUI.HUY_BUTTON);
+		clickToElement(driver, AbstracPageUI.HUY_BUTTON);
+	}
+	
+	public void goToPage(WebDriver driver, String pageName) {
+		waitElementClickable(driver, AbstracPageUI.MAIN_MENU);
+		clickToElement(driver, AbstracPageUI.MAIN_MENU);
+		waitElementClickable(driver, AbstracPageUI.FUNCTION_MENU, pageName);
+		clickToElement(driver, AbstracPageUI.FUNCTION_MENU, pageName);
+	}
+	
+	public boolean checkValueInList(WebDriver driver, String tenCot, String value) {
+		waitElementVisible(driver, AbstracPageUI.VALUE_TEXTBOX, tenCot, value);
+		return checkTrue(isElementDisplay(driver, AbstracPageUI.VALUE_TEXTBOX, tenCot, value));
+	}
+
+	public boolean checkToastMessage (WebDriver driver, String message){
+		waitElementVisible(driver, AbstracPageUI.TOAST_MESSAGE, message);
+		//sleepInSecond(1);
+		return checkTrue(isElementDisplay(driver, AbstracPageUI.TOAST_MESSAGE, message));
+	}
 
 	Log log;
 	private Keys key;

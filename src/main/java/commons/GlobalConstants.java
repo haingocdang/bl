@@ -10,6 +10,7 @@ public class GlobalConstants {
 	public static String BROWSER_LOG_FOLDER=ROOT_FOLDER+"\\browserLog";
 	public static String DOWNLOAD_FOLDER=ROOT_FOLDER+"\\bdownloadFiles";
 	public static String UPLOAD_FOLDER=ROOT_FOLDER+"\\uploadFiles\\";
+	public static String TEST_DATA_EXCEL_FILE_NAME="datatest.xlsx";
 	
 	
 	//protected static Log log;

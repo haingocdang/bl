@@ -37,8 +37,8 @@ public class LoginPageSteps {
 		loginPage.inputUserPassword(password);
 	}
 
-	@When("^I click Login buttin$")
-	public void iClickLoginButtin() {
+	@When("^I click Login button$")
+	public void iClickLoginButton() {
 		loginPage.clickDangNhapButton();
 	}
 
