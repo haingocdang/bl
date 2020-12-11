@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>4.2.2</version>
+			<version>3.0.0</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -74,13 +74,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.jetbrains</groupId>
-			<artifactId>annotations</artifactId>
-			<version>RELEASE</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 			<version>4.1.2</version>
@@ -91,8 +84,14 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>4.1.2</version>
 		</dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-core</artifactId>
+            <version>1.2.6</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>
@@ -115,7 +114,7 @@
 				<version>2.18.1</version>
 				<configuration>
 					<includes>
-						<include>**/*/UserTestRunner.java</include>
+						<include>**/*/BankGuruTestRunner.java</include>
 					</includes>
 				</configuration>
 			</plugin>

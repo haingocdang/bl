@@ -2,11 +2,13 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.alpaca.DanhSachChucNangPageObject;
-import pageObjects.alpaca.DanhSachNguoiDungPageObject;
-import pageObjects.alpaca.LoginPageObject;
-import pageObjects.alpaca.TaoChucNangPageObject;
-import pageObjects.alpaca.TaoNguoiDungPageObject;
+import pageObjects.jupiter.DanhSachBanChaoPageObject;
+import pageObjects.jupiter.TaoBanChaoPageObject;
+import pageObjects.mercury.DanhSachChucNangPageObject;
+import pageObjects.mercury.DanhSachNguoiDungPageObject;
+import pageObjects.mercury.LoginPageObject;
+import pageObjects.mercury.TaoChucNangPageObject;
+import pageObjects.mercury.TaoNguoiDungPageObject;
 
 public class PageGeneratorManager {
 
@@ -30,4 +32,11 @@ public class PageGeneratorManager {
 		return new DanhSachChucNangPageObject(driver);
 	}
 
+	public static DanhSachBanChaoPageObject getDanhSachBanChaoPage(WebDriver driver) {
+		return new DanhSachBanChaoPageObject(driver);
+	}
+
+	public static TaoBanChaoPageObject getTaoBanChaoPage(WebDriver driver) {
+		return new TaoBanChaoPageObject(driver);
+	}
 }

@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import cucumber.api.Scenario;
-import cucumber.api.java.Before;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 
@@ -18,16 +15,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOption.Hooks;
-import pageObjects.alpaca.DanhSachChucNangPageObject;
-import pageObjects.alpaca.DanhSachNguoiDungPageObject;
-import pageObjects.alpaca.LoginPageObject;
-import pageObjects.alpaca.TaoChucNangPageObject;
-import pageUIs.alpaca.AbstracPageUI;
+import pageObjects.mercury.DanhSachChucNangPageObject;
+import pageObjects.mercury.DanhSachNguoiDungPageObject;
+import pageObjects.mercury.LoginPageObject;
+import pageObjects.mercury.TaoChucNangPageObject;
 import utils.excelutils.ExcelReader;
 import utils.excelutils.ExcelUtil;
 
 public class TaoChucNangSteps {
-
     WebDriver driver;
     VerifyHelper verify;
     ExcelUtil excel;
@@ -111,7 +106,7 @@ public class TaoChucNangSteps {
         ExcelReader externalData = new ExcelReader();
         List<Map<String, String>> testData = new ArrayList<Map<String, String>>();
         try {
-            testData = externalData.getData(System.getProperty("user.dir") + "/src/test/resources/datatest/TenChucNang.xlsx", "TenChucNang");
+            testData = externalData.getData(System.getProperty("user.dir") + "/src/test/resources/datatest/datatest.xlsx", "Ô tô");
         } catch (InvalidFormatException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -120,17 +115,19 @@ public class TaoChucNangSteps {
             e.printStackTrace();
         }
         for (Map<String, String> value : testData) {
-            if (value.get("Tên chức năng").equals("")) {
+            if (value.get("Trường thông tin").equals("")) {
                 break;
             }
-            danhSachChucNangPage.clickTaoMoiButton(driver);
+            System.out.println(value.get("Trường thông tin"));
+            System.out.println(value.get("Bắt buộc?"));
+           /* danhSachChucNangPage.clickTaoMoiButton(driver);
             taoChucNangPage = PageGeneratorManager.getTaoChucNangPage(driver);
             taoChucNangPage.nhapTenChucNang(value.get("Tên chức năng"));
             taoChucNangPage.clickTaoButton(driver);
             danhSachChucNangPage = PageGeneratorManager.getDanhSachChucNangPage(driver);
             verify.verifyTrue(danhSachChucNangPage.checkToastMessage(driver, message));
             verify.verifyTrue(danhSachChucNangPage.checkValueInList(driver, "Tên chức năng", value.get("Tên chức năng")));
-            verify.verifyTrue(danhSachChucNangPage.verifyTrangThai(value.get("Tên chức năng"), trangthai));
+            verify.verifyTrue(danhSachChucNangPage.verifyTrangThai(value.get("Tên chức năng"), trangthai));*/
         }
     }
 	

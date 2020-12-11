@@ -2,8 +2,6 @@ package cucumberOption;
 
 import java.util.concurrent.TimeUnit;
 
-import commons.PageGeneratorManager;
-import cucumber.api.java.After;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -14,11 +12,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 
-import commons.GlobalConstants;
 import cucumber.api.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pageObjects.alpaca.LoginPageObject;
-import utils.excelutils.ExcelUtil;
 
 public class Hooks {
     // Run for many thread
@@ -48,7 +43,8 @@ public class Hooks {
 
                 switch (browser) {
                     case "chrome":
-                        WebDriverManager.chromedriver().setup();
+                        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/browserDriver/chromedriver.exe");
+                        //WebDriverManager.chromedriver().setup();
                         driver = new ChromeDriver();
                         break;
                     case "hchrome":
@@ -93,14 +89,15 @@ public class Hooks {
                 Runtime.getRuntime().addShutdownHook(new Thread(new BrowserCleanup()));
             }
 
-            driver.get(GlobalConstants.LOGIN_TEST_ENV_URL);
-            LoginPageObject loginPage;
-            loginPage= PageGeneratorManager.getLoginPage(driver);
-            loginPage.inputUserName("TEST");
-            loginPage.inputUserPassword("12341234");
-            loginPage.clickDangNhapButton();
+            //driver.get(GlobalConstants.MERCURY_LOGIN_TEST_ENV_URL);
+//            driver.get(GlobalConstants.MERCURY_LOGIN_TEST_ENV_URL);
+//            LoginPageObject loginPage;
+//            loginPage= PageGeneratorManager.getLoginPage(driver);
+//            loginPage.inputUserName("TEST");
+//            loginPage.inputUserPassword("12341234");
+//            loginPage.clickDangNhapButton();
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
+//            driver.manage().window().maximize();
             log.info("------------- Started the browser -------------");
         }
         return driver;
@@ -152,7 +149,7 @@ public class Hooks {
         @Override
         public void run() {
             //close();
-            closeBrowserAndDriver();
+           // closeBrowserAndDriver();
         }
     }
 

@@ -3,7 +3,7 @@ package user.stepDefinations;
 import org.openqa.selenium.WebDriver;
 
 import commons.PageGeneratorManager;
-import pageObjects.alpaca.LoginPageObject;
+import pageObjects.mercury.LoginPageObject;
 import commons.VerifyHelper;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
