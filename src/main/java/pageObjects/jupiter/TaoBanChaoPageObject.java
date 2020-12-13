@@ -1,12 +1,20 @@
 package pageObjects.jupiter;
 
 import commons.AbstractPage;
+import commons.GlobalConstants;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageUIs.alpaca.AbstracPageUI;
+import cucumber.api.DataTable;
 
-import java.util.*;
+
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
 public class TaoBanChaoPageObject extends AbstractPage {
@@ -17,23 +25,25 @@ public class TaoBanChaoPageObject extends AbstractPage {
 		this.driver=driver;
 	}
 	
-	public void chonGiaTri(String tenSelectBox, String giaTri){
+	/*public void chonGiaTri(String tenSelectBox, String giaTri){
 		waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
 		selectItemInCustomDropdown(driver,AbstracPageUI.COMMON_PARENT_SELECTBOX, AbstracPageUI.COMMON_CHILD_SELECTBOX, giaTri,tenSelectBox);
 	}
 
-	public ArrayList<String> getAllGiaTriTrongSelectBox(String tenSelectBox){
+	public ArrayList<String> getAllGiaTriTrongSelectBox(String tenSelectBox ){
 		waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
 		clickToElement(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX,tenSelectBox);
 		List<WebElement> optionLists=finds(driver,AbstracPageUI.COMMON_CHILD_SELECTBOX);
 		ArrayList<String> optionValue=new ArrayList<String>();
 		for(WebElement option:optionLists){
-			jsExecutor = (JavascriptExecutor) driver;
-			jsExecutor.executeScript("arguments[0].scrollIntoView(true);", option);
+			*//*jsExecutor = (JavascriptExecutor) driver;
+			jsExecutor.executeScript("arguments[0].scrollIntoView(true);", option);*//*
 			optionValue.add(option.getText());
-			//System.out.println("Option UI: "+ optionValue);
 		}
-		//Collections.sort(optionValue);
+
+		waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
+		clickToElement(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX,tenSelectBox);
 		return optionValue;
-	}
+	}*/
+
 }

@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/com/beust/jcommander/1.48/jcommander-1.48-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/src/test/java" />
     </SOURCES>
   </library>
 </component>

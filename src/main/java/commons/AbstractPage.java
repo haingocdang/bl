@@ -224,7 +224,7 @@ public abstract class AbstractPage {
 
     public void selectItemInCustomDropdown(WebDriver driver, String parentLocator, String childItemLocator,
                                            String expectedItem, String... parentName) {
-        parentLocator=castToObject(parentLocator,parentName);
+        parentLocator = castToObject(parentLocator, parentName);
         clickToElement(driver, parentLocator);
         sleepInSecond(1);
         explicitWait = new WebDriverWait(driver, longTimeOut);
@@ -253,6 +253,7 @@ public abstract class AbstractPage {
     public String getElementAttribute(WebDriver driver, String xpathValue, String attributeName) {
         return find(driver, xpathValue).getAttribute(attributeName);
     }
+
 
     public String getElementAttribute(WebDriver driver, String xpathValue, String attributeName, String... values) {
         xpathValue = castToObject(xpathValue, values);
@@ -828,6 +829,7 @@ public abstract class AbstractPage {
     }
 
     public void goToPage(WebDriver driver, String pageName) {
+        sleepInSecond(1);
         waitElementClickable(driver, AbstracPageUI.MAIN_MENU);
         clickToElement(driver, AbstracPageUI.MAIN_MENU);
         waitElementClickable(driver, AbstracPageUI.FUNCTION_MENU, pageName);
@@ -843,6 +845,32 @@ public abstract class AbstractPage {
         waitElementVisible(driver, AbstracPageUI.TOAST_MESSAGE, message);
         //sleepInSecond(1);
         return checkTrue(isElementDisplay(driver, AbstracPageUI.TOAST_MESSAGE, message));
+    }
+
+    public String getGiaTriTextBox(WebDriver driver, String textboxLocator, String tenTextBox) {
+        waitElementVisible(driver,textboxLocator,tenTextBox);
+        return getElementAttribute(driver,textboxLocator,"value", tenTextBox);
+    }
+
+    public ArrayList<String> getAllGiaTriTrongSelectBox(WebDriver driver,String tenSelectBox ){
+        waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
+        clickToElement(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX,tenSelectBox);
+        List<WebElement> optionLists=finds(driver,AbstracPageUI.COMMON_CHILD_SELECTBOX);
+        ArrayList<String> optionValue=new ArrayList<String>();
+        for(WebElement option:optionLists){
+			/*jsExecutor = (JavascriptExecutor) driver;
+			jsExecutor.executeScript("arguments[0].scrollIntoView(true);", option);*/
+            optionValue.add(option.getText());
+        }
+
+        waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
+        clickToElement(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX,tenSelectBox);
+        return optionValue;
+    }
+
+    public void chonGiaTri(WebDriver driver,String tenSelectBox, String giaTri){
+        waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
+        selectItemInCustomDropdown(driver,AbstracPageUI.COMMON_PARENT_SELECTBOX, AbstracPageUI.COMMON_CHILD_SELECTBOX, giaTri,tenSelectBox);
     }
 
     Log log;

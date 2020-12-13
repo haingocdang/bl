@@ -2,7 +2,7 @@
 Feature: Tạo mới bản chào đơn - thông tin chung
 
 ########################################### Scenario 1 ###########################################
-	Scenario: Data display correctly in Thong Tin Chung section
+	Scenario: Data display correctly in Thong Tin Chung section of Xe Ô Tô
 		Given I launch and login Jupiter page
 		And I open "Bản chào" page
 		When I click Tạo Mới button
@@ -23,23 +23,22 @@ Feature: Tạo mới bản chào đơn - thông tin chung
 
 ########################################################
 
-		And "Hiệu xe" display correct value <Hiệu Xe> from PB and "Dòng xe" display correct value <Dòng Xe> from PB after selecting "Hãng xe" with value <Hãng Xe>
-			| Hãng Xe | Hiệu Xe | Dòng Xe |
-
+		And "Hiệu xe" display correct value <Hiệu Xe> from PB after selecting "Hãng xe" with value <Hãng Xe>
+		| Hãng Xe |
 
 ########################################################
 
-		And "Nhóm xe" display correct value <Nhóm Xe> from PB and "Mục đích sử dụng" display correct value <Mục Đích Sử Dụng> and "Dòng xe" display correct value <Dòng Xe> and "Số chỗ ngồi" dipsplay correct value <Số Chỗ Ngồi> and "Trọng tải" display correct value <Trọng Tải> after selecting "Hãng xe" with value <Hãng Xe> and "Hiệu xe" with value <Hiệu Xe>
+		And "Nhóm xe" display correct value <Nhóm Xe> from PB and "Mục đích sử dụng" display correct value <Mục Đích Sử Dụng> and "Dòng xe" display correct value <Dòng Xe> and "Số chỗ" dipsplay correct value <Số Chỗ Ngồi> and "Trọng tải" display correct value <Trọng Tải> after selecting "Hãng xe" with value <Hãng Xe> and "Hiệu xe" with value <Hiệu Xe>
 			| Hãng Xe | Hiệu Xe | Nhóm Xe | Mục Đích Sử Dụng | Dòng Xe | Số Chỗ Ngồi | Trọng Tải |
 
 ########################################################
 
-		And "Loại xe" correct value <Loại Xe> after seleting <Hãng Xe> from "Hãng xe" and <Hiệu Xe> from "Hiệu xe" and <Nhóm Xe> from "Nhóm xe" and <Mục Đích Sử Dụng> from "Mục đích sử dụng"
+		And "Loại xe" display correct value <Loại Xe> and "Nhóm xe" display correct value <Nhóm Xe> after seleting <Hãng Xe> from "Hãng xe" and <Hiệu Xe> from "Hiệu xe" and <Mục Đích Sử Dụng> from "Mục đích sử dụng"
 			| Hãng Xe | Hiệu Xe | Nhóm Xe | Mục Đích Sử Dụng | Loại Xe |
 
 
 ########################################################
 
-		Then Giá Trị Xe display correct value <Giá Trị Xe Đề Xuất> after selecting "Hãng Xe" with value <Hãng Xe> and "Hiệu Xe" with value <Hiệu Xe> and "Năm Sản Xuất" with value <Năm Sản Xuất>
+		Then "Giá trị xe đề xuất" display correct value <Giá Trị Xe Đề Xuất> after selecting "Hãng xe" with value <Hãng Xe> and "Hiệu xe" with value <Hiệu Xe> and "Năm sản xuất" with value <Năm Sản Xuất>
 			| Hãng Xe | Hiệu Xe | Năm Sản Xuất | Giá Trị Xe Đề Xuất |
 
