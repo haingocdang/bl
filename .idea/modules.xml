@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/maven-cucumber-nopommerce.iml" filepath="$PROJECT_DIR$/maven-cucumber-nopommerce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alpaca-automation.iml" filepath="$PROJECT_DIR$/alpaca-automation.iml" />
     </modules>
   </component>
 </project>

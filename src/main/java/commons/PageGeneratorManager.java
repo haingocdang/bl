@@ -12,31 +12,36 @@ import pageObjects.mercury.TaoNguoiDungPageObject;
 
 public class PageGeneratorManager {
 
-	public static LoginPageObject getLoginPage(WebDriver driver) {
-		return new LoginPageObject(driver);
-	}
-	
-	public static TaoNguoiDungPageObject getTaoNguoiDungPage(WebDriver driver) {
-		return new TaoNguoiDungPageObject(driver);
-	}
-	
-	public static TaoChucNangPageObject getTaoChucNangPage (WebDriver driver) {
-		return new TaoChucNangPageObject(driver);
-	}
+    public static LoginPageObject getLoginPage(WebDriver driver) {
 
-	public static DanhSachNguoiDungPageObject getDanhSachNguoiDungPage (WebDriver driver) {
-		return new DanhSachNguoiDungPageObject(driver);
-	}
-	
-	public static DanhSachChucNangPageObject getDanhSachChucNangPage (WebDriver driver) {
-		return new DanhSachChucNangPageObject(driver);
-	}
+    	return new LoginPageObject(driver);
+    }
 
-	public static DanhSachBanChaoPageObject getDanhSachBanChaoPage(WebDriver driver) {
-		return new DanhSachBanChaoPageObject(driver);
-	}
+    public static TaoNguoiDungPageObject getTaoNguoiDungPage(WebDriver driver) {
+        return new TaoNguoiDungPageObject(driver);
+    }
 
-	public static TaoBanChaoPageObject getTaoBanChaoPage(WebDriver driver) {
-		return new TaoBanChaoPageObject(driver);
-	}
+    public static TaoChucNangPageObject getTaoChucNangPage(WebDriver driver) {
+        return new TaoChucNangPageObject(driver);
+    }
+
+    public static DanhSachNguoiDungPageObject getDanhSachNguoiDungPage(WebDriver driver) {
+        return new DanhSachNguoiDungPageObject(driver);
+    }
+
+    public static DanhSachChucNangPageObject getDanhSachChucNangPage(WebDriver driver) {
+        return new DanhSachChucNangPageObject(driver);
+    }
+
+    public static DanhSachBanChaoPageObject getDanhSachBanChaoPage(WebDriver driver) {
+        return new DanhSachBanChaoPageObject(driver);
+    }
+
+    public static TaoBanChaoPageObject getTaoBanChaoPage(WebDriver driver) {
+        return new TaoBanChaoPageObject(driver);
+    }
+
+    public static CommonPageObjects getCommonPage(WebDriver driver) {
+        return new CommonPageObjects();
+    }
 }

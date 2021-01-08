@@ -13,14 +13,14 @@ import utils.excelutils.FeatureOverright;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/chucnang",
-        glue = "chucNang.stepDefinations",
-        monochrome = true,
+        glue = "stepDefinations",
+        monochrome=true,
         dryRun = false,
         plugin= {"pretty",
-        "html:target/site/cucumber-report-default",
-        "json:target/site/cucumber.json"},
+                "html:target/site/cucumber-report-default",
+                "json:target/site/cucumber.json"},
         snippets = SnippetType.CAMELCASE,
-        tags = {"@Tao_Chuc_Nang"})
+        tags = {"@Vo_Hieu_Chuc_Nang"})
 public class MercuryTestRunner {
     /*
      * @Before public static void test() throws InvalidFormatException, IOException

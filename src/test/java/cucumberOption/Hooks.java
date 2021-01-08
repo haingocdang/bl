@@ -18,7 +18,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Hooks {
     // Run for many thread
     private static WebDriver driver;
-    private static final Logger log = Logger.getLogger(Hooks.class.getName());
+    public static final Logger log = Logger.getLogger(Hooks.class.getName());
 
     @Before // synchronized = handle đồng bộ
     public synchronized static WebDriver openAndQuitBrowser() {

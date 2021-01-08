@@ -2,7 +2,6 @@ package pageObjects.jupiter;
 
 import commons.AbstractPage;
 import org.openqa.selenium.WebDriver;
-import pageUIs.alpaca.AbstracPageUI;
 
 
 public class DanhSachBanChaoPageObject extends AbstractPage {

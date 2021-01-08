@@ -1,23 +1,14 @@
 package pageObjects.jupiter;
 
 import commons.AbstractPage;
-import commons.GlobalConstants;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import commons.CommonPageObjects;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import pageUIs.alpaca.AbstracPageUI;
-import cucumber.api.DataTable;
+import pageUIs.alpaca.CommonPageUI;
+import pageUIs.alpaca.jupiter.TaoBanChaoPageUI;
 
 
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-
-public class TaoBanChaoPageObject extends AbstractPage {
+public class TaoBanChaoPageObject extends CommonPageObjects {
 	WebDriver driver;
 	private JavascriptExecutor jsExecutor;
 
@@ -45,5 +36,15 @@ public class TaoBanChaoPageObject extends AbstractPage {
 		clickToElement(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX,tenSelectBox);
 		return optionValue;
 	}*/
+
+	public void clickAddDoiTuongNhomButton(){
+		waitElementClickable(driver, TaoBanChaoPageUI.ADD_DOI_TUONG_NHOM_BUTTON);
+		clickToElement(driver,TaoBanChaoPageUI.ADD_DOI_TUONG_NHOM_BUTTON);
+	}
+
+	public void chonPhamViBH(String phamViBH){
+		waitElementClickable(driver, CommonPageUI.PHAM_VI_BH_CHECKBOX,phamViBH);
+		clickToElement(driver, CommonPageUI.PHAM_VI_BH_CHECKBOX,phamViBH);
+	}
 
 }

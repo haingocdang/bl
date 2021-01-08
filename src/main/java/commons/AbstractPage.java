@@ -2,15 +2,15 @@ package commons;
 
 //import java.sql.Driver;
 
-import java.util.ArrayList;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 //import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 //import org.apache.commons.logging.LogFactory;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -24,11 +24,9 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.Reporter;
+
 
 import pageUIs.alpaca.*;
-import commons.Logger;
 
 
 public abstract class AbstractPage {
@@ -175,6 +173,13 @@ public abstract class AbstractPage {
         element.sendKeys(value);
     }
 
+    public void clearValueInField(WebDriver driver, String xpathValue, String... elementName) {
+        xpathValue = castToObject(xpathValue, elementName);
+        element = find(driver, xpathValue);
+        element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        element.sendKeys(Keys.DELETE);
+    }
+
     public WebElement find(WebDriver driver, String xpathValue) {
         return driver.findElement(byXpath(xpathValue));
     }
@@ -188,6 +193,12 @@ public abstract class AbstractPage {
     }
 
     public void selectItemInDropDown(WebDriver driver, String xpathValue, String itemValue) {
+        select = new Select(find(driver, xpathValue));
+        select.selectByVisibleText(itemValue);
+    }
+
+    public void selectItemInDropDown(WebDriver driver, String xpathValue, String itemValue, String ...values) {
+        xpathValue=castToObject(xpathValue,values);
         select = new Select(find(driver, xpathValue));
         select.selectByVisibleText(itemValue);
     }
@@ -257,6 +268,7 @@ public abstract class AbstractPage {
 
     public String getElementAttribute(WebDriver driver, String xpathValue, String attributeName, String... values) {
         xpathValue = castToObject(xpathValue, values);
+      
         return find(driver, xpathValue).getAttribute(attributeName);
     }
 
@@ -266,7 +278,16 @@ public abstract class AbstractPage {
 
     public String getElementText(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToObject(xpathValue, values);
+        /*jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);");*/
         return find(driver, xpathValue).getText();
+    }
+
+    public String getElementTextByJS(WebDriver driver, String cssLocator, String... values) {
+        cssLocator = castToObject(cssLocator, values);
+        jsExecutor = (JavascriptExecutor) driver;
+
+        return (String) jsExecutor.executeScript( "return $('"+ cssLocator+"').text()");
     }
 
     public int countElementNumber(WebDriver driver, String xpathValue) {
@@ -395,8 +416,8 @@ public abstract class AbstractPage {
         action.sendKeys(find(driver, xpathValue), key).perform();
     }
 
-    public void sendKeyBoardToElement(WebDriver driver, String xpathValue, Keys key, String... columnName) {
-        xpathValue = castToObject(xpathValue, columnName);
+    public void sendKeyBoardToElement(WebDriver driver, String xpathValue, Keys key, String... tenField) {
+        xpathValue = castToObject(xpathValue, tenField);
         action = new Actions(driver);
         find(driver, xpathValue).clear();
         action.sendKeys(find(driver, xpathValue), key).perform();
@@ -617,8 +638,7 @@ public abstract class AbstractPage {
             pass = false;
 
             // Add lỗi vào ReportNG
-            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-            Reporter.getCurrentTestResult().setThrowable(e);
+
         }
         return pass;
     }
@@ -634,8 +654,7 @@ public abstract class AbstractPage {
             Assert.assertFalse(condition);
         } catch (Throwable e) {
             pass = false;
-            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-            Reporter.getCurrentTestResult().setThrowable(e);
+
         }
         return pass;
     }
@@ -648,8 +667,7 @@ public abstract class AbstractPage {
         } catch (Throwable e) {
             pass = false;
             log.info(" -------------------------- FAILED -------------------------- ");
-            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
-            Reporter.getCurrentTestResult().setThrowable(e);
+
         }
         return pass;
     }
@@ -813,65 +831,41 @@ public abstract class AbstractPage {
         return sortedList.equals(arrayList);
     }
 
-    public void clickTaoButton(WebDriver driver) {
-        waitElementClickable(driver, AbstracPageUI.TAO_BUTTON);
-        clickToElement(driver, AbstracPageUI.TAO_BUTTON);
+    public String getCurrentDateTime(WebDriver driver){
+        // Create object of SimpleDateFormat class and decide the format
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+        //get current date time with Date()
+        Date date = new Date();
+
+        // Now format the date
+        String date1= dateFormat.format(date);
+
+        return date1;
     }
 
-    public void clickTaoMoiButton(WebDriver driver) {
-        waitElementClickable(driver, AbstracPageUI.TAO_MOI_BUTTON);
-        clickToElement(driver, AbstracPageUI.TAO_MOI_BUTTON);
+    public String getDateTimeInTheFuture(WebDriver driver, String amount){
+        // Create object of SimpleDateFormat class and decide the format
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+
+        //get current date time with Date()
+        Date date = new Date();
+
+        // Convert Date to Calendar
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+
+        c.add(Calendar.MINUTE, Integer.parseInt(amount) );
+
+        // Convert calendar back to Date
+        date = c.getTime();
+
+        // Now format the date
+        String date1= dateFormat.format(date);
+
+        return date1;
     }
 
-    public void clickHuyButton(WebDriver driver) {
-        waitElementClickable(driver, AbstracPageUI.HUY_BUTTON);
-        clickToElement(driver, AbstracPageUI.HUY_BUTTON);
-    }
-
-    public void goToPage(WebDriver driver, String pageName) {
-        sleepInSecond(1);
-        waitElementClickable(driver, AbstracPageUI.MAIN_MENU);
-        clickToElement(driver, AbstracPageUI.MAIN_MENU);
-        waitElementClickable(driver, AbstracPageUI.FUNCTION_MENU, pageName);
-        clickToElement(driver, AbstracPageUI.FUNCTION_MENU, pageName);
-    }
-
-    public boolean checkValueInList(WebDriver driver, String tenCot, String value) {
-        waitElementVisible(driver, AbstracPageUI.VALUE_TEXTBOX, tenCot, value);
-        return checkTrue(isElementDisplay(driver, AbstracPageUI.VALUE_TEXTBOX, tenCot, value));
-    }
-
-    public boolean checkToastMessage(WebDriver driver, String message) {
-        waitElementVisible(driver, AbstracPageUI.TOAST_MESSAGE, message);
-        //sleepInSecond(1);
-        return checkTrue(isElementDisplay(driver, AbstracPageUI.TOAST_MESSAGE, message));
-    }
-
-    public String getGiaTriTextBox(WebDriver driver, String textboxLocator, String tenTextBox) {
-        waitElementVisible(driver,textboxLocator,tenTextBox);
-        return getElementAttribute(driver,textboxLocator,"value", tenTextBox);
-    }
-
-    public ArrayList<String> getAllGiaTriTrongSelectBox(WebDriver driver,String tenSelectBox ){
-        waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
-        clickToElement(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX,tenSelectBox);
-        List<WebElement> optionLists=finds(driver,AbstracPageUI.COMMON_CHILD_SELECTBOX);
-        ArrayList<String> optionValue=new ArrayList<String>();
-        for(WebElement option:optionLists){
-			/*jsExecutor = (JavascriptExecutor) driver;
-			jsExecutor.executeScript("arguments[0].scrollIntoView(true);", option);*/
-            optionValue.add(option.getText());
-        }
-
-        waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
-        clickToElement(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX,tenSelectBox);
-        return optionValue;
-    }
-
-    public void chonGiaTri(WebDriver driver,String tenSelectBox, String giaTri){
-        waitElementVisible(driver, AbstracPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
-        selectItemInCustomDropdown(driver,AbstracPageUI.COMMON_PARENT_SELECTBOX, AbstracPageUI.COMMON_CHILD_SELECTBOX, giaTri,tenSelectBox);
-    }
 
     Log log;
     private Keys key;

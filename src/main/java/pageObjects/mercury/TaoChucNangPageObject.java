@@ -3,7 +3,7 @@ package pageObjects.mercury;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import pageUIs.alpaca.TaoChucNangPageUI;
+import pageUIs.alpaca.mercury.TaoChucNangPageUI;
 
 
 public class TaoChucNangPageObject extends AbstractPage {

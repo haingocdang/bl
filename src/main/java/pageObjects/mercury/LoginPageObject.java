@@ -3,7 +3,7 @@ package pageObjects.mercury;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import pageUIs.alpaca.LoginPageUI;
+import pageUIs.alpaca.mercury.LoginPageUI;
 
 public class LoginPageObject extends AbstractPage {
 	WebDriver driver;
@@ -25,6 +25,7 @@ public class LoginPageObject extends AbstractPage {
 	public void clickDangNhapButton() {
 		waitElementVisible(driver, LoginPageUI.DANG_NHAP_BUTTON);
 		clickToElement(driver, LoginPageUI.DANG_NHAP_BUTTON);
+		sleepInSecond(2);
 	}
 	
 	public String getBlankErrorMessageAtUsernameField() {

@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 	features="src/test/resources/banchao",
-	glue="banChaoDon.stepDefinations",
+	glue="stepDefinations",
 	monochrome=true,
 	dryRun = false,
 	plugin= {"pretty",

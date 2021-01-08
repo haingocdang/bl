@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.PageGeneratorManager;
 import pageObjects.mercury.TaoNguoiDungPageObject;
-import pageUIs.alpaca.AbstracPageUI;
+import pageUIs.alpaca.CommonPageUI;
 import commons.VerifyHelper;
 import cucumber.api.java.en.When;
 import cucumberOption.Hooks;
@@ -21,11 +21,11 @@ public class TaoNguoiDungSteps {
 		taoNguoiDungPage = PageGeneratorManager.getTaoNguoiDungPage(driver);
 	}
 
-	@When("^I click to Tao Moi button$")
+	/*@When("^I click to Tao Moi button$")
 	public void iClickToTaoMoiButton() {
-		taoNguoiDungPage.clickToElement(driver, AbstracPageUI.TAO_MOI_BUTTON);
+		taoNguoiDungPage.clickToElement(driver, CommonPageUI.TAO_MOI_BUTTON);
 
-	}
+	}*/
 
 	@When("^I input Ten Dang Nhap with value \"([^\"]*)\"$")
 	public void iInputTenDangNhapWithValue(String tenDangNhap) {
