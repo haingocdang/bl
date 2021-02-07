@@ -24,12 +24,12 @@ public class ExcelReader {
         return readSheet(sheet);
     }
 
-    private Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
+    public Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
         Sheet sheet = getWorkBook(excelFilePath).getSheet(sheetName);
         return sheet;
     }
 
-    private Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws IOException, InvalidFormatException {
+    public Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws IOException, InvalidFormatException {
         Sheet sheet = getWorkBook(excelFilePath).getSheetAt(sheetNumber);
         return sheet;
     }
@@ -59,7 +59,7 @@ public class ExcelReader {
     }
 
 
-    private int getHeaderRowNumber(Sheet sheet) {
+    public int getHeaderRowNumber(Sheet sheet) {
         Row row;
         int totalRow = sheet.getLastRowNum();
         for (int currentRow = 0; currentRow <= totalRow + 1; currentRow++) {
@@ -86,11 +86,11 @@ public class ExcelReader {
         return (-1);
     }
 
-    private Row getRow(Sheet sheet, int rowNumber) {
+    public Row getRow(Sheet sheet, int rowNumber) {
         return sheet.getRow(rowNumber);
     }
 
-    private LinkedHashMap<String, String> getCellValue(Sheet sheet, Row row, int currentColumn) {
+    public LinkedHashMap<String, String> getCellValue(Sheet sheet, Row row, int currentColumn) {
         LinkedHashMap<String, String> columnMapdata = new LinkedHashMap<String, String>();
         DataFormatter formatter=new DataFormatter();
         Cell cell;
@@ -111,27 +111,31 @@ public class ExcelReader {
                 }
             } else if (cell.getCellType() == CellType.NUMERIC) {
                 if (sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex(), Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getCellType() != CellType.BLANK) {
-                    //String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
-                    String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
                     columnMapdata.put(columnHeaderName, NumberToTextConverter.toText(cell.getNumericCellValue()));
+                    /*String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    columnMapdata.put(columnHeaderName, NumberToTextConverter.toText(cell.getNumericCellValue()));*/
                 }
             } else if (cell.getCellType() == CellType.BLANK) {
                 if (sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex(), Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getCellType() != CellType.BLANK) {
-                   // String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
-                    String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
                     columnMapdata.put(columnHeaderName, "");
+                   /* String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    columnMapdata.put(columnHeaderName, "");*/
                 }
             } else if (cell.getCellType() == CellType.BOOLEAN) {
                 if (sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex(), Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getCellType() != CellType.BLANK) {
-                  //  String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
-                    String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
                     columnMapdata.put(columnHeaderName, Boolean.toString(cell.getBooleanCellValue()));
+                    /*String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    columnMapdata.put(columnHeaderName, Boolean.toString(cell.getBooleanCellValue()));*/
                 }
             } else if (cell.getCellType() == CellType.ERROR) {
                 if (sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex(), Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getCellType() != CellType.BLANK) {
-                   // String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
-                    String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    String columnHeaderName = sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()).getStringCellValue();
                     columnMapdata.put(columnHeaderName, Byte.toString(cell.getErrorCellValue()));
+                    /*String columnHeaderName=formatter.formatCellValue(sheet.getRow(sheet.getFirstRowNum()).getCell(cell.getColumnIndex()));
+                    columnMapdata.put(columnHeaderName, Byte.toString(cell.getErrorCellValue()));*/
                 }
             }
         }

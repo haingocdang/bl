@@ -3,7 +3,11 @@ package commons;
 //import java.sql.Driver;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Period;
+import java.time.temporal.Temporal;
 import java.util.*;
 //import java.util.Collection;
 import java.util.concurrent.TimeUnit;
@@ -24,9 +28,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import pageUIs.alpaca.*;
 
 
 public abstract class AbstractPage {
@@ -237,6 +238,7 @@ public abstract class AbstractPage {
                                            String expectedItem, String... parentName) {
         parentLocator = castToObject(parentLocator, parentName);
         clickToElement(driver, parentLocator);
+       // clickToElementByJS(driver, parentLocator);
         sleepInSecond(1);
         explicitWait = new WebDriverWait(driver, longTimeOut);
         explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(byXpath(childItemLocator)));
@@ -336,25 +338,25 @@ public abstract class AbstractPage {
 
     public boolean isElementNotDisplay(WebDriver driver, String xpathValue, String value) {
         /* System.out.println("Start Time:" +new Date().toString()); */
-        ovrideGlobalTimeOut(driver, shortTimeOut);
+        overideGlobalTimeOut(driver, shortTimeOut);
         elements = finds(driver, xpathValue);
         if (elements.size() == 0) {
             /*
              * System.out.println("Element not in DOM"); System.out.println("End Time:" +new
              * Date().toString());
              */
-            ovrideGlobalTimeOut(driver, longTimeOut);
+            overideGlobalTimeOut(driver, longTimeOut);
             return true;
         } else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
             /*
-             * System.out.println("Element not in DOM but is not visible/displayed ");
+             * System.out.println("Element in DOM but is not visible/displayed ");
              * System.out.println("End Time:" +new Date().toString());
              */
-            ovrideGlobalTimeOut(driver, longTimeOut);
+            overideGlobalTimeOut(driver, longTimeOut);
             return true;
         } else {
             /* System.out.println("Element in DOM and is visible/displayed "); */
-            ovrideGlobalTimeOut(driver, longTimeOut);
+            overideGlobalTimeOut(driver, longTimeOut);
             return false;
         }
 
@@ -364,31 +366,36 @@ public abstract class AbstractPage {
         xpathValue = castToObject(xpathValue, values);
 
         /* System.out.println("Start Time:" +new Date().toString()); */
-        ovrideGlobalTimeOut(driver, shortTimeOut);
+        overideGlobalTimeOut(driver, shortTimeOut);
         elements = finds(driver, xpathValue);
         if (elements.size() == 0) {
             /*
              * System.out.println("Element not in DOM"); System.out.println("End Time:" +new
              * Date().toString());
              */
-            ovrideGlobalTimeOut(driver, longTimeOut);
+            overideGlobalTimeOut(driver, longTimeOut);
             return true;
         } else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
             /*
-             * System.out.println("Element not in DOM but is not visible/displayed ");
+             * System.out.println("Element is in DOM but is not visible/displayed ");
              * System.out.println("End Time:" +new Date().toString());
              */
-            ovrideGlobalTimeOut(driver, longTimeOut);
+            overideGlobalTimeOut(driver, longTimeOut);
             return true;
         } else {
             /* System.out.println("Element in DOM and is visible/displayed "); */
-            ovrideGlobalTimeOut(driver, longTimeOut);
+            overideGlobalTimeOut(driver, longTimeOut);
             return false;
         }
 
     }
 
     public boolean isElementEnable(WebDriver driver, String xpathValue) {
+        return find(driver, xpathValue).isEnabled();
+    }
+
+    public boolean isElementEnable(WebDriver driver, String xpathValue, String ...values) {
+        xpathValue=castToObject(xpathValue,values);
         return find(driver, xpathValue).isEnabled();
     }
 
@@ -552,13 +559,13 @@ public abstract class AbstractPage {
 
     public void waitElementInVisible(WebDriver driver, String xpathValue) {
         // explicitWait = new WebDriverWait(driver, shortTimeOut);
-        ovrideGlobalTimeOut(driver, shortTimeOut);
+        overideGlobalTimeOut(driver, shortTimeOut);
         /*
          * System.out.println("Start time for wait invisible:"+new Date().toString());
          */
         explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(byXpath(xpathValue)));
         /* System.out.println("End time for wait invisible:"+new Date().toString()); */
-        ovrideGlobalTimeOut(driver, longTimeOut);
+        overideGlobalTimeOut(driver, longTimeOut);
         explicitWait = new WebDriverWait(driver, longTimeOut);
 
     }
@@ -572,17 +579,34 @@ public abstract class AbstractPage {
     public void waitElementInVisible(WebDriver driver, String xpathValue, String... values) {
         xpathValue = castToObject(xpathValue, values);
         // explicitWait = new WebDriverWait(driver, shortTimeOut);
-        ovrideGlobalTimeOut(driver, shortTimeOut);
+        overideGlobalTimeOut(driver, shortTimeOut);
         /*
          * System.out.println("Start time for wait invisible:"+new Date().toString());
          */
         explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(byXpath(xpathValue)));
         /* System.out.println("End time for wait invisible:"+new Date().toString()); */
-        ovrideGlobalTimeOut(driver, longTimeOut);
+        overideGlobalTimeOut(driver, longTimeOut);
     }
 
-    private void ovrideGlobalTimeOut(WebDriver driver, long timeout) {
+    private void overideGlobalTimeOut(WebDriver driver, long timeout) {
         driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
+
+    }
+
+    public void waitUntilDateTime(WebDriver driver,String dateTime){
+        Date dateTimeFuture=null;
+        try {
+            dateTimeFuture = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(dateTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //get current date time with Date()
+        Date dateTimeCurrent = new Date();
+        long diff= dateTimeFuture.getTime()-dateTimeCurrent.getTime();
+        System.out.println("Time out"+diff);
+        overideGlobalTimeOut(driver, (diff/1000)+2);
+        elements = finds(driver, "//div[@class='No elements']");
+        overideGlobalTimeOut(driver, longTimeOut);
 
     }
 

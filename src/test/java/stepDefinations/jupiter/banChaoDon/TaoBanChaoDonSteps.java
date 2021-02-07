@@ -1,5 +1,6 @@
 package stepDefinations.jupiter.banChaoDon;
 
+import commons.CommonPageObjects;
 import commons.GlobalConstants;
 import cucumber.api.DataTable;
 import cucumber.api.PendingException;
@@ -7,13 +8,14 @@ import cucumber.api.java.en.And;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.assertj.core.api.SoftAssertions;
+
 import static org.assertj.core.api.Assertions.*;
+import static stepDefinations.common.stepDefinations.CommonPageSteps.commonPage;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.PageGeneratorManager;
 import pageObjects.jupiter.DanhSachBanChaoPageObject;
-import pageObjects.jupiter.TaoBanChaoPageObject;
 import pageObjects.mercury.LoginPageObject;
 import commons.VerifyHelper;
 import cucumber.api.java.en.Given;
@@ -26,6 +28,7 @@ import utils.excelutils.ExcelReader;
 import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +37,7 @@ public class TaoBanChaoDonSteps {
 
     WebDriver driver;
     VerifyHelper verify;
-    TaoBanChaoPageObject taoBanChaoPage;
+    CommonPageObjects commonPage;
     DanhSachBanChaoPageObject danhSachBanChaoPage;
     ExcelReader externalData;
     List<Map<String, String>> testData;
@@ -45,9 +48,9 @@ public class TaoBanChaoDonSteps {
     public TaoBanChaoDonSteps() {
         driver = Hooks.openAndQuitBrowser();
         verify = VerifyHelper.getData();
-        sa=new SoftAssertions();
+        sa = new SoftAssertions();
         //log= LogFactory.getLog(getClass());
-        taoBanChaoPage = PageGeneratorManager.getTaoBanChaoPage(driver);
+        commonPage = PageGeneratorManager.getCommonPage(driver);
     }
 
    /* @Given("^I launch and login Jupiter page$")
@@ -71,28 +74,28 @@ public class TaoBanChaoDonSteps {
 /*    @When("^I click Tạo Mới button$")
     public void iClickTaoMoiButton() {
         danhSachBanChaoPage.clickTaoMoiButton(driver);
-        taoBanChaoPage = PageGeneratorManager.getTaoBanChaoPage(driver);
+        commonPage = PageGeneratorManager.getcommonPage(driver);
 
     }*/
 
 /*    @When("^I select \"([^\"]*)\" drop down list with <Nhóm sản phẩm> value$")
     public void selectNhomSanPham(String tenField, DataTable nhomSanPhamDataTable) {
         for (Map<String, String> sanPham : nhomSanPhamDataTable.asMaps(String.class, String.class)) {
-            taoBanChaoPage.chonGiaTri(driver, tenField, sanPham.get("Nhóm sản phẩm"));
+            commonPage.chonGiaTri(driver, tenField, sanPham.get("Nhóm sản phẩm"));
         }
     }
 
     @When("^I select \"([^\"]*)\" drop down list with <Tên sản phẩm> value$")
     public void selectTenSanPham(String tenField, DataTable tenSanPhamDataTable) {
         for (Map<String, String> sanPham : tenSanPhamDataTable.asMaps(String.class, String.class)) {
-            taoBanChaoPage.chonGiaTri(driver, tenField, sanPham.get("Tên sản phẩm"));
+            commonPage.chonGiaTri(driver, tenField, sanPham.get("Tên sản phẩm"));
         }
     }*/
 
   /*  @When("^I select \"([^\"]*)\" drop down list with <Loại Bản Chào> value$")
     public void iSelectDropDownListWithLoạiBảnChàoValue(String tenField, DataTable loaiBanChaoDataTable) {
         for (Map<String, String> sanPham : loaiBanChaoDataTable.asMaps(String.class, String.class)) {
-            taoBanChaoPage.chonGiaTri(driver, tenField, sanPham.get("Loại Bản Chào"));
+            commonPage.chonGiaTri(driver, tenField, sanPham.get("Loại Bản Chào"));
         }
     }*/
 
@@ -107,10 +110,10 @@ public class TaoBanChaoDonSteps {
         testData = new ArrayList<Map<String, String>>();
         optionUIValues = new ArrayList<>();
         dataTableValues = new ArrayList<>();
-        optionUIValues = taoBanChaoPage.getAllGiaTriTrongSelectBox(driver, tenDropdown);
+        optionUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, tenDropdown);
 
         try {
-            testData = externalData.getData(GlobalConstants.TEST_DATA_CSV_FILE_NAME, "HangXe_OTo");
+            testData = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "HangXe_OTo");
         } catch (InvalidFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -127,7 +130,7 @@ public class TaoBanChaoDonSteps {
         //log.info("Datatable in step 2" + dataTableValues);
 
         //verify.verifyTrue(dataTableValues.equals(optionUIValues));
-        Assert.assertEquals(dataTableValues,optionUIValues);
+        Assert.assertEquals(dataTableValues, optionUIValues);
         //sa.assertThat(dataTableValues).isEqualTo(optionUIValues);
         //Assert.assertTrue("Does not equal",dataTableValues.equals(optionUIValues));
 
@@ -141,13 +144,13 @@ public class TaoBanChaoDonSteps {
 
     @Then("^\"([^\"]*)\" display correct value <Hiệu Xe> from PB after selecting \"([^\"]*)\" with value <Hãng Xe>$")
     public void checkHieuXeValues(String hieuXe, String hangXeSelectbox, DataTable hangHieuXeDataTable) {
-       /* externalData = new ExcelReader();
+        externalData = new ExcelReader();
         List<Map<String, String>> hangHieuXe, hangXe;
         hangXe = new ArrayList<Map<String, String>>();
         hangHieuXe = new ArrayList<Map<String, String>>();
         try {
-            hangXe = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME1, "HangXe_OTo");
-            hangHieuXe = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME1, "Hang_HieuXe_OTo");
+            hangXe = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "HangXe_OTo");
+            hangHieuXe = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "Hang_HieuXe_OTo");
         } catch (InvalidFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -158,10 +161,10 @@ public class TaoBanChaoDonSteps {
             if (hangXeValue.get("Hãng Xe").equals("")) {
                 break;
             }
-            taoBanChaoPage.chonGiaTri(driver, hangXeSelectbox, hangXeValue.get("Hãng Xe"));
+            commonPage.chonGiaTri(driver, hangXeSelectbox, hangXeValue.get("Hãng Xe"));
             optionUIValues = new ArrayList<>();
             dataTableValues = new ArrayList<>();
-            optionUIValues = taoBanChaoPage.getAllGiaTriTrongSelectBox(driver, hieuXe);
+            optionUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, hieuXe);
             for (Map<String, String> hangHieuXevalue : hangHieuXe) {
                 if (hangHieuXevalue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))) {
                     if (hangHieuXevalue.get("Hãng Xe").equals("")) {
@@ -170,9 +173,6 @@ public class TaoBanChaoDonSteps {
                     dataTableValues.add(hangHieuXevalue.get("Hiệu Xe"));
                 }
             }
-            //verify.verifyTrue(dataTableValues.equals(optionUIValues));
-            //sa.assertThat(dataTableValues).isEqualTo(optionUIValues);
-            verify.verifyEquals(dataTableValues,optionUIValues);
             System.out.println(hangXeValue.get("Hãng Xe"));
             System.out.println("UI " + optionUIValues);
             System.out.println("Datatable " + dataTableValues);
@@ -182,7 +182,12 @@ public class TaoBanChaoDonSteps {
                 System.out.println("Verify 3: FAILED");
 
             }
-        }*/
+           // Collections.sort(optionUIValues);
+            //verify.verifyTrue(dataTableValues.equals(optionUIValues));
+            //sa.assertThat(dataTableValues).isEqualTo(optionUIValues);
+            Assert.assertEquals(dataTableValues, optionUIValues);
+
+        }
         //sa.assertAll();
     }
 
@@ -190,15 +195,15 @@ public class TaoBanChaoDonSteps {
     @Then("^\"([^\"]*)\" display correct value <Nhóm Xe> from PB and \"([^\"]*)\" display correct value <Mục Đích Sử Dụng> and \"([^\"]*)\" display correct value <Dòng Xe> and \"([^\"]*)\" dipsplay correct value <Số Chỗ Ngồi> and \"([^\"]*)\" display correct value <Trọng Tải> after selecting \"([^\"]*)\" with value <Hãng Xe> and \"([^\"]*)\" with value <Hiệu Xe>$")
     public void checkNhomXeMDSDDongXeSoChoTrongTai(String nhomXe, String MDSD, String dongXe, String
             soCho, String trongTai, String hangXe, String hieuXe, DataTable data) {
-      /*  externalData = new ExcelReader();
+        externalData = new ExcelReader();
         List<Map<String, String>> hangHieuXeOToSheet, MDSDSheet, hangXeSheet;
         hangHieuXeOToSheet = new ArrayList<Map<String, String>>();
         MDSDSheet = new ArrayList<Map<String, String>>();
         hangXeSheet = new ArrayList<Map<String, String>>();
         try {
-            hangXeSheet = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "HangXe_OTo");
-            hangHieuXeOToSheet = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "Hang_HieuXe_OTo");
-            MDSDSheet = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "MDSD_OTo");
+            hangXeSheet = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "HangXe_OTo");
+            hangHieuXeOToSheet = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "Hang_HieuXe_OTo");
+            MDSDSheet = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "MDSD_OTo");
         } catch (InvalidFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -209,51 +214,38 @@ public class TaoBanChaoDonSteps {
             if (hangXeValue.get("Hãng Xe").equals("")) {
                 break;
             }
-            taoBanChaoPage.chonGiaTri(driver, hangXe, hangXeValue.get("Hãng Xe"));
+            commonPage.chonGiaTri(driver, hangXe, hangXeValue.get("Hãng Xe"));
             for (Map<String, String> hangHieuXeValue : hangHieuXeOToSheet) {
                 if (hangHieuXeValue.get("Hiệu Xe").equals("")) {
 
                     break;
                 }
                 if (hangHieuXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))) {
-                    taoBanChaoPage.chonGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
-                    System.out.println("HANG XE " + hangXeValue.get("Hãng Xe"));
+                    commonPage.chonGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
+                   /* System.out.println("HANG XE " + hangXeValue.get("Hãng Xe"));
                     System.out.println("HIEU XE " + hangHieuXeValue.get("Hiệu Xe"));
-                    System.out.println("DONG XE UI " + taoBanChaoPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, dongXe));
+                    System.out.println("DONG XE UI " + commonPage.getGiaTriTextBox(driver, dongXe));
                     System.out.println("DONG XE DATA " + hangHieuXeValue.get("Dòng Xe"));
-                    System.out.println("SO CHO UI " + taoBanChaoPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, soCho));
+                    System.out.println("SO CHO UI " + commonPage.getGiaTriTextBox(driver,  soCho));
                     System.out.println("SO CHO DATA " + hangHieuXeValue.get("Số Chỗ"));
-                    System.out.println("TRONG TAI UI " + taoBanChaoPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, trongTai));
-                    System.out.println("TRONG TAI DATA " + hangHieuXeValue.get("Trọng Tải"));
-                    if (verify.verifyEquals(taoBanChaoPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, dongXe), hangHieuXeValue.get("Dòng Xe"))) {
-                        System.out.println("VERIFY 4 DONG XE PASSED");
-                    } else {
-                        System.out.println("VERIFY 4 DONG XE FAILED");
+                    System.out.println("TRONG TAI UI " + commonPage.getGiaTriTextBox(driver,  trongTai));
+                    System.out.println("TRONG TAI DATA " + hangHieuXeValue.get("Trọng Tải"));*/
+                    Assert.assertEquals(commonPage.getGiaTriTextBox(driver, dongXe), hangHieuXeValue.get("Dòng Xe"));
 
-                    }
+                    Assert.assertEquals(commonPage.getGiaTriTextBox(driver, soCho), hangHieuXeValue.get("Số Chỗ"));
 
-                    if (verify.verifyEquals(taoBanChaoPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, soCho), hangHieuXeValue.get("Số Chỗ"))) {
-                        System.out.println("VERIFY 4 SO CHO PASSED");
-                    } else {
-                        System.out.println("VERIFY 4 SO CHO FAILED");
-                    }
+                    Assert.assertEquals(commonPage.getGiaTriTextBox(driver, trongTai), hangHieuXeValue.get("Trọng Tải"));
 
-                    if (verify.verifyEquals(taoBanChaoPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, trongTai), hangHieuXeValue.get("Trọng Tải"))) {
-                        System.out.println("VERIFY 4 TRONG TAI PASSED");
-                    } else {
-                        System.out.println("VERIFY 4 TRONG TAI FAILED");
-
-                    }
                     optionUIValues = new ArrayList<>();
                     dataTableValues = new ArrayList<>();
-                    optionUIValues = taoBanChaoPage.getAllGiaTriTrongSelectBox(driver, MDSD);
+                    optionUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, MDSD);
                     for (Map<String, String> mucDichSuDung : MDSDSheet) {
                         if (mucDichSuDung.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe")) && mucDichSuDung.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))) {
                             dataTableValues.add(mucDichSuDung.get("MDSD"));
                         }
                     }
-                    verify.verifyTrue(dataTableValues.equals(optionUIValues));
-                    System.out.println(hangHieuXeValue.get("Hãng Xe"));
+                    //Assert.assertEquals(dataTableValues,optionUIValues);
+                  /*  System.out.println(hangHieuXeValue.get("Hãng Xe"));
                     System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     System.out.println("UI " + optionUIValues);
                     System.out.println("Datatable " + dataTableValues);
@@ -262,16 +254,16 @@ public class TaoBanChaoDonSteps {
                     } else {
                         System.out.println("Verify 4: FAILED");
 
-                    }
+                    }*/
                 }
             }
-        }*/
+        }
     }
 
     @Then("^\"([^\"]*)\" display correct value <Loại Xe> and \"([^\"]*)\" display correct value <Nhóm Xe> after seleting <Hãng Xe> from \"([^\"]*)\" and <Hiệu Xe> from \"([^\"]*)\" and <Mục Đích Sử Dụng> from \"([^\"]*)\"$")
     public void checkLoaiXeNhomXe(String loaiXe, String nhomXe, String hangXe, String hieuXe, String
             MDSD, DataTable data) {
-       /* externalData = new ExcelReader();
+        externalData = new ExcelReader();
         List<Map<String, String>> nhomLoaiXeSheet, MDSDSheet,
                 hangXeSheet, hieuXeSheet;
         List<String> optionNhomXeUIValues, optionLoaiXeUIValues,
@@ -283,69 +275,63 @@ public class TaoBanChaoDonSteps {
         MDSDSheet = new ArrayList<Map<String, String>>();
 
         try {
-            hangXeSheet = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "HangXe_OTo");
-            hieuXeSheet = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "Hang_HieuXe_OTo");
-
-            nhomLoaiXeSheet = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "Nhom_Loai_Dong_SoCho_TT");
-            MDSDSheet = externalData.getData( GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "MDSD_OTo");
+            hangXeSheet = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "HangXe_OTo");
+            hieuXeSheet = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "Hang_HieuXe_OTo");
+            MDSDSheet = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "MDSD_OTo");
+            nhomLoaiXeSheet = externalData.getData(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME, "Nhom_Loai_Dong_SoCho_TT");
         } catch (InvalidFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         for (Map<String, String> hangXeValue : hangXeSheet) {
-            taoBanChaoPage.chonGiaTri(driver, hangXe, hangXeValue.get("Hãng Xe"));
+            commonPage.chonGiaTri(driver, hangXe, hangXeValue.get("Hãng Xe"));
+            System.out.println(hangXeValue.get("Hãng Xe"));
             for (Map<String, String> hangHieuXeValue : hieuXeSheet) {
                 if (hangHieuXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))) {
-                    taoBanChaoPage.chonGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
+                    commonPage.chonGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
+                    System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     for (Map<String, String> hangHieuXeMDSDValue : MDSDSheet) {
-                        optionNhomXeUIValues = new ArrayList<>();
                         optionLoaiXeUIValues = new ArrayList<>();
-                        nhomXeDataTableValues = new ArrayList<>();
                         loaiXeDataTabaleValues = new ArrayList<>();
 
                         if (hangHieuXeMDSDValue.get("Hãng Xe").equals("")) {
                             break;
                         }
-                        // taoBanChaoPage.chonGiaTri(driver, hangXe, hangHieuXeMDSDValue.get("Hãng Xe"));
-                        // taoBanChaoPage.chonGiaTri(driver, hieuXe, hangHieuXeMDSDValue.get("Hiệu Xe"));
-                        if (hangHieuXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))) {
-                            taoBanChaoPage.chonGiaTri(driver, MDSD, hangHieuXeMDSDValue.get("MDSD"));
-                            optionLoaiXeUIValues = taoBanChaoPage.getAllGiaTriTrongSelectBox(driver, loaiXe);
-                            optionNhomXeUIValues = taoBanChaoPage.getAllGiaTriTrongSelectBox(driver, nhomXe);
-                            System.out.println("HANG XE " + hangXeValue.get("Hãng Xe"));
-                            System.out.println("HIEU XE " + hangHieuXeValue.get("Hiệu Xe"));
-                            System.out.println("MDSD " + hangHieuXeMDSDValue.get("MDSD"));
-
+                        if (hangHieuXeMDSDValue.get("Hãng Xe").equals(hangHieuXeValue.get("Hãng Xe"))
+                                && hangHieuXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))) {
+                            commonPage.chonGiaTri(driver, MDSD, hangHieuXeMDSDValue.get("MDSD"));
+                            commonPage.chonGiaTri(driver, nhomXe, hangHieuXeMDSDValue.get("Nhóm Xe"));
+                            optionLoaiXeUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, loaiXe);
+                          //  Collections.sort(optionLoaiXeUIValues);
+                            //optionLoaiXeUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, loaiXe);
+                            // optionNhomXeUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, nhomXe);
                             for (Map<String, String> nhomLoaiXeMDSDValue : nhomLoaiXeSheet) {
-                                //if (nhomLoaiXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeMDSDValue.get("Hiệu Xe"))) {
                                 if (nhomLoaiXeMDSDValue.get("Hãng Xe").equals("")) {
                                     break;
                                 }
-                                if (nhomLoaiXeMDSDValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))
-                                        && nhomLoaiXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))
-                                        && nhomLoaiXeMDSDValue.get("MDSD").equals(hangHieuXeMDSDValue.get("MDSD"))) {
+                                if (nhomLoaiXeMDSDValue.get("Hãng Xe").equals(hangHieuXeMDSDValue.get("Hãng Xe"))
+                                        && nhomLoaiXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeMDSDValue.get("Hiệu Xe"))
+                                        && nhomLoaiXeMDSDValue.get("MDSD").equals(hangHieuXeMDSDValue.get("MDSD"))
+                                        && nhomLoaiXeMDSDValue.get("Nhóm Xe").equals(hangHieuXeMDSDValue.get("Nhóm Xe"))) {
+                                    //  commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeMDSDValue.get("Nhóm Xe"));
+                                    //  optionLoaiXeUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, loaiXe);
+                                    /*if (nhomLoaiXeMDSDValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))
+                                            && nhomLoaiXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))
+                                            && nhomLoaiXeMDSDValue.get("MDSD").equals(hangHieuXeMDSDValue.get("MDSD"))
+                                            && nhomLoaiXeMDSDValue.get("Nhóm Xe").equals(hangHieuXeMDSDValue.get("Nhóm Xe"))) {*/
+                                    // loaiXeDataTabaleValues.add(nhomLoaiXeMDSDValue.get("Loại Xe"));
                                     loaiXeDataTabaleValues.add(nhomLoaiXeMDSDValue.get("Loại Xe"));
-                                    nhomXeDataTableValues.add(nhomLoaiXeMDSDValue.get("Nhóm Xe"));
                                 }
                             }
-                            verify.verifyTrue(loaiXeDataTabaleValues.equals(optionLoaiXeUIValues));
-                            verify.verifyTrue(nhomXeDataTableValues.equals(optionNhomXeUIValues));
-                            System.out.println("LOAI XE UI: " + optionLoaiXeUIValues);
-                            // System.out.println("NHOM XE UI: " + optionNhomXeUIValues);
-                            System.out.println("DATA LOAI XE " + loaiXeDataTabaleValues);
-                            //  System.out.println("DATA NHOM XE " + nhomXeDataTableValues);
-                            if (verify.verifyTrue(loaiXeDataTabaleValues.equals(optionLoaiXeUIValues))) {
-                                System.out.println("Verify 5: PASSED");
-                            } else {
-                                System.out.println("Verify 5: FAILED");
+                            Assert.assertEquals(loaiXeDataTabaleValues, optionLoaiXeUIValues);
 
-                            }
+                            // Assert.assertEquals(nhomXeDataTableValues, optionNhomXeUIValues);
                         }
                     }
                 }
             }
-        }*/
+        }
     }
 
 
@@ -374,33 +360,33 @@ public class TaoBanChaoDonSteps {
         }
         for (Map<String, String> namSanXuatValue : namSanXuatSheet) {
             if (namSanXuatValue.get("Năm Sản Xuất").equals("2020")) {
-                taoBanChaoPage.chonGiaTri(driver, namSanXuat, namSanXuatValue.get("Năm Sản Xuất"));
+                commonPage.chonGiaTri(driver, namSanXuat, namSanXuatValue.get("Năm Sản Xuất"));
                 for (Map<String, String> hangXeValue : hangXeSheet) {
                     if (hangXeValue.get("Hãng Xe").equals("")) {
                         break;
                     }
-                    taoBanChaoPage.chonGiaTri(driver, hangXe, hangXeValue.get("Hãng Xe"));
+                    commonPage.chonGiaTri(driver, hangXe, hangXeValue.get("Hãng Xe"));
                     for (Map<String, String> hieuXeValue : hieuXeSheet) {
                         if (hieuXeValue.get("Hiệu Xe").equals("")) {
                             break;
                         }
                         if (hieuXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))) {
-                            taoBanChaoPage.chonGiaTri(driver, hieuXe, hieuXeValue.get("Hiệu Xe"));
+                            commonPage.chonGiaTri(driver, hieuXe, hieuXeValue.get("Hiệu Xe"));
                             for (Map<String, String> giaTriXeValue : giaTriXeSheet) {
                                 if (giaTriXeValue.get("Hãng Xe").equals("")) {
                                     break;
                                 }
                                 if (giaTriXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))
                                         && giaTriXeValue.get("Hiệu Xe").equals(hieuXeValue.get("Hiệu Xe"))) {
-                                    verify.verifyEquals(taoBanChaoPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, giaTriXeDeXuat),
+                                    verify.verifyEquals(commonPage.getGiaTriTextBox(driver, AbstracPageUI.COMMON_TEXTBOX, giaTriXeDeXuat),
                                             giaTriXeValue.get(namSanXuatValue.get("Năm Sản Xuất")));
                                     System.out.println("HANG XE " + hangXeValue.get("Hãng Xe"));
                                     System.out.println("HIEU XE " + hieuXeValue.get("Hiệu Xe"));
                                     System.out.println("NAM SAN SUAT " + namSanXuatValue.get("Năm Sản Xuất"));
                                     System.out.println("GIA TRI DATA " + giaTriXeValue.get(namSanXuatValue.get("Năm Sản Xuất")));
-                                    System.out.println("GIA TRI UI " + taoBanChaoPage.getGiaTriTextBox(driver,
+                                    System.out.println("GIA TRI UI " + commonPage.getGiaTriTextBox(driver,
                                             AbstracPageUI.COMMON_TEXTBOX, giaTriXeDeXuat).replace(",", ""));
-                                    if (verify.verifyEquals(taoBanChaoPage.getGiaTriTextBox(driver,
+                                    if (verify.verifyEquals(commonPage.getGiaTriTextBox(driver,
                                             AbstracPageUI.COMMON_TEXTBOX, giaTriXeDeXuat).replace(",", ""),
                                             giaTriXeValue.get(namSanXuatValue.get("Năm Sản Xuất")))) {
                                         System.out.println("Verify 6: PASSED");
@@ -415,7 +401,6 @@ public class TaoBanChaoDonSteps {
             }
         }*/
     }
-
 
 
 }

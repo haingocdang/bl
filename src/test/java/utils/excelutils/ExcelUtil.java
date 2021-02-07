@@ -4,17 +4,21 @@ import commons.GlobalConstants;
 import commons.VerifyHelper;
 import cucumber.api.DataTable;
 import cucumber.api.Transformer;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.*;
 import org.openqa.selenium.Platform;
 
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 //import static tests.BaseTest.testDataExcelFileName;
 
@@ -86,8 +90,8 @@ public class ExcelUtil extends Transformer<DataTable> {
         }
         try {
             // Open the Excel file
-            FileInputStream ExcelFile = new FileInputStream(testDataExcelPath + GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);
-            System.out.println("File path is"+testDataExcelPath+GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);
+            FileInputStream ExcelFile = new FileInputStream(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);
+            //  System.out.println("File path is"+testDataExcelPath+GlobalConstants.FILE_NAME);
             excelWBook = new XSSFWorkbook(ExcelFile);
             excelWSheet = excelWBook.getSheet(sheetName);
         } catch (Exception e) {
@@ -102,15 +106,50 @@ public class ExcelUtil extends Transformer<DataTable> {
     //This method reads the test data from the Excel cell.
     //We are passing row number and column number as parameters.
     public static String getCellData(int RowNum, int ColNum) {
+        String cellData;
+        CellType cellType;
         try {
             cell = excelWSheet.getRow(RowNum).getCell(ColNum);
-            DataFormatter formatter = new DataFormatter();
-            String cellData = formatter.formatCellValue(cell);
-            return cellData;
+            cell.setCellType(CellType.STRING);
+            //  DataFormatter formatter = new DataFormatter();
+            cellData = cell.getStringCellValue();
+            if (cell.getCellStyle().getDataFormatString().contains("%")) {
+                // Detect Percent Values
+                Double value = Double.parseDouble(cellData)* 100;
+                DecimalFormat df = new DecimalFormat("#.##");
+                df.setRoundingMode(RoundingMode.HALF_EVEN);
+                System.out.println("value " + value);
+
+               // cellData=value.toString();
+                cellData=df.format(value.doubleValue());
+               //cellData=cellData+"%";
+            }
+            //String cellData = Integer.toString((int) cell.getNumericCellValue());
+            //return cellData;
+          /*  if (cell != null) {
+                //cellType=cell.getCellType();
+                switch (cell.getCellType()) {
+                    case FORMULA:
+                        XSSFFormulaEvaluator evaluator = excelWBook.getCreationHelper().createFormulaEvaluator();
+                        evaluator.evaluateFormulaCell(cell);
+                        cellValue = String.valueOf((cell.getNumericCellValue()));
+                        cellValue = cellValue.substring(0, cellValue.length() - 2);
+                        break;
+                    case STRING:
+                        cellValue = cell.getStringCellValue();
+                        break;
+                    case NUMERIC:
+                        cellValue = String.valueOf((cell.getNumericCellValue()));
+                        //cellValue = cellValue.substring(0, cellValue.length() - 2);
+                        break;
+                }
+            }*/
         } catch (Exception e) {
             throw (e);
         }
+        return cellData;
     }
+
 
     //This method takes row number as a parameter and returns the data of given row number.
     public static XSSFRow getRowData(int RowNum) {
@@ -134,7 +173,7 @@ public class ExcelUtil extends Transformer<DataTable> {
                 cell.setCellValue(value);
             }
             // Constant variables Test Data path and Test Data file name
-            FileOutputStream fileOut = new FileOutputStream(testDataExcelPath + GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);
+            FileOutputStream fileOut = new FileOutputStream(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);
             excelWBook.write(fileOut);
             fileOut.flush();
             fileOut.close();

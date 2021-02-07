@@ -39,6 +39,7 @@ public class CommonPageObjects extends AbstractPage {
     public void clickToDynamicSection(WebDriver driver, String sectionName) {
         waitElementClickable(driver, CommonPageUI.SECTION_LABEL, sectionName);
         clickToElement(driver, CommonPageUI.SECTION_LABEL, sectionName);
+        sleepInSecond(1);
     }
 
     public void goToPage(WebDriver driver, String pageName) {
@@ -55,8 +56,9 @@ public class CommonPageObjects extends AbstractPage {
     }
 
     public void checkToastMessage(WebDriver driver, String message) {
+        sleepInSecond(1);
         waitElementVisible(driver, CommonPageUI.TOAST_MESSAGE);
-        //sleepInSecond(1);
+
         //return checkTrue(isElementDisplay(driver, CommonPageUI.TOAST_MESSAGE, message));
         Assert.assertEquals(message, getElementText(driver, CommonPageUI.TOAST_MESSAGE));
     }
@@ -86,8 +88,8 @@ public class CommonPageObjects extends AbstractPage {
     public void chonGiaTri(WebDriver driver, String tenSelectBox, String giaTri) {
         waitElementVisible(driver, CommonPageUI.COMMON_PARENT_SELECTBOX, tenSelectBox);
         selectItemInCustomDropdown(driver, CommonPageUI.COMMON_PARENT_SELECTBOX, CommonPageUI.COMMON_CHILD_SELECTBOX, giaTri, tenSelectBox);
-
-
+      /*  waitElementVisible(driver, CommonPageUI.COMMON_SELECTBOX, tenSelectBox);
+        selectItemInDropDown(driver, CommonPageUI.COMMON_SELECTBOX, giaTri, tenSelectBox);*/
     }
 
     public void selectGiaTri(WebDriver driver, String tenSelectBox, String giaTri) {
@@ -131,6 +133,7 @@ public class CommonPageObjects extends AbstractPage {
 
     public String getTrangThai(WebDriver driver, String colummName, String rowName) {
         // waitElementVisible(driver, CommonPageUI.DYNAMIC_COLOUMN_INDEX, colummName);
+        sleepInSecond(1);
         int columnPosition = countElementNumber(driver, CommonPageUI.COMMON_COLOUMN_INDEX, colummName) + 1;
 
         int rowPosition = countElementNumber(driver, CommonPageUI.COMMON_ROW_INDEX, rowName) + 1;
@@ -152,7 +155,12 @@ public class CommonPageObjects extends AbstractPage {
 
     public String applyCellFormular(String formular, String value) {
         if (formular.contains("{value}")) {
-            formular.replace("{value}", value);
+            formular = formular.replace("{value}", value);
+        } else if(formular.contains("{SoChoNgoi}")) {
+            formular = formular.replace("{SoChoNgoi}", value);
+        }
+        else if(!formular.contains("/100")){
+            return "false";
         }
         return formular;
     }
@@ -163,7 +171,7 @@ public class CommonPageObjects extends AbstractPage {
         sleepInSecond(1);
         waitElementVisible(driver, CommonPageUI.ACTION_OPTION, recordValue, option);
         clickToElement(driver, CommonPageUI.ACTION_OPTION, recordValue, option);
-        System.out.println("Text is " + getElementText(driver, CommonPageUI.ACTION_OPTION, recordValue, option));
+      //  System.out.println("Text is " + getElementText(driver, CommonPageUI.ACTION_OPTION, recordValue, option));
     }
 
     public void closePopupbutton(WebDriver driver) {
@@ -181,12 +189,16 @@ public class CommonPageObjects extends AbstractPage {
         sendKeyToElement(driver, CommonPageUI.COMMON_TEXTAREA, value, tenField);
     }
 
-    public void iInputDateTimePicer(WebDriver driver, String tenField, String value) {
+    public void iInputDateTimePicker(WebDriver driver, String tenField, String dateTime) {
         waitElementVisible(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
         clearValueInField(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
-        sendKeyToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, value, tenField);
-        clickToElement(driver,CommonPageUI.COMMON_LABEL,tenField);
+        sendKeyToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, dateTime, tenField);
+        clickToElement(driver, CommonPageUI.COMMON_LABEL, tenField);
         //sendKeyBoardToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, Keys.ENTER, tenField);
+    }
+
+    public void waitTo(WebDriver driver, String dateTime) {
+        waitUntilDateTime(driver, dateTime);
     }
 
     public void searchValue(WebDriver driver, String value) {

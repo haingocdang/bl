@@ -84,16 +84,16 @@ public class VerifyHelper {
         return checkFailed(condition);
     }
 
-    private boolean checkEquals(Object actual, Object expected) {
+    private boolean checkEquals(Object expected, Object actual) {
         boolean pass = true;
-        Result result = null;
-        SoftAssertions sa = new SoftAssertions();
+        //Result result = null;
+        //SoftAssertions sa = new SoftAssertions();
       //  Description description = executionUnitRunner.describeChild(runnerStep);
        // stepNotifier = new EachTestNotifier(runNotifier, description);
         try {
-            //Assert.assertEquals(actual, expected);
-            sa.assertThat(actual).isEqualTo(expected);
-            sa.assertAll();
+            Assert.assertEquals(expected,actual);
+            //sa.assertThat(actual).isEqualTo(expected);
+            //sa.assertAll();
 
         } catch (Throwable e) {
             /*if (e == null) {
@@ -108,8 +108,8 @@ public class VerifyHelper {
         return pass;
     }
 
-    public boolean verifyEquals(Object actual, Object expected) {
-        return checkEquals(actual, expected);
+    public boolean verifyEquals(Object expected, Object actual) {
+        return checkEquals(expected,actual);
     }
 
 

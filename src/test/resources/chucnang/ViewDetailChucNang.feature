@@ -6,7 +6,7 @@ Feature: Vô Hiệu/ Khôi Phục Chức Năng with scheduled time
 #    And I open "Phòng ban" page
 #    When I view detail "Tên phòng ban" with value "Chăm sóc khách hàng"
   Scenario: Lịch Sử Chỉnh Sửa "Đại Lý Cá Nhân" with all fields
-    Given I login Admin page as admin
+    Given I launch login Admin page as admin
     And I create a Đại Lý Cá Nhân with value
       | Loại Đại Lý | Tên Đại Lý | Đại Lý Cấp Trên | Kênh Phân Phối | Tên Đối Tác Phân Phối |  Loại ID | Số ID | Ngày Sinh | Giới Tính | Số Điện Thoại | Email | Số Hợp Đồng Đại Lý | Số GCN Đại Lý | Ngày Hiệu Lực | Ngày Hệt Hiệu Lực | Tỉnh/ Thành phố | Quận/ Huyện | Phường/ Xã | Địa Chỉ | Mã Số Thuế Cá Nhân | Số Tài Khoản | Ngân Hàng | Thuế Đại Lý | Thông Tin Người Liên Hệ |
       | Cá Nhân | Hải Đặng | DL.02.21.0001 | Đại Lý | Đối tác 123 | CMND | 12345678 | 01-01-1990 | Nam | 230623305 | hai.dang@alpaca.vn | 123456789 | 987654654 | 01-12-2020 | 31-12-2021 | Hồ Chí Minh | Quận 1 | Phường Đa Kao | 185 Điện Biên Phủ | 258963111 | 111222333444 | HSBC | 20% | Alpaca |

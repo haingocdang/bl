@@ -122,8 +122,8 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <!--<include>**/*/JupiterTestRunner.java</include>-->
-                        <include>**/*/MercuryTestRunner.java</include>
+                       <!-- <include>**/*/JupiterTestRunner.java</include>-->
+                        <include>**/*/JupiterTestRunner.java</include>
                     </includes>
                 </configuration>
             </plugin>

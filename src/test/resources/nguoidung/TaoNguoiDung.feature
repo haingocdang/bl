@@ -3,12 +3,22 @@ Feature: Tao Nguoi Dung
   As a Admin User I want to Tao Nguoi Dung
 
   Scenario Outline: Create Người Dùng with all fields
-    Given I login Admin page as admin
+    # Login
+    # I launch login Admin page as Admin
+    # I launch and login Jupiter page as admin
+    Given I launch login Admin page as admin
+    # Go to a page
+    # I open "page name" page
     And I open "Người dùng" page
+    #Click button
+    # I click "button name" button
     When I click "Tạo mới" button
+    # Input textbox
+    # I input "textbox name" textbox with value "value"
     And I input "Tên đăng nhập" textbox with value "<Tên Đăng Nhập>"
     And I input "Họ và tên" textbox with value "<Họ Và Tên>"
     And I input "Email" textbox with value "<Email>"
+    #Select dropdown list
     And I select "Đơn Vị" drop down list with "Đơn Vị" value
       | Đơn Vị   |
       | <Đơn Vị> |
@@ -34,5 +44,5 @@ Feature: Tao Nguoi Dung
     And Trạng thái of "<Tên Đăng Nhập>" displays "<Trạng Thái>"
 
     Examples:
-      | Tên Đăng Nhập | Họ Và Tên | Email                   | Đơn Vị            | Phòng Ban         | Chức Năng      | Vai Trò |  Trạng Thái   |
-      | qctest12      | QC 12     | qctest12@mailinator.com | Bảo Long Bắc Ninh | Quản lý nghiệp vụ | Bồi thường XCG | Cấp 1   |  Chờ xác nhận |
+      | Tên Đăng Nhập | Họ Và Tên | Email                       | Đơn Vị       | Phòng Ban     | Chức Năng | Vai Trò | Trạng Thái   |
+      | qctest220101  | QC 220101 | qctest220101@mailinator.com | Trụ sở chính | Bancassurance | Điều hành | Cấp 3   | Chờ xác nhận |

@@ -149,7 +149,7 @@ public class Hooks {
         @Override
         public void run() {
             //close();
-           // closeBrowserAndDriver();
+            closeBrowserAndDriver();
         }
     }
 

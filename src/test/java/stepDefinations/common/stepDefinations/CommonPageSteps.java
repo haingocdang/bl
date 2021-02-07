@@ -27,11 +27,12 @@ public class CommonPageSteps {
     VerifyHelper verify;
     ExcelUtil excel;
     TaoChucNangPageObject taoChucNangPage;
-    CommonPageObjects commonPage;
+    public static CommonPageObjects commonPage;
     //DanhSachBanChaoPageObject danhSachBanChaoPage;
     ExcelReader externalData;
     List<Map<String, String>> testData;
     List<String> optionUIValues, dataTableValues;
+    String dateTime;
 
     public CommonPageSteps() {
         this.driver = Hooks.openAndQuitBrowser();
@@ -42,7 +43,7 @@ public class CommonPageSteps {
         commonPage = PageGeneratorManager.getCommonPage(driver);
     }
 
-    @Given("^I launch and login Jupiter page$")
+    @Given("^I launch and login Jupiter page as admin$")
     public void i_launch_and_login_Jupiter_page() {
         driver.get(GlobalConstants.JUPITER_LOGIN_TEST_ENV_URL);
         driver.manage().window().maximize();
@@ -51,11 +52,12 @@ public class CommonPageSteps {
         loginPage.inputUserName("test002");
         loginPage.inputUserPassword("12341234");
         loginPage.clickDangNhapButton();
+      //  driver.get(GlobalConstants.JUPITER_LOGIN_TEST_ENV_URL);
         // driver.get("http://61.14.237.89:3201/");
         //danhSachBanChaoPage = PageGeneratorManager.getDanhSachBanChaoPage(driver);
     }
 
-    @Given("^I login Admin page as admin$")
+    @Given("^I launch login Admin page as admin$")
     public void iLoginAdminPageAsAdmin() {
         driver.get(GlobalConstants.MERCURY_LOGIN_TEST_ENV_URL);
         driver.manage().window().maximize();
@@ -133,9 +135,9 @@ public class CommonPageSteps {
     }
 
     @When("^I input \"([^\"]*)\" datetime picker with current date time plus \"([^\"]*)\" minutes$")
-    public void iInputDateTimePicer(String tenField, String value) {
-        value=commonPage.getDateTimeInTheFuture(driver,value);
-        commonPage.iInputDateTimePicer(driver, tenField, value);
+    public void iInputDateTimePicer(String tenField, String minutes) {
+        dateTime = commonPage.getDateTimeInTheFuture(driver, minutes);
+        commonPage.iInputDateTimePicker(driver, tenField, dateTime);
 
     }
 
@@ -153,7 +155,7 @@ public class CommonPageSteps {
 
     @When("^I search with value \"([^\"]*)\"$")
     public void searchByKeyword(String keyword) {
-        commonPage.searchValue(driver,keyword);
+        commonPage.searchValue(driver, keyword);
     }
 
     @Then("^\"([^\"]*)\" popup appears$")
@@ -170,8 +172,8 @@ public class CommonPageSteps {
 
     @Then("^\"([^\"]*)\" popup has label \"([^\"]*)\"$")
     public void popupHasLabel(String tenPopup, String label) {
-        Assert.assertEquals(commonPage.getElementText(driver, CommonPageUI.POPUP), label);
-        System.out.println("Text popup is " + commonPage.getElementText(driver, CommonPageUI.POPUP));
+        Assert.assertEquals(label, commonPage.getElementTextByJS(driver, CommonPageUI.POPUP_CSS));
+       // System.out.println("Text popup is " + commonPage.getElementTextByJS(driver, CommonPageUI.POPUP_CSS));
     }
 
     @Then("^\"([^\"]*)\" popup has text area \"([^\"]*)\"$")
@@ -191,9 +193,9 @@ public class CommonPageSteps {
 
     }
 
-    @Then("^button \"([^\"]*)\" is disabled if textarea \"([^\"]*)\" is blank$")
-    public void buttonIsDisabledIfLabelIsBlank(String buttonName, String fieldName) {
-
+    @Then("^\"([^\"]*)\" button is disabled")
+    public void buttonIsDisabledIfLabelIsBlank(String buttonName) {
+        Assert.assertFalse(commonPage.isElementEnable(driver, CommonPageUI.COMMON_BUTTON,buttonName));
     }
 
     @Then("^User unabled to select the last date from date time picker \"([^\"]*)\"$")
@@ -217,8 +219,18 @@ public class CommonPageSteps {
 
     }
 
+
+    @And("^I wait to inputted date time$")
+    public void iWaitTo() {
+        //dateTime=commonPage.getDateTimeInTheFuture(driver,dateTime);
+        //commonPage.iInputDateTimePicker(driver, tenField, dateTime);
+        commonPage.waitTo(driver, dateTime);
+
+    }
+
     @Then("^\"([^\"]*)\" button is enabled$")
-    public void buttonIsEnabled(String arg1) {
+    public void buttonIsEnabled(String button) {
+        Assert.assertTrue(commonPage.isElementEnable(driver, CommonPageUI.COMMON_BUTTON,button));
 
     }
 
@@ -226,7 +238,6 @@ public class CommonPageSteps {
     public void ofIsIfCurrentDateTimeIsBeforeScheduledTime(String arg1, String arg2, String arg3, String arg4) {
 
     }
-
 
 
     @Then("^\"([^\"]*)\" of \"([^\"]*)\" is \"([^\"]*)\" if current date time is equal scheduled time \"([^\"]*)\"$")
@@ -280,23 +291,21 @@ public class CommonPageSteps {
     }
 
     @Then("^\"([^\"]*)\" drop down list show correct \"([^\"]*)\"$")
-    public void dropDownListShowCorrectValue(String tenDropdown, String tenColumn,DataTable dataTable)  {
+    public void dropDownListShowCorrectValue(String tenDropdown, String tenColumn, DataTable dataTable) {
         optionUIValues = new ArrayList<>();
         dataTableValues = new ArrayList<>();
         optionUIValues = commonPage.getAllGiaTriTrongSelectBox(driver, tenDropdown);
 
-       for (Map<String, String> value : dataTable.asMaps(String.class, String.class)) {
+        for (Map<String, String> value : dataTable.asMaps(String.class, String.class)) {
             if (value.get(tenColumn).equals("")) {
                 break;
             }
             dataTableValues.add(value.get(tenColumn));
         }
         System.out.println("Option values " + dataTableValues);
-        Assert.assertEquals(dataTableValues,optionUIValues);
-
+        Assert.assertEquals(dataTableValues, optionUIValues);
 
 
     }
-
 
 }
