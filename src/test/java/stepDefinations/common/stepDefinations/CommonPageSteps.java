@@ -90,7 +90,7 @@ public class CommonPageSteps {
         commonPage.closePopupbutton(driver);
     }
 
-    @And("^I select \"([^\"]*)\" drop down list with \"([^\"]*)\"value$")
+    @And("^I select \"([^\"]*)\" dropdown list with \"([^\"]*)\"value$")
     public void i_select_something_drop_down_list_with_somethingvalue(String nhmsnphm, String strArg1, String strArg2) {
 
     }
@@ -110,7 +110,7 @@ public class CommonPageSteps {
         commonPage.checkToastMessage(driver, message);
     }
 
-    @When("^I select \"([^\"]*)\" drop down list with \"([^\"]*)\" value$")
+    @When("^I select \"([^\"]*)\" dropdown list with \"([^\"]*)\" value$")
     public void iSelectDropDownListWithValue(String tenDropdown, String giaTri, DataTable dataTable) {
         for (Map<String, String> value : dataTable.asMaps(String.class, String.class)) {
             commonPage.chonGiaTri(driver, tenDropdown, value.get(giaTri));

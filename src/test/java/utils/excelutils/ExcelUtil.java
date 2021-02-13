@@ -5,11 +5,9 @@ import commons.VerifyHelper;
 import cucumber.api.DataTable;
 import cucumber.api.Transformer;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.*;
 import org.openqa.selenium.Platform;
-
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -113,16 +111,17 @@ public class ExcelUtil extends Transformer<DataTable> {
             cell.setCellType(CellType.STRING);
             //  DataFormatter formatter = new DataFormatter();
             cellData = cell.getStringCellValue();
+
             if (cell.getCellStyle().getDataFormatString().contains("%")) {
                 // Detect Percent Values
-                Double value = Double.parseDouble(cellData)* 100;
+                Double value = Double.parseDouble(cellData) * 100;
                 DecimalFormat df = new DecimalFormat("#.##");
                 df.setRoundingMode(RoundingMode.HALF_EVEN);
-                System.out.println("value " + value);
+               // System.out.println("value " + value);
 
-               // cellData=value.toString();
-                cellData=df.format(value.doubleValue());
-               //cellData=cellData+"%";
+                // cellData=value.toString();
+                cellData = df.format(value.doubleValue());
+                //cellData=cellData+"%";
             }
             //String cellData = Integer.toString((int) cell.getNumericCellValue());
             //return cellData;
@@ -144,7 +143,7 @@ public class ExcelUtil extends Transformer<DataTable> {
                         break;
                 }
             }*/
-        } catch (Exception e) {
+        } catch (Throwable e) {
             throw (e);
         }
         return cellData;
@@ -171,6 +170,41 @@ public class ExcelUtil extends Transformer<DataTable> {
                 cell.setCellValue(value);
             } else {
                 cell.setCellValue(value);
+            }
+            // Constant variables Test Data path and Test Data file name
+            FileOutputStream fileOut = new FileOutputStream(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);
+            excelWBook.write(fileOut);
+            fileOut.flush();
+            fileOut.close();
+        } catch (Exception e) {
+            try {
+                throw (e);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    public static void setCellComment(String value, int RowNum, int ColNum) {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet();
+        CreationHelper creationHelper = (XSSFCreationHelper) workbook.getCreationHelper();
+
+        Drawing<Shape> drawing = (Drawing<Shape>) sheet.createDrawingPatriarch();
+        ClientAnchor clientAnchor = drawing.createAnchor(0, 0, 0, 0, 0, 2, 7, 12);
+
+        Comment comment = (Comment) drawing.createCellComment(clientAnchor);
+
+        RichTextString richTextString = creationHelper.createRichTextString(value);
+        comment.setString(richTextString);
+        try {
+            row = excelWSheet.getRow(RowNum);
+            cell = row.getCell(ColNum);
+            if (cell == null) {
+                cell = row.createCell(ColNum);
+                cell.setCellComment(comment);
+            } else {
+                cell.setCellComment(comment);
             }
             // Constant variables Test Data path and Test Data file name
             FileOutputStream fileOut = new FileOutputStream(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);

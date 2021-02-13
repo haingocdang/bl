@@ -5,11 +5,11 @@ Feature: Check Tỷ lệ TNDSTN
   Scenario: Data display correctly for TNDSTN
     Given I launch and login Jupiter page as admin
     And I open "Bản chào" page
-    When I click "Thêm mới" button
-    And I select "Nhóm sản phẩm" drop down list with "Nhóm sản phẩm" value
+    When I click "Tạo mới" button
+    And I select "Nhóm sản phẩm" dropdown list with "Nhóm sản phẩm" value
       | Nhóm sản phẩm |
       |  Xe |
-    And I select "Tên sản phẩm" drop down list with "Tên sản phẩm" value
+    And I select "Tên sản phẩm" dropdown list with "Tên sản phẩm" value
       | Tên sản phẩm |
       | Ô tô         |
 
@@ -20,5 +20,5 @@ Feature: Check Tỷ lệ TNDSTN
    # And I click "Phạm vi bảo hiểm" section
     #And I click + button
     #Then Đối tượng tham gia bảo hiểm Nhóm section appears
-    And TNDSTN Về Người display correct value <Tỷ Lệ> when selecting "Hãng xe" with value <Hãng Xe> and "Hiệu xe" with value <Hiệu Xe> and and "Mục Đích Sử Dụng" with value <Mục Đích Sử Dụng> and "Loại Xe" with value <Loại Xe> and "Nhóm Xe" with value <Nhóm Xe>
+    And TNDSTN display correct value <Tỷ Lệ> when selecting "Hãng xe" with value <Hãng Xe> and "Hiệu xe" with value <Hiệu Xe> and and "Mục Đích Sử Dụng" with value <Mục Đích Sử Dụng> and "Loại Xe" with value <Loại Xe> and "Nhóm Xe" with value <Nhóm Xe>
       | Hãng Xe | Hiệu Xe | Mục Đích Sử Dụng | Loại Xe | Nhóm Xe | Tỷ Lệ |

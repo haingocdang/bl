@@ -16,10 +16,8 @@ public class CommonPageUI {
     //public static final String COMMON_PARENT_SELECTBOX = "//label[contains(text(),'%s')]/parent::*[1]/*[2]//div[contains(@class,'placeholder')]";
     public static final String COMMON_CHILD_SELECTBOX = "//div[contains(@id,'react-select')]";
     public static final String COMMON_SELECTBOX = "//label[contains(text(),'%s')]/following-sibling::select";
-    //public static final String COMMON_TEXTBOX="//label[contains(text(),'%s')]/following-sibling::input";
-     public static final String COMMON_TEXTBOX="//label[contains(text(),'%s')]/following-sibling::input";
-    //public static final String COMMON_TEXTBOX="//label[contains(text(),'%s')]/following-sibling::article//input";
-    //public static final String COMMON_TEXTBOX = "//label[contains(text(),'%s')]/following-sibling::input";
+//     public static final String COMMON_TEXTBOX="//label[contains(text(),'%s')]/following-sibling::input";
+    public static final String COMMON_TEXTBOX="//label[contains(text(),'%s')]/following-sibling::article//input";
     public static final String COMMON_COLOUMN_INDEX = "//th[contains(.,'%s')]//preceding-sibling::th";
     public static final String COMMON_ROW_INDEX = "//td/*[text()='%s']/parent::td/parent::tr/preceding-sibling::tr";
     //public static final String COMMON_ROW_INDEX ="//td//*[text()='%s']/parent::span/parent::td/preceding-sibling::td";

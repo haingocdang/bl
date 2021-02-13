@@ -5,11 +5,11 @@ Feature: Check Tỷ lệ DSTNBB
   Scenario: Data display correctly for DSTNBB
     Given I launch and login Jupiter page as admin
     And I open "Bản chào" page
-    When I click "Thêm mới" button
-    And I select "Nhóm sản phẩm" drop down list with "Nhóm sản phẩm" value
+    When I click "Tạo mới" button
+    And I select "Nhóm sản phẩm" dropdown list with "Nhóm sản phẩm" value
       | Nhóm sản phẩm |
       |  Xe |
-    And I select "Tên sản phẩm" drop down list with "Tên sản phẩm" value
+    And I select "Tên sản phẩm" dropdown list with "Tên sản phẩm" value
       | Tên sản phẩm |
       |  Ô tô |
    # And I click "Thông tin xe" section

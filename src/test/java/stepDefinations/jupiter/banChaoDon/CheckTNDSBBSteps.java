@@ -4,15 +4,12 @@ import commons.GlobalConstants;
 import commons.VerifyHelper;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import cucumberOption.Hooks;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pageObjects.jupiter.DanhSachBanChaoPageObject;
 import pageObjects.jupiter.TaoBanChaoPageObject;
-import commons.CommonPageObjects;
 import utils.excelutils.ExcelReader;
 import utils.excelutils.ExcelUtil;
 
@@ -94,7 +91,7 @@ public class CheckTNDSBBSteps {
                 }
 
                 if (hangHieuXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))) {
-                    //System.out.println(hangHieuXeValue.get("Hiệu Xe"));
+                    System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     commonPage.chonGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
                     // System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     //taoBanChaoPage.selectGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
@@ -103,18 +100,12 @@ public class CheckTNDSBBSteps {
                         optionLoaiXeUIValues = new ArrayList<>();
                         nhomXeDataTableValues = new ArrayList<>();
                         loaiXeDataTabaleValues = new ArrayList<>();
-
-
                         if (MDSDValue.get("Hãng Xe").equals("")) {
                             break;
                         }
-                        //if (MDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))) {
                         if (MDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))) {
                             commonPage.chonGiaTri(driver, MĐSD, MDSDValue.get("MĐSD"));
-                            commonPage.chonGiaTri(driver, nhomXe, MDSDValue.get("Nhóm Xe"));
-
-                            // System.out.println(MDSDValue.get("MĐSD"));
-                            //taoBanChaoPage.selectGiaTri(driver, MDSD, MDSDValue.get("MDSD"));
+                            System.out.println(MDSDValue.get("MĐSD"));
                             for (Map<String, String> nhomLoaiXeValue : nhomLoaiXeSheet) {
                                 //if (nhomLoaiXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeMDSDValue.get("Hiệu Xe"))) {
                                 if (nhomLoaiXeValue.get("Hãng Xe").equals("")) {
@@ -124,24 +115,34 @@ public class CheckTNDSBBSteps {
                                         && nhomLoaiXeValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))
                                         && nhomLoaiXeValue.get("MĐSD").equals(MDSDValue.get("MĐSD"))) {
                                     row = 0;
-                                    //commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
-                                    commonPage.chonGiaTri(driver, loaiXe, nhomLoaiXeValue.get("Loại Xe"));
-
-                                    //taoBanChaoPage.selectGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
                                     for (Map<String, String> TNDSBBValue : TNDSBBSheet) {
                                         row = row + 1;
                                         if (TNDSBBValue.get("Nhóm Xe").equals("")) {
                                             break;
                                         }
-                                        try {
-                                            if (TNDSBBValue.get("Nhóm Xe").equals(nhomLoaiXeValue.get("Nhóm Xe")) &&
+
+                                            /*if (TNDSBBValue.get("Nhóm Xe").equals(nhomLoaiXeValue.get("Nhóm Xe")) &&
                                                     TNDSBBValue.get("Loại Xe").equals(nhomLoaiXeValue.get("Loại Xe")) &&
                                                     ((TNDSBBValue.get("MĐSD").equals("All")) || (TNDSBBValue.get("MĐSD").equals(MDSDValue.get("MĐSD")))) &&
-                                                                /*((TNDSBBValue.get("Số Chỗ").equals("true")) || (Boolean.parseBoolean(commonPage.applyCellFormular(TNDSBBValue.get("Số Chỗ"), commonPage.getGiaTriTextBox(driver, "Số chỗ ngồi")))) || (TNDSBBValue.get("Số Chỗ").equals(nhomLoaiXeValue.get("Số Chỗ")))) &&
-                                                                ((TNDSBBValue.get("Trọng Tải").equals("true")) || (Boolean.parseBoolean(commonPage.applyCellFormular(TNDSBBValue.get("Trọng Tải"), commonPage.getGiaTriTextBox(driver, "Trọng tải")))) || (TNDSBBValue.get("Trọng Tải").equals(nhomLoaiXeValue.get("Trọng Tải"))))) {*/
+                                                                *//*((TNDSBBValue.get("Số Chỗ").equals("true")) || (Boolean.parseBoolean(commonPage.applyCellFormular(TNDSBBValue.get("Số Chỗ"), commonPage.getGiaTriTextBox(driver, "Số chỗ ngồi")))) || (TNDSBBValue.get("Số Chỗ").equals(nhomLoaiXeValue.get("Số Chỗ")))) &&
+                                                                ((TNDSBBValue.get("Trọng Tải").equals("true")) || (Boolean.parseBoolean(commonPage.applyCellFormular(TNDSBBValue.get("Trọng Tải"), commonPage.getGiaTriTextBox(driver, "Trọng tải")))) || (TNDSBBValue.get("Trọng Tải").equals(nhomLoaiXeValue.get("Trọng Tải"))))) {*//*
                                                     ((TNDSBBValue.get("Số Chỗ").equals("All")) || (TNDSBBValue.get("Số Chỗ").equals(nhomLoaiXeValue.get("Số Chỗ"))) || ((Boolean) engine.eval(commonPage.applyCellFormular(TNDSBBValue.get("Số Chỗ"), commonPage.getGiaTriTextBox(driver, "Số chỗ ngồi"))))) &&
-                                                    ((TNDSBBValue.get("Trọng Tải").equals("All")) || ((Boolean) engine.eval(commonPage.applyCellFormular(TNDSBBValue.get("Trọng Tải"), commonPage.getGiaTriTextBox(driver, "Trọng tải")))) || (TNDSBBValue.get("Trọng Tải").equals(nhomLoaiXeValue.get("Trọng Tải"))))) {
-                                               // commonPage.chonGiaTri(driver, loaiXe, TNDSBBValue.get("Loại Xe"));
+                                                    ((TNDSBBValue.get("Trọng Tải").equals("All")) || ((Boolean) engine.eval(commonPage.applyCellFormular(TNDSBBValue.get("Trọng Tải"), commonPage.getGiaTriTextBox(driver, "Trọng tải")))) || (TNDSBBValue.get("Trọng Tải").equals(nhomLoaiXeValue.get("Trọng Tải"))))) {*/
+                                        try {
+                                            if ((TNDSBBValue.get("Nhóm Xe").equals(nhomLoaiXeValue.get("Nhóm Xe"))) &&
+                                                    (TNDSBBValue.get("Loại Xe").equals(nhomLoaiXeValue.get("Loại Xe"))) &&
+                                                    //  ((TNDSBBValue.get("MĐSD").equals("All")) || (TNDSBBValue.get("MĐSD").equals(nhomLoaiXeValue.get("MĐSD")))) &&
+                                                    (((excelFile.getCellData(row, 12)).equals("NOT RUN YET"))) &&
+                                                    (((TNDSBBValue.get("MĐSD").equals("All")) || (TNDSBBValue.get("MĐSD").equals(nhomLoaiXeValue.get("MĐSD")))) &&
+                                                            ((TNDSBBValue.get("Số Chỗ").equals("All")) || (TNDSBBValue.get("Số Chỗ").equals(TNDSBBValue.get("Số Chỗ"))) || ((Boolean) engine.eval(commonPage.applyCellFormular(TNDSBBValue.get("Số Chỗ"), TNDSBBValue.get("Inputted Số Chỗ"))))) &&
+                                                            ((TNDSBBValue.get("Trọng Tải").equals("All")) || (TNDSBBValue.get("Trọng Tải").equals(TNDSBBValue.get("Trọng Tải"))) || ((Boolean) engine.eval(commonPage.applyCellFormular(TNDSBBValue.get("Trọng Tải"), TNDSBBValue.get("Inputted Trọng Tải"))))))) {
+                                                commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
+                                                commonPage.chonGiaTri(driver, loaiXe, TNDSBBValue.get("Loại Xe"));
+                                                commonPage.inputCellValue(driver, TNDSBBValue.get("Số Chỗ"), "Số chỗ ngồi", TNDSBBValue.get("Inputted Số Chỗ"));
+
+                                                commonPage.inputCellValue(driver, TNDSBBValue.get("Trọng Tải"), "Trọng tải", TNDSBBValue.get("Inputted Trọng Tải"));
+
+                                                // commonPage.chonGiaTri(driver, loaiXe, TNDSBBValue.get("Loại Xe"));
                                                 // taoBanChaoPage.chonGiaTri(driver, loaiXe, "Xe tải");
                                                 commonPage.sleepInSecond(2);
                                                 // commonPage.chonPhamViBH("TNDS Tự Nguyện");
@@ -150,23 +151,31 @@ public class CheckTNDSBBSteps {
                                                 String phiBBExpected = TNDSBBValue.get("Phí Final");
                                                 LinkedHashMap<String, String> columnMapdata;
                                                 columnMapdata = externalData.getCellValue(TNDSBBSheetUltil, externalData.getRow(TNDSBBSheetUltil, row), 11);
-                                                String cellValue = excelFile.getCellData(row, 9);
+                                                String cellValue = excelFile.getCellData(row, 11);
                                                 //excelFile.setCellData("OK", row,12);
                                                /* System.out.println("Phí BB UI: " + phiBBUI);
                                                 System.out.println("Row "+ row);
                                                 System.out.println("Phí BB Data: " + cellValue);*/
                                                 if (verify.verifyEquals(cellValue, phiBBUI)) {
-                                                    excelFile.setCellData("PASSED", row, 10);
+                                                    excelFile.setCellData("PASSED", row, 12);
+                                                    excelFile.setCellData(nhomLoaiXeValue.get("MĐSD"), row, 13);
+                                                    excelFile.setCellData(hangHieuXeValue.get("Hiệu Xe"), row, 14);
+
                                                 } else {
-                                                    System.out.println("KQ: FAILED");
-                                                    System.out.println(nhomLoaiXeValue.get("Hãng Xe"));
-                                                    System.out.println(nhomLoaiXeValue.get("Hiệu Xe"));
-                                                    System.out.println(nhomLoaiXeValue.get("MĐSD"));
-                                                    System.out.println(nhomLoaiXeValue.get("Nhóm Xe"));
-                                                    System.out.println(TNDSBBValue.get("Loại Xe"));
-                                                    System.out.println(cellValue);
-                                                    excelFile.setCellData("FAILED", row, 10);
-                                                    excelFile.setCellData(phiBBUI, row, 11);
+                                                      /* System.out.println("KQ: FAILED");
+                                                        System.out.println(nhomLoaiXeValue.get("Hãng Xe"));
+                                                      //  System.out.println(nhomLoaiXeValue.get("Hiệu Xe"));
+                                                        System.out.println(nhomLoaiXeValue.get("MĐSD"));
+                                                        System.out.println(nhomLoaiXeValue.get("Nhóm Xe"));
+                                                        // System.out.println("Nhom Xe BB"+TNDSBBValue.get("Nhóm Xe"));
+                                                        System.out.println(nhomLoaiXeValue.get("Loại Xe"));
+                                                        System.out.println(cellValue);*/
+                                                    excelFile.setCellData("FAILED", row, 12);
+                                                    excelFile.setCellData(phiBBUI, row, 13);
+                                                    excelFile.setCellData(nhomLoaiXeValue.get("MĐSD"), row, 14);
+                                                    excelFile.setCellData(hangHieuXeValue.get("Hiệu Xe"), row, 15);
+
+
                                                 }
 
                                                 // Assert.assertEquals(cellValue, phiBBUI);
@@ -177,6 +186,7 @@ public class CheckTNDSBBSteps {
                                                 //break;
 
                                             }
+                                            //row=row+1;
                                         } catch (ScriptException e) {
                                             e.printStackTrace();
                                         }
@@ -190,6 +200,7 @@ public class CheckTNDSBBSteps {
         }
     }
 }
+
 
 
 

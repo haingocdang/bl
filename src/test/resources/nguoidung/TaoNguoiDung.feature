@@ -19,16 +19,16 @@ Feature: Tao Nguoi Dung
     And I input "Họ và tên" textbox with value "<Họ Và Tên>"
     And I input "Email" textbox with value "<Email>"
     #Select dropdown list
-    And I select "Đơn Vị" drop down list with "Đơn Vị" value
+    And I select "Đơn Vị" dropdown list with "Đơn Vị" value
       | Đơn Vị   |
       | <Đơn Vị> |
-    And I select "Phòng ban" drop down list with "Phòng Ban" value
+    And I select "Phòng ban" dropdown list with "Phòng Ban" value
       | Phòng Ban   |
       | <Phòng Ban> |
-    And I select "Chức năng" drop down list with "Chức Năng" value
+    And I select "Chức năng" dropdown list with "Chức Năng" value
       | Chức Năng   |
       | <Chức Năng> |
-    And I select "Vai trò" drop down list with "Vai Trò" value
+    And I select "Vai trò" dropdown list with "Vai Trò" value
       | Vai Trò   |
       | <Vai Trò> |
     And I click "Tạo" button

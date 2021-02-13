@@ -165,6 +165,34 @@ public class CommonPageObjects extends AbstractPage {
         return formular;
     }
 
+    public String inputCellValue(WebDriver driver, String formular, String tenField, String value) {
+        if (formular.contains("{value}<3")) {
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        } else if(formular.contains("{value}>=3&&{value}<=8")) {
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        }
+        else if(formular.contains("{value}>8&&{value}<=15")){
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        } else if (formular.contains("{value}>15")){
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        }else if (formular.contains("{value}<6")){
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        }
+        else if (formular.contains("{value}>=6&&{value}<=11")){
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        }
+        else if (formular.contains("{value}>=12&&{value}<=24")){
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        }
+        else if (formular.contains("{value}>24")){
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        }else {
+            sendKeyToElement(driver,CommonPageUI.COMMON_TEXTBOX,value,tenField);
+        }
+
+        return formular;
+    }
+
     public void selectOptionFromContextmenu(WebDriver driver, String option, String recordValue) {
         waitElementClickable(driver, CommonPageUI.ACTION_MENU, recordValue);
         clickToElement(driver, CommonPageUI.ACTION_MENU, recordValue);
@@ -191,7 +219,7 @@ public class CommonPageObjects extends AbstractPage {
 
     public void iInputDateTimePicker(WebDriver driver, String tenField, String dateTime) {
         waitElementVisible(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
-        clearValueInField(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
+       // clearValueInField(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
         sendKeyToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, dateTime, tenField);
         clickToElement(driver, CommonPageUI.COMMON_LABEL, tenField);
         //sendKeyBoardToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, Keys.ENTER, tenField);
