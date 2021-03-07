@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -104,15 +105,15 @@ public class ExcelUtil extends Transformer<DataTable> {
     //This method reads the test data from the Excel cell.
     //We are passing row number and column number as parameters.
     public static String getCellData(int RowNum, int ColNum) {
-        String cellData;
+        String cellData = null;
         CellType cellType;
         try {
             cell = excelWSheet.getRow(RowNum).getCell(ColNum);
-            cell.setCellType(CellType.STRING);
+            //  cell.setCellType(CellType.STRING);
             //  DataFormatter formatter = new DataFormatter();
-            cellData = cell.getStringCellValue();
+            //    cellData = cell.getStringCellValue();
 
-            if (cell.getCellStyle().getDataFormatString().contains("%")) {
+           /* if (cell.getCellStyle().getDataFormatString().contains("%")) {
                 // Detect Percent Values
                 Double value = Double.parseDouble(cellData) * 100;
                 DecimalFormat df = new DecimalFormat("#.##");
@@ -122,29 +123,79 @@ public class ExcelUtil extends Transformer<DataTable> {
                 // cellData=value.toString();
                 cellData = df.format(value.doubleValue());
                 //cellData=cellData+"%";
-            }
+            }*/
             //String cellData = Integer.toString((int) cell.getNumericCellValue());
             //return cellData;
-          /*  if (cell != null) {
+            if (cell != null) {
+
                 //cellType=cell.getCellType();
                 switch (cell.getCellType()) {
                     case FORMULA:
                         XSSFFormulaEvaluator evaluator = excelWBook.getCreationHelper().createFormulaEvaluator();
-                        evaluator.evaluateFormulaCell(cell);
-                        cellValue = String.valueOf((cell.getNumericCellValue()));
-                        cellValue = cellValue.substring(0, cellValue.length() - 2);
+                        // evaluator.evaluateFormulaCell(cell);
+                        //cellData = String.valueOf(((int) cell.getNumericCellValue()));
+                        cellData = String.valueOf((cell.getNumericCellValue()));
+                        if (cellData.equals("0.0")) {
+                            cellData = String.valueOf(0);
+                        }
+                       /* if (cellData.contains(".0")) {
+                            cellData = cellData.replace(".0", "");
+                        }*/
+                        //cellData = cellData.substring(0, cellData.length() - 2);
                         break;
                     case STRING:
-                        cellValue = cell.getStringCellValue();
+                        cellData = cell.getStringCellValue();
+                        if (cellData.equals("0.0")) {
+                            cellData = String.valueOf(0);
+                        }
+                      /*  if (cellData.contains(".0")) {
+                            cellData = cellData.replace(".0", "");
+                        }*/
                         break;
                     case NUMERIC:
-                        cellValue = String.valueOf((cell.getNumericCellValue()));
-                        //cellValue = cellValue.substring(0, cellValue.length() - 2);
+                        // cellData = String.valueOf(((int) cell.getNumericCellValue()));
+                        cellData = String.valueOf((cell.getNumericCellValue()));
+                        if (cellData.equals("0.0")) {
+                            cellData = String.valueOf(0);
+                        }
+                       /* if (cellData.contains(".0")) {
+                            cellData = cellData.replace(".0", "");
+                        }*/
                         break;
+
                 }
-            }*/
+                if (cell.getCellStyle().getDataFormatString().contains("%")) {
+                    // Detect Percent Values
+                    Double value = Double.parseDouble(cellData) * 100;
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    df.setRoundingMode(RoundingMode.HALF_EVEN);
+
+                    cellData = df.format(value.doubleValue());
+                    if (cellData.equals("0.0")) {
+                        cellData = String.valueOf(0);
+                    }
+                    /*if (cellData.contains(".0")) {
+                        cellData = cellData.replace(".0", "");
+                    }*/
+                }
+            }
         } catch (Throwable e) {
             throw (e);
+        }
+        return cellData;
+    }
+
+    public static String getCellDate(int RowNum, int ColNum) {
+        String cellData = null;
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        CellType cellType;
+        try {
+            cell = excelWSheet.getRow(RowNum).getCell(ColNum);
+
+            cellData = df.format(cell.getDateCellValue());
+
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
         return cellData;
     }
@@ -161,12 +212,12 @@ public class ExcelUtil extends Transformer<DataTable> {
     }
 
     //This method gets excel file, row and column number and set a value to the that cell.
-    public static void setCellData(String value, int RowNum, int ColNum) {
+    public static void setCellData(String value, int rowNum, int colNum) {
         try {
-            row = excelWSheet.getRow(RowNum);
-            cell = row.getCell(ColNum);
+            row = excelWSheet.getRow(rowNum);
+            cell = row.getCell(colNum);
             if (cell == null) {
-                cell = row.createCell(ColNum);
+                cell = row.createCell(colNum);
                 cell.setCellValue(value);
             } else {
                 cell.setCellValue(value);
@@ -177,46 +228,68 @@ public class ExcelUtil extends Transformer<DataTable> {
             fileOut.flush();
             fileOut.close();
         } catch (Exception e) {
-            try {
-                throw (e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            e.printStackTrace();
         }
     }
 
-    public static void setCellComment(String value, int RowNum, int ColNum) {
-        Workbook workbook = new XSSFWorkbook();
-        Sheet sheet = workbook.createSheet();
-        CreationHelper creationHelper = (XSSFCreationHelper) workbook.getCreationHelper();
+    public static void setCellComment(String value, int rowNum, int colNum) {
+      /*  Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet();*/
+        int dx1 = 100, dy1 = 50, dx2 = 100, dy2 = 50;
 
-        Drawing<Shape> drawing = (Drawing<Shape>) sheet.createDrawingPatriarch();
-        ClientAnchor clientAnchor = drawing.createAnchor(0, 0, 0, 0, 0, 2, 7, 12);
 
-        Comment comment = (Comment) drawing.createCellComment(clientAnchor);
+        CreationHelper creationHelper = (XSSFCreationHelper) excelWBook.getCreationHelper();
+
+        //Drawing<Shape> drawing = (Drawing<Shape>) sheet.createDrawingPatriarch();
+        ClientAnchor clientAnchor = creationHelper.createClientAnchor();
+        // ClientAnchor clientAnchor = drawing.createAnchor(dx1, dy1, dx2, dy2, (short) 1, 1, (short) 6, 5);
+
+        //    Comment comment = (Comment) drawing.createCellComment(clientAnchor);
+        Drawing drawing = excelWSheet.createDrawingPatriarch();
+
+        Comment comment; //= drawing.createCellComment(clientAnchor);
 
         RichTextString richTextString = creationHelper.createRichTextString(value);
-        comment.setString(richTextString);
+     /*   comment.setString(richTextString);
+        System.out.println("Comment "+comment.toString());*/
         try {
-            row = excelWSheet.getRow(RowNum);
-            cell = row.getCell(ColNum);
+            row = excelWSheet.getRow(rowNum);
+            cell = row.getCell(colNum);
             if (cell == null) {
-                cell = row.createCell(ColNum);
+               /* cell = row.createCell(colNum);
+                clientAnchor.setCol1(cell.getColumnIndex() + 1); //the box of the comment starts at this given column...
+                clientAnchor.setCol2(cell.getColumnIndex() + 3); //...and ends at that given column
+                clientAnchor.setRow1(rowNum + 1); //one row below the cell...
+                clientAnchor.setRow2(rowNum + 5); //...and 4 rows high
+                clientAnchor.setDx1(100);
+                clientAnchor.setDx2(100);
+                clientAnchor.setDy1(100);
+                clientAnchor.setDy2(100);*/
+                comment = drawing.createCellComment(clientAnchor);
+                comment.setString(creationHelper.createRichTextString(value));
+
                 cell.setCellComment(comment);
             } else {
+               /* clientAnchor.setCol1(cell.getColumnIndex() + 1); //the box of the comment starts at this given column...
+                clientAnchor.setCol2(cell.getColumnIndex() + 3); //...and ends at that given column
+                clientAnchor.setRow1(rowNum + 1); //one row below the cell...
+                clientAnchor.setRow2(rowNum + 5); //...and 4 rows high
+                clientAnchor.setDx1(100);
+                clientAnchor.setDx2(100);
+                clientAnchor.setDy1(100);
+                clientAnchor.setDy2(100);*/
+                comment = drawing.createCellComment(clientAnchor);
+                comment.setString(creationHelper.createRichTextString(value));
+
                 cell.setCellComment(comment);
             }
             // Constant variables Test Data path and Test Data file name
             FileOutputStream fileOut = new FileOutputStream(GlobalConstants.TEST_DATA_EXCEL_FILE_NAME);
             excelWBook.write(fileOut);
-            fileOut.flush();
+            //  fileOut.s();
             fileOut.close();
         } catch (Exception e) {
-            try {
-                throw (e);
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            e.printStackTrace();
         }
     }
 }

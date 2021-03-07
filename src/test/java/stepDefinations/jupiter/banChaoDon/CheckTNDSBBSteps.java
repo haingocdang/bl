@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.openqa.selenium.WebDriver;
 import pageObjects.jupiter.DanhSachBanChaoPageObject;
 import pageObjects.jupiter.TaoBanChaoPageObject;
+import pageUIs.alpaca.CommonPageUI;
 import utils.excelutils.ExcelReader;
 import utils.excelutils.ExcelUtil;
 
@@ -91,7 +92,7 @@ public class CheckTNDSBBSteps {
                 }
 
                 if (hangHieuXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))) {
-                    System.out.println(hangHieuXeValue.get("Hiệu Xe"));
+                    // System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     commonPage.chonGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
                     // System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     //taoBanChaoPage.selectGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
@@ -105,7 +106,7 @@ public class CheckTNDSBBSteps {
                         }
                         if (MDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))) {
                             commonPage.chonGiaTri(driver, MĐSD, MDSDValue.get("MĐSD"));
-                            System.out.println(MDSDValue.get("MĐSD"));
+                            //System.out.println(MDSDValue.get("MĐSD"));
                             for (Map<String, String> nhomLoaiXeValue : nhomLoaiXeSheet) {
                                 //if (nhomLoaiXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeMDSDValue.get("Hiệu Xe"))) {
                                 if (nhomLoaiXeValue.get("Hãng Xe").equals("")) {
@@ -114,9 +115,12 @@ public class CheckTNDSBBSteps {
                                 if (nhomLoaiXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))
                                         && nhomLoaiXeValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))
                                         && nhomLoaiXeValue.get("MĐSD").equals(MDSDValue.get("MĐSD"))) {
+                                  //  commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
+
                                     row = 0;
                                     for (Map<String, String> TNDSBBValue : TNDSBBSheet) {
                                         row = row + 1;
+
                                         if (TNDSBBValue.get("Nhóm Xe").equals("")) {
                                             break;
                                         }
@@ -136,60 +140,45 @@ public class CheckTNDSBBSteps {
                                                     (((TNDSBBValue.get("MĐSD").equals("All")) || (TNDSBBValue.get("MĐSD").equals(nhomLoaiXeValue.get("MĐSD")))) &&
                                                             ((TNDSBBValue.get("Số Chỗ").equals("All")) || (TNDSBBValue.get("Số Chỗ").equals(TNDSBBValue.get("Số Chỗ"))) || ((Boolean) engine.eval(commonPage.applyCellFormular(TNDSBBValue.get("Số Chỗ"), TNDSBBValue.get("Inputted Số Chỗ"))))) &&
                                                             ((TNDSBBValue.get("Trọng Tải").equals("All")) || (TNDSBBValue.get("Trọng Tải").equals(TNDSBBValue.get("Trọng Tải"))) || ((Boolean) engine.eval(commonPage.applyCellFormular(TNDSBBValue.get("Trọng Tải"), TNDSBBValue.get("Inputted Trọng Tải"))))))) {
-                                                commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
+                                                 commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
                                                 commonPage.chonGiaTri(driver, loaiXe, TNDSBBValue.get("Loại Xe"));
-                                                commonPage.inputCellValue(driver, TNDSBBValue.get("Số Chỗ"), "Số chỗ ngồi", TNDSBBValue.get("Inputted Số Chỗ"));
 
-                                                commonPage.inputCellValue(driver, TNDSBBValue.get("Trọng Tải"), "Trọng tải", TNDSBBValue.get("Inputted Trọng Tải"));
+                                                commonPage.inputValueIntoTextbox(driver, "Số chỗ ngồi", TNDSBBValue.get("Inputted Số Chỗ"));
+                                                commonPage.sleepInSecond(1);
+                                                commonPage.inputValueIntoTextbox(driver, "Trọng tải", TNDSBBValue.get("Inputted Trọng Tải"));
+                                                commonPage.sleepInSecond(1);
 
-                                                // commonPage.chonGiaTri(driver, loaiXe, TNDSBBValue.get("Loại Xe"));
-                                                // taoBanChaoPage.chonGiaTri(driver, loaiXe, "Xe tải");
-                                                commonPage.sleepInSecond(2);
-                                                // commonPage.chonPhamViBH("TNDS Tự Nguyện");
-                                                // System.out.println(TNDSBBValue.get("Loại Xe"));
-                                                String phiBBUI = commonPage.getValueFromCell(driver, "Phí Quy Định (Gồm Thuế)", "TNDS Bắt Buộc");
+
+                                                commonPage.clickToElement(driver, CommonPageUI.COMMON_TAB, "Phạm vi bảo hiểm");
+
+
+                                                String phiBBUI = commonPage.getValueFromCell(driver, "Phí Chuẩn (Sau Thuế)", "TNDS Bắt Buộc").replace(",","");
                                                 String phiBBExpected = TNDSBBValue.get("Phí Final");
-                                                LinkedHashMap<String, String> columnMapdata;
-                                                columnMapdata = externalData.getCellValue(TNDSBBSheetUltil, externalData.getRow(TNDSBBSheetUltil, row), 11);
-                                                String cellValue = excelFile.getCellData(row, 11);
-                                                //excelFile.setCellData("OK", row,12);
-                                               /* System.out.println("Phí BB UI: " + phiBBUI);
-                                                System.out.println("Row "+ row);
-                                                System.out.println("Phí BB Data: " + cellValue);*/
+                                                String cellValue = excelFile.getCellData(row, 11);//.replace(",", "");
+
                                                 if (verify.verifyEquals(cellValue, phiBBUI)) {
                                                     excelFile.setCellData("PASSED", row, 12);
-                                                    excelFile.setCellData(nhomLoaiXeValue.get("MĐSD"), row, 13);
-                                                    excelFile.setCellData(hangHieuXeValue.get("Hiệu Xe"), row, 14);
+                                                   /* excelFile.setCellData(nhomLoaiXeValue.get("MĐSD"), row, 13);
+                                                    excelFile.setCellData(hangHieuXeValue.get("Hiệu Xe"), row, 14);*/
 
                                                 } else {
-                                                      /* System.out.println("KQ: FAILED");
-                                                        System.out.println(nhomLoaiXeValue.get("Hãng Xe"));
-                                                      //  System.out.println(nhomLoaiXeValue.get("Hiệu Xe"));
-                                                        System.out.println(nhomLoaiXeValue.get("MĐSD"));
-                                                        System.out.println(nhomLoaiXeValue.get("Nhóm Xe"));
-                                                        // System.out.println("Nhom Xe BB"+TNDSBBValue.get("Nhóm Xe"));
-                                                        System.out.println(nhomLoaiXeValue.get("Loại Xe"));
-                                                        System.out.println(cellValue);*/
+
                                                     excelFile.setCellData("FAILED", row, 12);
-                                                    excelFile.setCellData(phiBBUI, row, 13);
-                                                    excelFile.setCellData(nhomLoaiXeValue.get("MĐSD"), row, 14);
-                                                    excelFile.setCellData(hangHieuXeValue.get("Hiệu Xe"), row, 15);
+                                                    excelFile.setCellComment(phiBBUI, row, 11);
+                                                    excelFile.setCellComment(cellValue, row, 12);
 
-
+                                                   /* excelFile.setCellData(nhomLoaiXeValue.get("MĐSD"), row, 14);
+                                                    excelFile.setCellData(hangHieuXeValue.get("Hiệu Xe"), row, 15);*/
+                                                    // excelFile.setCellData(cellValue, row, 16);
                                                 }
-
-                                                // Assert.assertEquals(cellValue, phiBBUI);
-                                                    /*    System.out.println(taoBanChaoPage.getValueFromCell(driver, "Phí Quy Định (Gồm Thuế)", "MTN BT3 về tài sản"));
-                                                        System.out.println(taoBanChaoPage.getValueFromCell(driver, "Phí Quy Định (Gồm Thuế)", "MTN BT3 về hành khách"));
-                                                        System.out.println(taoBanChaoPage.getValueFromCell(driver, "Phí Quy Định (Gồm Thuế)", "MTN BT3 về hàng hóa"));*/
-                                                //taoBanChaoPage.chonPhamViBH("TNDS Tự Nguyện");
-                                                //break;
 
                                             }
                                             //row=row+1;
                                         } catch (ScriptException e) {
                                             e.printStackTrace();
                                         }
+                                        commonPage.clickToElement(driver, CommonPageUI.COMMON_TAB, "Thông tin xe");
+
                                     }
                                 }
                             }

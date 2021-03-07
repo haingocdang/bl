@@ -6,11 +6,14 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOption.Hooks;
+
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pageObjects.jupiter.DanhSachBanChaoPageObject;
 import pageObjects.jupiter.TaoBanChaoPageObject;
+import pageUIs.alpaca.CommonPageUI;
 import utils.excelutils.ExcelReader;
 import utils.excelutils.ExcelUtil;
 
@@ -18,8 +21,12 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import static stepDefinations.common.stepDefinations.CommonPageSteps.commonPage;
@@ -51,10 +58,13 @@ public class CheckTyLeVCXSteps {
     }*/
 
     @Then("^VCX display correct value <Tỷ Lệ> when selecting \"([^\"]*)\" with value <Hãng Xe> and \"([^\"]*)\" with value <Hiệu Xe> and and \"([^\"]*)\" with value <Mục Đích Sử Dụng> and \"([^\"]*)\" with value <Loại Xe> and \"([^\"]*)\" with value <Nhóm Xe>$")
-    public void checkTyLeTNDSTN(String hangXe, String hieuXe, String MĐSD,
-                                String loaiXe, String nhomXe, DataTable data) {
+    public void checkTyLeVCX(String hangXe, String hieuXe, String MĐSD,
+                             String loaiXe, String nhomXe, DataTable data) {
         externalData = new ExcelReader();
         excelFile = new ExcelUtil();
+        //  SimpleDateFormat newFormat = new SimpleDateFormat("yyyyMMdd");
+
+
         int row = 0;
         List<Map<String, String>> nhomLoaiXeSheet, MDSDSheet,
                 hangXeSheet, hieuXeSheet, VCXSheet;
@@ -105,10 +115,10 @@ public class CheckTyLeVCXSteps {
                     System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     //taoBanChaoPage.selectGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
                     for (Map<String, String> MDSDValue : MDSDSheet) {
-                        optionNhomXeUIValues = new ArrayList<>();
+                       /* optionNhomXeUIValues = new ArrayList<>();
                         optionLoaiXeUIValues = new ArrayList<>();
                         nhomXeDataTableValues = new ArrayList<>();
-                        loaiXeDataTabaleValues = new ArrayList<>();
+                        loaiXeDataTabaleValues = new ArrayList<>();*/
 
 
                         if (MDSDValue.get("Hãng Xe").equals("")) {
@@ -132,9 +142,9 @@ public class CheckTyLeVCXSteps {
                                         if (VCXValue.get("Nhóm Xe").equals("")) {
                                             break;
                                         }
-                                        System.out.println("Nhom Xe VCX "+VCXValue.get("Nhóm Xe"));
+                                       /* System.out.println("Nhom Xe VCX "+VCXValue.get("Nhóm Xe"));
                                         System.out.println("Loai Xe VCX "+VCXValue.get("Loại Xe"));
-                                        System.out.println("Result "+ excelFile.getCellData(row, 42));
+                                        System.out.println("Result "+ excelFile.getCellData(row, 42));*/
                                         if ((VCXValue.get("Nhóm Xe").equals(nhomLoaiXeValue.get("Nhóm Xe"))) &&
                                                 (VCXValue.get("Loại Xe").equals(nhomLoaiXeValue.get("Loại Xe"))) &&
                                                 //  ((TNDSBBValue.get("MĐSD").equals("All")) || (TNDSBBValue.get("MĐSD").equals(nhomLoaiXeValue.get("MĐSD")))) &&
@@ -147,26 +157,37 @@ public class CheckTyLeVCXSteps {
                                         {
                                             commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
                                             commonPage.chonGiaTri(driver, loaiXe, VCXValue.get("Loại Xe"));
-                                            commonPage.iInputDateTimePicker(driver, "Ngày Đăng Ký Lần Đầu", VCXValue.get("Đăng ký lần đầu"));
-                                            commonPage.inputValueIntoTextbox(driver, "Giá trị xe (Thực tế)", VCXValue.get("Gía trị xe điều chỉnh"));
-                                            commonPage.inputValueIntoTextbox(driver, "Số chỗ ngồi", VCXValue.get("Số chỗ"));
+                                            //  commonPage.iInputDateTimePicker(driver, "Ngày Đăng Ký Lần Đầu", VCXValue.get("Đăng ký lần đầu"));
+                                            /*  try {*/
+                                            commonPage.iInputDateTimePicker(driver, "Ngày Đăng Ký Lần Đầu", excelFile.getCellDate(row, 12));
+                                            commonPage.iInputDateTimePicker(driver, "Ngày bắt đầu", excelFile.getCellDate(row, 14));
+                                            commonPage.iInputDateTimePicker(driver, "Ngày kết thúc", excelFile.getCellDate(row, 15));
+                                            //  System.out.println("Lan Dau "+excelFile.getCellDate(row,12));
+                                           /* } catch (ParseException e) {
+                                                e.printStackTrace();
+                                            }*/
+                                            commonPage.inputValueIntoTextbox(driver, "Giá trị xe thực tế", VCXValue.get("Gía trị xe điều chỉnh"));
+                                           // commonPage.inputValueIntoTextbox(driver, "Số chỗ ngồi", VCXValue.get("Số chỗ"));
+                                            //     commonPage.chonGiaTri(driver, "Nơi sản xuất", VCXValue.get("Nơi sản xuất"));
                                             commonPage.chonGiaTri(driver, "Nơi sản xuất", VCXValue.get("Nơi sản xuất"));
+                                            //   System.out.println(VCXValue.get("Nơi sản xuất"));
                                             commonPage.chonGiaTri(driver, "Năm sản xuất", VCXValue.get("Năm sản xuất"));
+                                            //    System.out.println(VCXValue.get("Năm sản xuất"));
+                                            commonPage.sleepInSecond(1);
+                                            commonPage.clickToElement(driver, CommonPageUI.COMMON_TAB,"Phạm vi bảo hiểm");
 
-
-                                            //   System.out.println(VCXValue.get("Loại Xe"));
-                                            String phamViCoBanUI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Phạm vi cơ bản");
-                                            String boSung01UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 01");
-                                            String boSung02UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 02");
-                                            String boSung03UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 03");
-                                            String boSung04aUI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 04a");
-                                            String boSung04bUI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 04b");
-                                            String boSung05UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 05");
-                                            String boSung06UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 06");
-                                            String boSung07UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 07");
-                                            String boSung08UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 08");
-                                            String boSung09UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 09");
-                                            String boSung10UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 10");
+                                            String phamViCoBanUI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Phạm vi cơ bản");
+                                            String boSung01UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 01");
+                                            String boSung02UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 02");
+                                            //  String boSung03UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 03");
+                                            String boSung04aUI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 04a");
+                                            String boSung04bUI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 04b");
+                                            String boSung05UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 05");
+                                            //   String boSung06UI = commonPage.getValueFromCell(driver, "Tỉ Lệ Phí Quy Định (Gồm Thuế)", "Bổ sung 06");
+                                            String boSung07UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 07");
+                                            String boSung08UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 08");
+                                            String boSung09UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 09");
+                                            String boSung10UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 10");
 
 
                                             String cellPhamViCoBan = excelFile.getCellData(row, 29);
@@ -181,12 +202,31 @@ public class CheckTyLeVCXSteps {
                                             String cellBoSung09 = excelFile.getCellData(row, 38);
                                             String cellBoSung10 = excelFile.getCellData(row, 39);
 
-
-                                            if (verify.verifyEquals(phamViCoBanUI, cellPhamViCoBan.replace("%", ""))) {
+                                          //  Assert.assertEquals(cellPhamViCoBan, phamViCoBanUI.replace("%", ""));
+                                            if (verify.verifyEquals(cellPhamViCoBan, phamViCoBanUI.replace("%", "")) &&
+                                                    (verify.verifyEquals(cellBoSung01, boSung01UI.replace("%", ""))) &&
+                                                    (verify.verifyEquals(cellBoSung02, boSung02UI.replace("%", ""))) &&
+                                                    (verify.verifyEquals(cellBoSung04a, boSung04aUI.replace("%", ""))) &&
+                                                    (verify.verifyEquals(cellBoSung05, boSung05UI.replace("%", ""))) &&
+                                                    (verify.verifyEquals(cellBoSung07, boSung07UI.replace("%", ""))) &&
+                                                    (verify.verifyEquals(cellBoSung08, boSung08UI.replace("%", ""))) &&
+                                                   // (verify.verifyEquals(cellBoSung09, boSung09UI.replace("%", ""))) &&
+                                                    (verify.verifyEquals(cellBoSung10, boSung10UI.replace("%", "")))) {
                                                 excelFile.setCellData("PASSED", row, 42);
                                             } else {
                                                 excelFile.setCellData("FAILED", row, 42);
+                                                /*System.out.println("Excell "+cellPhamViCoBan);
+                                                System.out.println("UI "+phamViCoBanUI);*/
+
                                                 excelFile.setCellComment("Actual value: " + phamViCoBanUI, row, 29);
+                                                excelFile.setCellComment("Actual value: " + boSung01UI, row, 30);
+                                                excelFile.setCellComment("Actual value: " + boSung02UI, row, 31);
+                                                excelFile.setCellComment("Actual value: " + boSung04aUI, row, 33);
+                                                excelFile.setCellComment("Actual value: " + boSung05UI, row, 34);
+                                                excelFile.setCellComment("Actual value: " + boSung07UI, row, 36);
+                                                excelFile.setCellComment("Actual value: " + boSung08UI, row, 37);
+                                                excelFile.setCellComment("Actual value: " + boSung09UI, row, 38);
+                                                excelFile.setCellComment("Actual value: " + boSung10UI, row, 39);
                                                 // excelFile.setCellData(cellPhamViCoBan, row, 16);
                                             }
 
@@ -210,6 +250,9 @@ public class CheckTyLeVCXSteps {
                                             //break;
 
                                         }
+                                        commonPage.sleepInSecond(1);
+                                        commonPage.clickToElement(driver, CommonPageUI.COMMON_TAB,"Thông tin xe");
+
                                     }
                                     // break;
                                 }

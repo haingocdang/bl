@@ -7,8 +7,9 @@ public class GlobalConstants {
 	public static String MERCURY_LOGIN_TEST_ENV_URL="http://test-mercury.alpaca.vn/login";
 	//public static String MERCURY_LOGIN_TEST_ENV_URL="http://61.14.237.83:8903/oauth/login";
 	public static String JUPITER_LOGIN_TEST_ENV_URL="http://test-jupiter.alpaca.vn";
+	//public static String JUPITER_LOGIN_TEST_ENV_URL="http://103.70.30.134:3201";
 	//public static String JUPITER_LOGIN_TEST_ENV_URL="http://test-jupiter.alpaca.vn/test-schema/new-schema";
-	public static String JUPITER_LOGIN_DEV_ENV_URL="http://61.14.237.89:3201/login";
+//	public static String JUPITER_LOGIN_DEV_ENV_URL="http://61.14.237.89:3201/login";
 	public static long LONG_TIMEOUT=30;
 	public static long SHORT_TIMEOUT=10;
 	public static String BROWSER_LOG_FOLDER=ROOT_FOLDER+"\\browserLog";

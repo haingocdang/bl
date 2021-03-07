@@ -219,10 +219,12 @@ public class CommonPageObjects extends AbstractPage {
 
     public void iInputDateTimePicker(WebDriver driver, String tenField, String dateTime) {
         waitElementVisible(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
-       // clearValueInField(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
+        clearValueInField(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
         sendKeyToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, dateTime, tenField);
-        clickToElement(driver, CommonPageUI.COMMON_LABEL, tenField);
-        //sendKeyBoardToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, Keys.ENTER, tenField);
+        //clickToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
+       // clickToElement(driver, CommonPageUI.COMMON_LABEL, tenField);
+
+        sendKeyBoardToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, Keys.ESCAPE, tenField);
     }
 
     public void waitTo(WebDriver driver, String dateTime) {

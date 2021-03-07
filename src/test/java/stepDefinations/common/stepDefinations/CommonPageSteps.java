@@ -5,6 +5,7 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import commons.VerifyHelper;
 import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -49,10 +50,10 @@ public class CommonPageSteps {
         driver.manage().window().maximize();
         LoginPageObject loginPage;
         loginPage = PageGeneratorManager.getLoginPage(driver);
-        loginPage.inputUserName("test002");
-        loginPage.inputUserPassword("12341234");
+        loginPage.inputUserName("qctest001");
+        loginPage.inputUserPassword("Aa@123");
         loginPage.clickDangNhapButton();
-      //  driver.get(GlobalConstants.JUPITER_LOGIN_TEST_ENV_URL);
+        driver.get(GlobalConstants.JUPITER_LOGIN_TEST_ENV_URL);
         // driver.get("http://61.14.237.89:3201/");
         //danhSachBanChaoPage = PageGeneratorManager.getDanhSachBanChaoPage(driver);
     }
@@ -308,4 +309,15 @@ public class CommonPageSteps {
 
     }
 
+    @And("^I click \"([^\"]*)\" tab$")
+    public void iClickTab(String tabName){
+        commonPage.waitElementVisible(driver,CommonPageUI.COMMON_TAB,tabName);
+        commonPage.clickToElement(driver,CommonPageUI.COMMON_TAB,tabName);
+    }
+
+    @And("^I click \"([^\"]*)\" icon$")
+    public void iClickIcon(String iconName){
+        commonPage.waitElementVisible(driver,CommonPageUI.COMMON_ICON,iconName);
+        commonPage.clickToElement(driver,CommonPageUI.COMMON_ICON,iconName);
+    }
 }

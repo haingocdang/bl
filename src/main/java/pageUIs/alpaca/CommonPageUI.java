@@ -39,8 +39,11 @@ public class CommonPageUI {
     public static final String CLOSE_POPUP_BUTTON = "//button[@class='close rounded-pill']";
     public static final String SEARCH_TEXTBOX = "//input[@name='keyword']";
     public static final String SECTION_LABEL = "//h5[contains(.,'%s')]";
-    public static final String COMMON_DATETIME_PICKER="//label[contains(text(),'%s')]/following-sibling::article//input";
+    //public static final String COMMON_DATETIME_PICKER="//label[contains(text(),'%s')]/following-sibling::article//input";
+    public static final String COMMON_DATETIME_PICKER="//a[text()='Thông tin xe']/ancestor::ul/following-sibling::div//label[contains(text(),'%s')]/following-sibling::article//input";
     //public static final String COMMON_DATETIME_PICKER = "//label[contains(text(),'%s')]/following-sibling::div//input";
     public static final String COMMON_LABEL = "//label[contains(text(),'%s')]";
+    public static final String COMMON_TAB = "//a[text()='%s']";
+    public static final String COMMON_ICON = "//a[@title='%s']/i";
 
 }

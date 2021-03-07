@@ -56,3 +56,4 @@ Feature: Vô Hiệu/ Khôi Phục Chức Năng with scheduled time
     And Khôi Phục Chức Năng action is recored into Lịch Sử Chức Năng
 
 
+
