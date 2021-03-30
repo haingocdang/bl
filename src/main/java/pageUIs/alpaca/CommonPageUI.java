@@ -27,7 +27,8 @@ public class CommonPageUI {
     public static final String COMMON_CELL_INDEX = "//tr[%s]/td[%s]/span";
     public static final String COMMON_CHINH_SUA_LAN_CUOI_INDEX = "//tr[%s]/td[%s]";
     public static final String COMMON_CELL_LINK = "//tr[%s]/td[%s]/a";
-    public static final String PHAM_VI_BH_CHECKBOX = "//b[contains(text(),'%s')]/parent::td/preceding-sibling::td";
+    public static final String LOAI_HINH_BH_CHILD_CHECKBOX = "//*[contains(text(),'%s')]/parent::td/preceding-sibling::td//input";
+    public static final String LOAI_HINH_BH_PARENT_CHECKBOX = "//*[contains(text(),'Vật chất xe')]/parent::span/parent::td/preceding-sibling::td//input";
     public static final String ACTION_MENU = "//a[contains(text(),'%s')]//parent::td//following-sibling::td[@class='action-col']";
     //public static final String ACTION_OPTION="//a[contains(text(),'%s')]//parent::td//following-sibling::td[@class='action-col']//button[contains(.,'%s')]";
     public static final String ACTION_OPTION = "//a[text()='%s']//parent::td//following-sibling::td[@class='action-col']//*[@class='dropdown-item delete' and contains(.,'%s')]";

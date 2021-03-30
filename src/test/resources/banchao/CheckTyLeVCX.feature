@@ -8,10 +8,14 @@ Feature: Check Tỷ lệ VCX
     When I click "Tạo mới" button
     And I select "Nghiệp vụ" dropdown list with "Nghiệp vụ" value
       | Nghiệp vụ|
-      |  Xe |
+      |  Xe cơ giới |
     And I select "Tên sản phẩm" dropdown list with "Tên sản phẩm" value
       | Tên sản phẩm |
-      | Ô tô         |
+      | Xe ô tô (DEMO_V1.1) |
+   # And I select "Loại sản phẩm" dropdown list with "Loại sản phẩm" value
+   #   | Loại sản phẩm |
+   #   | Sản phẩm đơn |
+
     And I click "Đối tượng bảo hiểm" tab
     And I click "Thêm thông tin đối tượng" icon
 

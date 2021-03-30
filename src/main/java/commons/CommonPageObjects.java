@@ -209,6 +209,8 @@ public class CommonPageObjects extends AbstractPage {
 
     public void inputValueIntoTextbox(WebDriver driver, String tenField, String value) {
         waitElementVisible(driver, CommonPageUI.COMMON_TEXTBOX, tenField);
+        clearValueInField(driver, CommonPageUI.COMMON_TEXTBOX, tenField);
+
         sendKeyToElement(driver, CommonPageUI.COMMON_TEXTBOX, value, tenField);
     }
 
@@ -223,6 +225,7 @@ public class CommonPageObjects extends AbstractPage {
         sendKeyToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, dateTime, tenField);
         //clickToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, tenField);
        // clickToElement(driver, CommonPageUI.COMMON_LABEL, tenField);
+        sleepInSecond(1);
 
         sendKeyBoardToElement(driver, CommonPageUI.COMMON_DATETIME_PICKER, Keys.ESCAPE, tenField);
     }

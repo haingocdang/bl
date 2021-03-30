@@ -103,7 +103,7 @@ public class CheckTyLeVCXSteps {
                 break;
             }
             commonPage.chonGiaTri(driver, hangXe, hangXeValue.get("Hãng Xe"));
-            System.out.println(hangXeValue.get("Hãng Xe"));
+            //System.out.println(hangXeValue.get("Hãng Xe"));
             for (Map<String, String> hangHieuXeValue : hieuXeSheet) {
                 if (hangHieuXeValue.get("Hãng Xe").equals("")) {
                     break;
@@ -112,7 +112,7 @@ public class CheckTyLeVCXSteps {
                 if (hangHieuXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))) {
                     //System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     commonPage.chonGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
-                    System.out.println(hangHieuXeValue.get("Hiệu Xe"));
+                   // System.out.println(hangHieuXeValue.get("Hiệu Xe"));
                     //taoBanChaoPage.selectGiaTri(driver, hieuXe, hangHieuXeValue.get("Hiệu Xe"));
                     for (Map<String, String> MDSDValue : MDSDSheet) {
                        /* optionNhomXeUIValues = new ArrayList<>();
@@ -126,7 +126,7 @@ public class CheckTyLeVCXSteps {
                         }
                         if (MDSDValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))) {
                             commonPage.chonGiaTri(driver, MĐSD, MDSDValue.get("MĐSD"));
-                            System.out.println(MDSDValue.get("MĐSD"));
+                           // System.out.println(MDSDValue.get("MĐSD"));
                             for (Map<String, String> nhomLoaiXeValue : nhomLoaiXeSheet) {
                                 //if (nhomLoaiXeMDSDValue.get("Hiệu Xe").equals(hangHieuXeMDSDValue.get("Hiệu Xe"))) {
                                 if (nhomLoaiXeValue.get("Hãng Xe").equals("")) {
@@ -134,7 +134,11 @@ public class CheckTyLeVCXSteps {
                                 }
                                 if (nhomLoaiXeValue.get("Hãng Xe").equals(hangXeValue.get("Hãng Xe"))
                                         && nhomLoaiXeValue.get("Hiệu Xe").equals(hangHieuXeValue.get("Hiệu Xe"))
-                                        && nhomLoaiXeValue.get("MĐSD").equals(MDSDValue.get("MĐSD"))) {
+                                        && nhomLoaiXeValue.get("MĐSD").equals(MDSDValue.get("MĐSD"))
+                                        && nhomLoaiXeValue.get("Nhóm Xe").equals(MDSDValue.get("Nhóm Xe")) ) {
+
+                                    commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
+
                                     row = 0;
 
                                     for (Map<String, String> VCXValue : VCXSheet) {
@@ -142,11 +146,20 @@ public class CheckTyLeVCXSteps {
                                         if (VCXValue.get("Nhóm Xe").equals("")) {
                                             break;
                                         }
+
+                                        if (!VCXSheet.stream().anyMatch(map->map.containsValue(nhomLoaiXeValue.get("Nhom-Loại xe")))){
+                                           // System.out.println(VCXSheet);
+                                           /* System.out.println("Nhom loai xe: "+ nhomLoaiXeValue.get("Nhom-Loại xe"));
+                                            System.out.println("VCX: "+ VCXValue.get("Nhom-Loại xe"));
+*/
+                                            break;
+                                        }
                                        /* System.out.println("Nhom Xe VCX "+VCXValue.get("Nhóm Xe"));
                                         System.out.println("Loai Xe VCX "+VCXValue.get("Loại Xe"));
                                         System.out.println("Result "+ excelFile.getCellData(row, 42));*/
+                                      //  if (VCXValue.get("Nhom-Loại xe").equals(nhomLoaiXeValue.get("Nhom-Loại xe")) &&
                                         if ((VCXValue.get("Nhóm Xe").equals(nhomLoaiXeValue.get("Nhóm Xe"))) &&
-                                                (VCXValue.get("Loại Xe").equals(nhomLoaiXeValue.get("Loại Xe"))) &&
+                                             (VCXValue.get("Loại Xe").equals(nhomLoaiXeValue.get("Loại Xe"))) &&
                                                 //  ((TNDSBBValue.get("MĐSD").equals("All")) || (TNDSBBValue.get("MĐSD").equals(nhomLoaiXeValue.get("MĐSD")))) &&
                                                 (((excelFile.getCellData(row, 42)).equals("NOT RUN YET"))))
 
@@ -155,7 +168,7 @@ public class CheckTyLeVCXSteps {
                                         // ((VCXValue.get("Số Chỗ").equals("All")) || (VCXValue.get("Số Chỗ").equals(VCXValue.get("Số Chỗ"))) || ((Boolean) engine.eval(commonPage.applyCellFormular(VCXValue.get("Số Chỗ"), VCXValue.get("Inputted Số Chỗ"))))) &&
                                         //((VCXValue.get("Trọng Tải").equals("All")) || (VCXValue.get("Trọng Tải").equals(VCXValue.get("Trọng Tải"))) || ((Boolean) engine.eval(commonPage.applyCellFormular(VCXValue.get("Trọng Tải"), VCXValue.get("Inputted Trọng Tải")))))))
                                         {
-                                            commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
+                                           // commonPage.chonGiaTri(driver, nhomXe, nhomLoaiXeValue.get("Nhóm Xe"));
                                             commonPage.chonGiaTri(driver, loaiXe, VCXValue.get("Loại Xe"));
                                             //  commonPage.iInputDateTimePicker(driver, "Ngày Đăng Ký Lần Đầu", VCXValue.get("Đăng ký lần đầu"));
                                             /*  try {*/
@@ -175,6 +188,7 @@ public class CheckTyLeVCXSteps {
                                             //    System.out.println(VCXValue.get("Năm sản xuất"));
                                             commonPage.sleepInSecond(1);
                                             commonPage.clickToElement(driver, CommonPageUI.COMMON_TAB,"Phạm vi bảo hiểm");
+                                            commonPage.checkToCheckbox(driver,CommonPageUI.LOAI_HINH_BH_PARENT_CHECKBOX,"Vật chất xe");
 
                                             String phamViCoBanUI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Phạm vi cơ bản");
                                             String boSung01UI = commonPage.getValueFromCell(driver, "TLP Chuẩn (Sau thuế)", "Bổ sung 01");

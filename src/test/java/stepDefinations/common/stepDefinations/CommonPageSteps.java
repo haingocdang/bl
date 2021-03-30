@@ -50,8 +50,8 @@ public class CommonPageSteps {
         driver.manage().window().maximize();
         LoginPageObject loginPage;
         loginPage = PageGeneratorManager.getLoginPage(driver);
-        loginPage.inputUserName("qctest001");
-        loginPage.inputUserPassword("Aa@123");
+        loginPage.inputUserName("test001");
+        loginPage.inputUserPassword("12341234");
         loginPage.clickDangNhapButton();
         driver.get(GlobalConstants.JUPITER_LOGIN_TEST_ENV_URL);
         // driver.get("http://61.14.237.89:3201/");

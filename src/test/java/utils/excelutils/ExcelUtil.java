@@ -109,7 +109,7 @@ public class ExcelUtil extends Transformer<DataTable> {
         CellType cellType;
         try {
             cell = excelWSheet.getRow(RowNum).getCell(ColNum);
-            //  cell.setCellType(CellType.STRING);
+          //  cell.setCellType(CellType.STRING);
             //  DataFormatter formatter = new DataFormatter();
             //    cellData = cell.getStringCellValue();
 

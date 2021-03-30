@@ -18,7 +18,7 @@ import cucumber.api.junit.Cucumber;
 			"html:target/site/cucumber-report-default",
 			"json:target/site/cucumber.json"},
 	snippets=SnippetType.CAMELCASE,
-	tags= {"@Check_VCX"})
+	tags= {"@Check_VCX_BAOLONG"})
 public class JupiterTestRunner {
 	
 }

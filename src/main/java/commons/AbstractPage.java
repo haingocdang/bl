@@ -308,6 +308,15 @@ public abstract class AbstractPage {
         }
     }
 
+    public void checkToCheckbox(WebDriver driver, String xpathValue, String ...values) {
+        xpathValue = castToObject(xpathValue, values);
+        element = find(driver, xpathValue);
+        if (!element.isSelected()) {
+           //element.click();
+            clickToElementByJS(driver,xpathValue);
+        }
+    }
+
     public void unCheckToCheckbox(WebDriver driver, String xpathValue) {
         element = find(driver, xpathValue);
         if (element.isSelected()) {
@@ -472,6 +481,11 @@ public abstract class AbstractPage {
     }
 
     public void clickToElementByJS(WebDriver driver, String xpathValue) {
+        jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].click();", find(driver, xpathValue));
+    }
+    public void clickToElementByJS(WebDriver driver, String xpathValue, String ...values) {
+        xpathValue=castToObject(xpathValue,values);
         jsExecutor = (JavascriptExecutor) driver;
         jsExecutor.executeScript("arguments[0].click();", find(driver, xpathValue));
     }

@@ -42,9 +42,9 @@ public class TaoBanChaoPageObject extends CommonPageObjects {
 		clickToElement(driver,TaoBanChaoPageUI.ADD_DOI_TUONG_NHOM_BUTTON);
 	}
 
-	public void chonPhamViBH(String phamViBH){
+	/*public void chonPhamViBH(String phamViBH){
 		waitElementClickable(driver, CommonPageUI.PHAM_VI_BH_CHECKBOX,phamViBH);
 		clickToElement(driver, CommonPageUI.PHAM_VI_BH_CHECKBOX,phamViBH);
-	}
+	}*/
 
 }
